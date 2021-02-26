@@ -1,0 +1,5 @@
+include requirements.txt 
+recursive-include scripts *
+recursive-include conf *
+recursive-include framework *.py
+global-exclude __pycache__

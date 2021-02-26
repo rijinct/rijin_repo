@@ -1,0 +1,50 @@
+QuerySettings:
+  GlobalSettings:
+    Job:
+      DEFAULT:
+        QueryHints:
+          - spark.dynamicAllocation.enabled: 'true'
+          - spark.shuffle.service.enabled: 'true'
+          - spark.sql.crossJoin.enabled: 'true'
+          - spark.sql.execution.arrow.enabled: 'true'
+          - spark.sql.parquet.compression.codec: snappy
+          - spark.ui.port: 4041
+          - spark.sql.broadcastTimeout: 14400
+          - spark.executorEnv.FILE_READER: com.nsn.ngdb.common.hive.io.reader.ParquetFileReader
+          - spark.yarn.appMasterEnv.STATIC_PARTITION_SIZE: 268435456
+          - spark.yarn.appMasterEnv.DYNAMIC_RECORD_COUNT: 3000000
+      Perf_.*15MIN_(A|Rea)ggregateJob:
+        QueryHints:
+          - spark.yarn.queue: root.rijin.ca4ci.pyspark-15minutes
+          - spark.files.maxPartitionBytes: 67108864
+          - spark.sql.shuffle.partitions: 50
+      Perf_.*HOUR_(A|Rea)ggregateJob:
+        QueryHints:
+          - spark.yarn.queue: root.rijin.ca4ci.hour
+          - spark.files.maxPartitionBytes: 67108864
+          - spark.sql.shuffle.partitions: 50
+      Perf_.*DAY_(A|Rea)ggregateJob:
+        QueryHints:
+          - spark.yarn.queue: root.rijin.ca4ci.day
+          - spark.files.maxPartitionBytes: 67108864
+          - spark.sql.shuffle.partitions: 50
+      Perf_.*WEEK_(A|Rea)ggregateJob:
+        QueryHints:
+          - spark.yarn.queue: root.rijin.ca4ci.week
+          - spark.files.maxPartitionBytes: 67108864
+          - spark.sql.shuffle.partitions: 50
+      Perf_.*MONTH_(A|Rea)ggregateJob:
+        QueryHints:
+          - spark.yarn.queue: root.rijin.ca4ci.month
+          - spark.files.maxPartitionBytes: 67108864
+          - spark.sql.shuffle.partitions: 50
+  LocalSettings:
+    Job:
+      Perf_BB_STR_SEGG_1_1_15MIN_AggregateJob:
+        QueryHints:
+          - spark.executor.memory: 512mb
+          - spark.driver.memory: 1g
+      Perf_BB_APP_SEGG_1_1_15MIN_(A|Rea)ggregateJob:
+        QueryHints:
+          - spark.executor.memory: 512mb
+          - spark.driver.memory: 1g

@@ -1,0 +1,11 @@
+mock
+coverage
+flake8
+flake8-html
+PyYAML
+xenon
+psycopg2-binary
+numpy
+pandas
+flake8-polyfill
+sqlparse

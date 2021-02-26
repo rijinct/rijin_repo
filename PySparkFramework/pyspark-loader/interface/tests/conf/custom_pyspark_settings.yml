@@ -1,0 +1,26 @@
+QuerySettings:
+  GlobalSettings:
+    Job:
+      DEFAULT:
+          QueryHints:
+            - spark.dynamicAllocation.enabled: "true"
+            - spark.shuffle.service.enabled: "true"
+            - spark.sql.crossJoin.enabled: "true"
+            - spark.sql.execution.arrow.enabled: "true"
+            - spark.sql.parquet.compression.codec: snappy
+            - spark.ui.port: 4041
+            - spark.sql.broadcastTimeout: 14400
+      Perf_.*15MIN_(A|Rea)ggregateJob:
+          QueryHints:
+            - spark.files.maxPartitionBytes: 67108864
+            - spark.sql.shuffle.partitions: 45
+  LocalSettings:
+    Job:
+      Perf_BB_STR_SEGG_1_1_15MIN_AggregateJob:
+          QueryHints:
+            - spark.executor.memory: 1g
+            - spark.executor.memory: 2g
+      Perf_BB_APP_SEGG_1_1_15MIN_(A|Rea)ggregateJob:
+          QueryHints:
+            - spark.executor.memory: 1g
+            - spark.driver.memory: 2g

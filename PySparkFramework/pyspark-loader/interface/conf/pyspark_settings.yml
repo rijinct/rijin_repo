@@ -1,0 +1,69 @@
+QuerySettings:
+  GlobalSettings:
+    COUCHBASE_LOOKUP: true
+    LARGE_ES_TABLES: ['es_subscriber_denorm_1', 'es_location_1', 'es_location_5g_nsa_1', 'es_subs_dim_extension_1']
+    Job:
+      DEFAULT:
+        QueryHints:
+          - spark.dynamicAllocation.enabled: 'true'
+          - spark.shuffle.service.enabled: 'true'
+          - spark.sql.crossJoin.enabled: 'true'
+          - spark.sql.execution.arrow.enabled: 'true'
+          - spark.sql.parquet.compression.codec: snappy
+          - spark.ui.port: 4041
+          - spark.sql.broadcastTimeout: 14400
+          - spark.executorEnv.FILE_READER: com.nsn.ngdb.common.hive.io.reader.ParquetFileReader
+          - spark.yarn.appMasterEnv.FILE_READER: com.nsn.ngdb.common.hive.io.reader.ParquetFileReader
+          - spark.sql.parquet.writeLegacyFormat: 'true'
+          - spark.yarn.appMasterEnv.Xms: -Xms64m
+          - spark.yarn.appMasterEnv.Xmx: -Xmx64m
+          - spark.yarn.appMasterEnv.STATIC_PARTITION_SIZE: 268435456
+          - spark.yarn.appMasterEnv.DYNAMIC_RECORD_COUNT: 3000000
+          - spark.sql.autoBroadcastJoinThreshold: -1
+      Perf_.*15MIN_(A|Rea)ggregateJob:
+        QueryHints:
+          - spark.yarn.queue: root.rijin.ca4ci.pyspark-15minutes
+          - spark.files.maxPartitionBytes: 67108864
+          - spark.sql.shuffle.partitions: 50
+      Perf_.*HOUR_(A|Rea)ggregateJob:
+        QueryHints:
+          - spark.yarn.queue: root.rijin.ca4ci.hour
+          - spark.files.maxPartitionBytes: 67108864
+          - spark.sql.shuffle.partitions: 50
+      Perf_.*DAY_(A|Rea)ggregateJob:
+        QueryHints:
+          - spark.yarn.queue: root.rijin.ca4ci.day
+          - spark.files.maxPartitionBytes: 67108864
+          - spark.sql.shuffle.partitions: 50
+      Perf_.*WEEK_(A|Rea)ggregateJob:
+        QueryHints:
+          - spark.yarn.queue: root.rijin.ca4ci.week
+          - spark.files.maxPartitionBytes: 67108864
+          - spark.sql.shuffle.partitions: 50
+      Perf_.*MONTH_(A|Rea)ggregateJob:
+        QueryHints:
+          - spark.yarn.queue: root.rijin.ca4ci.month
+          - spark.files.maxPartitionBytes: 67108864
+          - spark.sql.shuffle.partitions: 50
+      Entity.*_CorrelationJob:
+        QueryHints:
+          - spark.yarn.queue: root.rijin.ca4ci.dimension
+          - spark.files.maxPartitionBytes: 67108864
+          - spark.sql.shuffle.partitions: 50
+      PS_.*KPIJob.*:
+        QueryHints:
+          - spark.yarn.queue: root.rijin.ca4ci.tnp
+          - spark.files.maxPartitionBytes: 67108864
+          - spark.sql.shuffle.partitions: 50
+  LocalSettings:
+    Job:
+      Perf_BB_APP_SEGG_1_1_15MIN_AggregateJob:
+         QueryHints:
+           - spark.yarn.appMasterEnv.STATIC_PARTITION_SIZE: 67108864
+      Perf_BB_WS_SEGG_1_1_15MIN_AggregateJob:
+         QueryHints:
+           - spark.yarn.appMasterEnv.STATIC_PARTITION_SIZE: 67108864
+           - spark.sql.shuffle.partitions: 70
+      Perf_VOBB_SEGG_1_1_15MIN_AggregateJob:
+         QueryHints:
+           - spark.yarn.appMasterEnv.STATIC_PARTITION_SIZE: 67108864
