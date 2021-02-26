@@ -1,0 +1,9 @@
+coverage
+flake8
+flake8-html
+SQLAlchemy
+psycopg2-binary
+pandas
+pyspark
+xmldiff
+xlrd==1.2.0

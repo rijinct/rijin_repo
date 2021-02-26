@@ -1,0 +1,189 @@
+# Default values for data-quality-health-index.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+global:
+  registry: csf-docker-delivered.repo.lab.pl.alcatel-lucent.com  
+  registry1: registry1-docker-io.repo.lab.pl.alcatel-lucent.com
+  registry2: project-docker-candidates.repo.lab.pl.alcatel-lucent.com
+  registry3: project-docker-releases.repo.lab.pl.alcatel-lucent.com
+  is_nodeaffinity_enabled: false
+
+image:
+  repository: data-quality-health-index
+  tag: "${project_helm_version}"
+  pullPolicy: IfNotPresent
+
+imageCurl:
+  name: odise/busybox-curl
+  tag: latest
+  pullPolicy: IfNotPresent
+
+imageKubectl:
+  name: tools/kubectl
+  tag: v1.12.3
+  pullPolicy: IfNotPresent
+  
+replicaCount: 1
+
+httpPort: 8080
+
+service:
+  type: ClusterIP
+  port: 8080
+
+app:
+  hadoopConfDir: "/etc/hadoop/conf"
+  hadoopConfigMap: "acp-cdlk-access-cdlk-hdfs"
+  hiveConfDir: "/etc/hive/conf"
+  yarnConfDir: "/etc/yarn/conf"
+  hiveConfigMap: "acp-cdlk-access-cdlk-hive"
+  hiveConfigMapAccess: "acp-cdlk-access-cdlk-access"
+  extEndpointDir: "/opt/nsn/ngdb/dqhi/extEndPointsConfigMap"
+  sdkDBUserName: "sairepo"
+  sdkDBDriver: "org.postgresql.Driver"
+  sdkSchemaName: "sairepo"
+  apaasContextConfigMap: "apaas-context"
+  dqhiSettingsConfDir: "/dqhi/conf"
+  backupPath: "/mnt/staging/backup/data-quality-health-index"
+  accessPath: "/mnt/staging/data-quality-health-index/kubectl"
+  appaskafkaConfigMap: "acp-ckaf-kafka-context"
+  hiveMetastoreUserName: "root"
+  hiveMetastorePassword: "r00tr00t"
+  hiveMetastorePort: 3306
+  configMap:
+    extEndpoints:
+      name: "ca4ci-ext-endpoints"
+  secret:
+    vault: 
+      name: "ca4ci-vault-token-secrets"
+
+is_elasticsearch_enabled: false
+
+application:
+  environment: "production"
+  tier: "backend"
+
+k8:
+  enabled: true
+
+hiveConfigProperties:
+  db_driver: org.apache.hive.jdbc.HiveDriver
+  hive_username: hdfs
+  connection_pooling_enabled: false
+  min_connections: 40
+  max_connections: 50
+  IDLE_CONNECTION_TEST_PERIOD_IN_MINUTES: 2
+  IDLE_CONNECTION_TEST_SQL: select * from tab limit 5
+  test_connection: true
+
+volumegfs:
+  name: glusterca4ci
+  mountpath: /mnt
+
+glusterfs:
+  endpoints: ca4ci-glusterfs
+  path: mnt_volume
+
+database:
+  enabled: true
+  schemaName: project
+
+prometheus:
+  enabled: false
+
+ingress:
+  enabled: false 
+  annotations: 
+      nginx.ingress.kubernetes.io/rewrite-target: /
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      ingress.citm.rijin.com/sticky-route-services: "$cookie_JSESSIONID|JSESSIONID ip_cookie"
+    # kubernetes.io/ingress.class: nginx
+    #     # kubernetes.io/tls-acme: "true"
+    #       path: /dqhi
+
+resources: 
+  requests:
+    cpu: 0.5
+    memory: 1Gi
+  limits:
+    cpu: 1
+    memory: 3Gi
+krb:
+  requests:
+    cpu: 0.05
+    memory: 5Mi
+  limits:
+    cpu: 0.1
+    memory: 50Mi
+
+rbac:
+  enabled: true
+  # create set 'true' will create ServiceAccount, Role and RoleBinding.
+  # It should be created once per namespace
+  create: true
+  #serviceAccount: fullname
+cdlk:
+  enabled: true
+
+  
+apiaggregator:
+  name: apiaggregator
+  port: 8080
+
+securityContext:
+  enabled: true
+  fsGroup: 1007
+  runAsUser: 1002
+  runAsGroup: 1007
+
+is_kerberos_enabled: true
+
+realm: RIJIN.COM
+
+services:
+  mysql:
+    port: 3306
+
+
+persistence:
+  storageClass: glusterfs-storageclass
+  accessMode: ReadWriteOnce
+  size: 1Gi
+  outputMountPath: /opt/nsn/ngdb/data-quality-metrics/data-quality-health-index/mnt
+
+
+kadmin:
+ image:
+   name: "kerberos-kadmin"
+   tag: "20.7.618-9"
+   pullPolicy: "IfNotPresent"
+
+kinit:
+ image:
+   name: "kerberos-kinit"
+   tag: "20.7.618-9"
+   pullPolicy: "IfNotPresent"
+ cron:
+   expression: "00 11,23 * * *"
+
+krb5:
+# The default os user that will be used to build the principal "<os_user>/<hostname>@<default_realm>"
+  os_user: "ngdb"
+# The name of the configmap that provides krb5.conf file
+  configmap: "acp-apaas-manager-krb5-config"
+
+kerberos:
+ krb5ConfigVolumeMountPath: "/etc/krb5.conf"
+ sharedDataMountPath: "/tmp/krb5-credentials"
+
+timezone:
+  enabled: true
+  localtimezone: UTC
+
+cdlk:
+  enabled: true
+  tls:
+    enabled: true
+    cert_path: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64/jre/lib/security/
+    secret_name: ca4ci-jsscert-secrets

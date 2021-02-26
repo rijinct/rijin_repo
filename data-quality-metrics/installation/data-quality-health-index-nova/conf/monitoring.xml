@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+    <LOGLEVEL> <property Name="scripts" value="INFO" /> </LOGLEVEL>
+    <BACKLOG>
+        <!-- Input Name is the name of the Adaptation -->
+        <!-- Import is the CEM Raw Adaptation Part after /mnt/staging/import/ directory -->
+        <!-- Input Thresholdlimit value is the Minimum Number of DAT Files candidate
+                                                             to be called Backlog -->
+        <Input Name="LTE" Import="LTE_1/FNG_FNS_4G_1" Ngdb="LTE_1/LTE_4G_1" Thresholdlimit="2000" />
+        <Input Name="S11" Import="LTE_1/S11_1" Ngdb="LTE_1/LTE_4G_1" Thresholdlimit="2000" />
+        <Input Name="S1MME" Import="LTE_1/S1MME_1" Ngdb="LTE_1/LTE_4G_1" Thresholdlimit="2000" />
+        <Input Name="SIU" Import="S1U_1/S1U_1" Ngdb="S1U_1/S1U_1" Thresholdlimit="2000" />
+        <Input Name="GN" Import="GN_1/GN_1" Ngdb="GN_1/GNCP_1" Thresholdlimit="2000" />
+        <Input Name="GNUP" Import="GNUP_1/GNUP_1" Ngdb="GNUP_1/GNUP_1" Thresholdlimit="2000" />
+        <Input Name="VOLTE_TRAFFICA" Import="VOLTE_1/VOLTE_TRAFFICA_1/" Ngdb="VOLTE_1/VOLTE_1/" Thresholdlimit="2000" />
+        <Input Name="VOLTE_PROBES" Import="VOLTE_1/VOLTE_PROBES_1/" Ngdb="VOLTE_1/VOLTE_1/" Thresholdlimit="2000" />
+        <Input Name="SGSN_T" Import="SGSN_1/SGSN_T_1" Ngdb="SGSN_1/SGSN_1" Thresholdlimit="2000" />
+        <Input Name="PROBES_SGSN_GB" Import="SGSN_1/PROBES_SGSN_GB_1" Ngdb="SGSN_1/SGSN_1" Thresholdlimit="2000" />
+        <Input Name="PROBES_SGSN_IUPS" Import="SGSN_1/PROBES_SGSN_IUPS_1" Ngdb="SGSN_1/SGSN_1" Thresholdlimit="2000" />
+        <Input Name="VLR" Import="VLR_1/VLR_1" Ngdb="VLR_1/VLR_1" Thresholdlimit="2000" />
+        <Input Name="TT" Import="TT_1/TT_1" Ngdb="TT_1/TT_1" Thresholdlimit="2000" />
+        <Input Name="BCSI" Import="BCSI_1/BCSI_1" Ngdb="BCSI_1/BCSI_1" Thresholdlimit="2000" />
+        <Input Name="SMS" Import="SMS_1/SMS_1" Ngdb="SMS_1/SMS_1" Thresholdlimit="2000" />
+        <Input Name="VOICE" Import="VOICE_1/VOICE_1" Ngdb="VOICE_1/VOICE_1" Thresholdlimit="2000" />
+        <Input Name="MGW" Import="MGW_1/MGW_E_1" Ngdb="MGW_1/MGW_1/" Thresholdlimit="2000" />
+        <Input Name="MGW_CTX" Import="MGW_1/CTX_MGW_1" Ngdb="MGW_1/MGW_CTX_1" Thresholdlimit="2000" />
+        <Input Name="FL_BROADBAND" Import="FL_BROADBAND_1/BROADBAND_CMTS_1/" Ngdb="FL_BROADBAND_1/BROADBAND_1" Thresholdlimit="2000" />
+        <Input Name="RADIO_ENB" Import="RADIO_1/RADIO_ENB_1/" Ngdb="RADIO_1/RADIO_ENB_1" Thresholdlimit="2000" />
+        <Input Name="RADIO_RNC" Import="RADIO_1/RADIO_RNC_1/" Ngdb="RADIO_1/RADIO_RNC_1" Thresholdlimit="2000" />
+        <Input Name="FL_BB_APP" Import="FL_BROADBAND_USAGE_1/FLBB_APPLICATIONS_1/" Ngdb="FL_BROADBAND_USAGE_1/BB_APPLICATIONS_1" Thresholdlimit="2000" />
+        <Input Name="FL_BB_BROWSE" Import="FL_BROADBAND_USAGE_1/FLBB_BROWSING_1/" Ngdb="FL_BROADBAND_USAGE_1/BB_BROWSING_1" Thresholdlimit="2000" />
+        <Input Name="FL_BB_SPEED" Import="FL_BROADBAND_USAGE_1/FLBB_SPEED_1/" Ngdb="FL_BROADBAND_USAGE_1/BB_SPDTST_1" Thresholdlimit="2000" />
+        <Input Name="FL_BB_STREAM" Import="FL_BROADBAND_USAGE_1/FLBB_STREAMING_1/" Ngdb="FL_BROADBAND_USAGE_1/BB_STREAMING_1" Thresholdlimit="2000" />
+        <Input Name="FL_BB_THRPT" Import="FL_BROADBAND_USAGE_1/FLBB_THRPT_1/" Ngdb="FL_BROADBAND_USAGE_1/BB_THRPT_1" Thresholdlimit="2000" />
+
+    </BACKLOG>
+
+
+    <TOPOLOGIES>
+        <!-- If any of the below data sources are not sending data, comment that property section -->
+        <property enableRestart="False" />
+        <property Name="SMS_1" lagThreshold="50000" />
+        <property Name="VOICE_1" lagThreshold="50000"/>
+        <property Name="MGW_E_1" lagThreshold="50000"/>
+        <property Name="CTX_MGW_1" lagThreshold="50000" />
+        <property Name="FNG_1" lagThreshold="50000" />
+        <property Name="FNG_FNS_4G_1" lagThreshold="50000"/>
+        <property Name="S11_1" lagThreshold="50000"/>
+        <property Name="S1MME_1" lagThreshold="50000"/>
+        <property Name="VLR_1" lagThreshold="50000"/>
+        <property Name="S1U_1" lagThreshold="50000"/>
+        <property Name="PROBES_SGSN_GB_1" lagThreshold="50000"/>
+        <property Name="PROBES_SGSN_IUPS_1" lagThreshold="50000"/>
+        <property Name="SGSN_T_1" lagThreshold="50000" />
+        <property Name="GNUP_1" lagThreshold="50000"/>
+        <property Name="VOLTE_PROBES_1" lagThreshold="50000"/>
+        <property Name="VOLTE_TRAFFICA_1" lagThreshold="50000"/>
+        <property Name="TT_1" lagThreshold="50000" />
+        <property Name="BCSI_1" lagThreshold="50000"/>
+        <property Name="BROADBAND_CMTS_1" lagThreshold="50000"/>
+        <property Name="GN_1" lagThreshold="50000"/>
+        <property Name="RADIO_ENB_1" lagThreshold="50000"/>
+        <property Name="RADIO_RNC_1" lagThreshold="50000"/>
+        <property Name="FLBB_APPLICATIONS_1" lagThreshold="50000" />
+        <property Name="FLBB_STREAMING_1" lagThreshold="50000" />
+        <property Name="FLBB_SPEED_1" lagThreshold="50000" />
+        <property Name="FLBB_THRPT_1" lagThreshold="50000" />
+        <property Name="FLBB_BROWSING_1" lagThreshold="50000" />
+        <property Name="FLBB_HOME_1" lagThreshold="50000" />
+        <property Name="FLTT_1" lagThreshold="50000" />
+        <property Name="FLBB_COPPER_1" lagThreshold="50000" />
+        <property Name="VOWIFI_PROBES_1" lagThreshold="50000" />
+        <property Name="VOWIFI_TRAFFICA_1" lagThreshold="50000" />
+        <property Name="AV_STREAMING_1" lagThreshold="50000" />
+        <property Name="ICE_RADIO_RNC_1" lagThreshold="50000" />
+        <property Name="ICE_RADIO_ENB_1" lagThreshold="50000" />
+
+    </TOPOLOGIES>
+
+    <USAGETABLE>
+        <!-- If any of the below usage count data is not required comment that property section -->                
+                <property Name="us_bb_dns_1" value="no" type="fixed_line"/>
+                <property Name="us_bb_applications_1" value="no" type="fixed_line"/>
+                <property Name="us_bb_browsing_1" value="no" type="fixed_line"/>
+                <property Name="us_bb_spdtst_1" value="no" type="fixed_line"/>
+                <property Name="us_bb_streaming_1" value="no" type="fixed_line"/>
+                <property Name="us_bb_thrpt_1" value="no" type="fixed_line"/>
+                <property Name="us_bb_aaa_1" value="no" type="fixed_line"/>
+                <property Name="us_broadband_1" value="no" type="fixed_line"/>
+                <property Name="us_fl_tt_1" value="no" type="fixed_line"/>
+                <property Name="us_bb_cpe_home_1" value="no" type="fixed_line"/>
+                <property Name="us_bb_copper_1" value="no" type="fixed_line"/>
+                <property Name="us_vobb_1" value="no" type="fixed_line"/>
+                <property Name="us_bb_fiber_1" value="no" type="fixed_line"/>
+                <property Name="us_bcsi_1" value="yes" type="mobile"/>
+                <property Name="us_gncp_1" value="yes" type="mobile"/>
+                <property Name="us_gnup_1" value="yes" type="mobile"/>
+                <property Name="us_lte_4g_1" value="yes" type="mobile"/>
+                <property Name="us_mgw_1" value="yes" type="mobile"/>
+                <property Name="us_mgw_ctx_1" value="yes" type="mobile"/>
+                <property Name="us_radio_enb_1" value="yes" type="mobile"/>
+                <property Name="us_radio_rnc_1" value="yes" type="mobile"/>
+                <property Name="us_s1u_1" value="yes" type="mobile"/>
+                <property Name="us_sgsn_1" value="yes" type="mobile"/>
+                <property Name="us_sms_1" value="yes" type="mobile"/>
+                <property Name="us_tt_1" value="yes" type="mobile"/>
+                <property Name="us_vlr_1" value="yes" type="mobile"/>
+                <property Name="us_voice_1" value="yes" type="mobile"/>
+                <property Name="us_volte_1" value="yes" type="mobile"/>
+                <property Name="us_vowifi_1" value="yes" type="mobile"/>
+                <property Name="us_av_streaming_1" value="yes" type="mobile"/>
+    </USAGETABLE>
+
+    <USAGETHRESHOLD>
+        <property Name='USAGE' value='15' />
+    </USAGETHRESHOLD>
+
+    <AGGREGATIONTHRESHOLD>
+        <property Name='15Min' value='10' />
+        <property Name='Hour' value='30' />
+        <property Name='Day' value='60' />
+        <property Name='Week' value='120' />
+        <property Name='Month' value='300' />
+        <property Name='ExportHour' value='6' />
+        <property Name='ExportDay' value='15' />
+    </AGGREGATIONTHRESHOLD>
+
+    <PostgresUserInformation>
+        <property userconnectionthreshold='500' />
+    </PostgresUserInformation>
+
+    <SUMMARYTHRESHOLDS>
+        <property Name='QSCache' value='0' />        
+        <property Name='JobCount' value='0' />
+        <property Name='TableCount' value='0' />
+        <property Name='TnpLatency' value='30' />
+        <property Name='DayJob' value='60' />
+        <property Name='WeekJob' value='120' />
+    </SUMMARYTHRESHOLDS>
+
+    <Retention>
+        <property Name='etlLagCsvRetentionInDays' value='5' />
+        <property Name='etlStatusCsvRetentionInDays' value='5' />
+    </Retention>
+
+        <DelayedUsageJobs>
+                <property Name="Usage_RADIO_ENB_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_SMS_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_RADIO_RNC_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_LTE_4G_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_GNUP_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_VLR_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_VOLTE_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_MGW_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_MGW_CTX_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_SGSN_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_S1U_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_VOICE_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_BCSI_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_TT_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_BB_SPDTST_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_BB_STREAMING_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_BROADBAND_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_BB_THRPT_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_BB_APPLICATIONS_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_GNCP_1_LoadJob" enabled="Yes" />
+                <property Name="Usage_BB_BROWSING_1_LoadJob" enabled="Yes" />
+        </DelayedUsageJobs>
+
+    <Queues>
+        <property queuename='root.default' />
+        <property queuename='root.rijin.ca4ci.dimension' />
+        <property queuename='root.rijin.ca4ci.15minutes' />
+        <property queuename='root.rijin.ca4ci.usage' />
+        <property queuename='root.rijin.ca4ci.hour' />
+        <property queuename='root.rijin.ca4ci.day' />
+        <property queuename='root.rijin.ca4ci.week' />
+        <property queuename='root.rijin.ca4ci.month' />
+        <property queuename='root.rijin.ca4ci.tnp' />
+        <property queuename='root.rijin.ca4ci.flexi-report' />
+        <property queuename='root.rijin.ca4ci.portal' />
+        <property queuename='root.rijin.ca4ci.API-Q' />
+        <property queuename='root.rijin.ca4ci.monitoring' />
+    </Queues>	
+
+    <CEI>
+      <!-- If any new index are added please add as below -->
+      <indexDeltaPointsThreshold value="5" />
+      <presentation Name="Mixed Media" attributeName="APP_CAT_TYPE_1_INDEX" />
+      <presentation Name="Browsing" attributeName="APP_CAT_TYPE_2_INDEX" />
+      <presentation Name="Communication" attributeName="APP_CAT_TYPE_3_INDEX" />
+      <presentation Name="Content Sharing" attributeName="APP_CAT_TYPE_4_INDEX" />
+      <presentation Name="Audio Streaming" attributeName="APP_CAT_TYPE_5_INDEX" />
+      <presentation Name="Premium Video" attributeName="APP_CAT_TYPE_6_INDEX" />
+      <presentation Name="BCSI" attributeName="CEI_BCSI_INDEX" />
+      <presentation Name="NEI" attributeName="CEI_INDEX" />
+      <presentation Name="CEI" attributeName="CEI_O_INDEX" />
+      <presentation Name="CSI" attributeName="CEI_TT_INDEX" />
+      <presentation Name="Connectivity" attributeName="CONNECTIVITY_CEI_INDEX" />
+      <presentation Name="Data" attributeName="DATA_CEI_INDEX" />
+      <presentation Name="Radio" attributeName="RADIO_CEI_INDEX" />
+      <presentation Name="SMS" attributeName="SMS_CEI_INDEX" />
+      <presentation Name="PI" attributeName="PROFILE_INDEX" />
+      <presentation Name="Voice" attributeName="VOICE_CEI_INDEX" />
+      <presentation Name="Voice CS" attributeName="VOICE_CS_CEI_INDEX" />
+      <presentation Name="VoLTE" attributeName="VOLTE_CEI_INDEX" />
+      <presentation Name="VoLTE Connectivity" attributeName="VOLTE_CONNECTIVITY_INDEX" />
+      <presentation Name="VoLTE Usage" attributeName="VOLTE_USAGE_INDEX" />
+      <presentation Name="VoWiFi" attributeName="VOWIFI_CEI_INDEX" />
+      <presentation Name="VoWiFi Connectivity" attributeName="VOWIFI_CONNECTIVITY_INDEX" />
+      <presentation Name="VoWiFi Usage" attributeName="VOWIFI_USAGE_INDEX" />
+   </CEI>
+   <SMTP>
+      <!-- Add smtp ip,sender and receiver for CEI Index Notification -->
+      <property name="IP" value="127.0.0.1" />
+      <property name="Host" value="nsn.mail.com" />
+      <property name="SenderEmailID" value="root@localhost" />
+      <property name="RecepientEmailIDs" value="root@localhost;ngdb@localhost" />
+   </SMTP>
+</config> 

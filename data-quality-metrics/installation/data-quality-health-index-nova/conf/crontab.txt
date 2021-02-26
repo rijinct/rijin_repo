@@ -1,0 +1,87 @@
+#### Start of Postgres Scripts ####
+58 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py 15MIN
+58 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py HOUR
+5 8 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py DAY
+1 9 * * 1  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py WEEK
+30 10 1 * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py MONTH
+59 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py 15MINSUMMARY
+59 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py HOURSUMMARY
+15 8 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py DAYSUMMARY
+10 9 * * 1  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py WEEKSUMMARY
+59 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py LONG15MIN  
+59 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py LONGHOUR  
+6 8 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py LONGDAY  
+2 9 * * 1 source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py LONGWEEK  
+31 10 1 * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py LONGMONTH
+59 */1 * * * source /ngdb/monitoringEnv.sh;python /opt/nsn/ngdb/monitoring/scripts/getPostgresUserConnectionsAndAlert.py
+*/15 * * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py USAGE
+*/15 * * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py 15MIN
+59 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py HOUR
+5 8 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py DAY
+5 8 * * 1 source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py WEEK
+5 8 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py MONTH
+5 8 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkJobs.py DAYQS
+1 9 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkJobs.py WEEKQS
+09 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkJobs.py USAGE
+59 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getBoundary.py 15MIN
+59 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getBoundary.py HOUR
+5 8 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getBoundary.py DAY
+1 9 * * 1  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getBoundary.py WEEK
+9 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getBoundary.py USAGE
+59 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py REAGG
+59 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getBoundary.py REAGG
+#### End of Postgres Scripts ####
+
+#### Start of Hive Scripts ####
+0 3 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/usage_table_count.py
+0 4-16/2 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/table_counts_and_var_factor.py day
+0 4-16/2 * * 1  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/table_counts_and_var_factor.py week
+0 4-16/2 1 * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/table_counts_and_var_factor.py month
+0 2 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getAllDimensionCount.py
+#### End of Hive Scripts ####
+
+#### Start of Maria DB Scripts ####
+20 9 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/qsCacheCountTableLevel.py DAY
+1 9 * * 1  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/qsCacheCountTableLevel.py WEEK
+20 9 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/qsCacheCountTableLevel.py DIMENSION
+#### End of Maria DB Scripts ####
+
+#### Start of ETL ####
+*/15 * * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getEtlTopologiesLag.py
+*/15 * * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/etl_topologies_status.py
+13,26,39,52 * * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/kafka_connectors_status.py
+#### End of ETL ####
+
+#### Start of HDFS ####
+40 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkBacklogs.py
+#### End of HDFS ####
+
+#### Start of Couchbase Stats ####
+5 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/couchbase_stats.py
+#### End of Couchbase Stats ####
+
+#### Start of SDK Export Stats ####
+59 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/sdk_export_stats.py
+#### End of SDK Export Stats ####
+
+#### Start of CEI Index Change ####
+45 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/cei_index_alert.py
+#### End of CEI Index Changes ####
+
+#### Start of Yarn Queue Stats ####
+*/1 * * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/yarn_queue_stats.py
+#### End of Yarn Queue Stats ####
+
+#### Summary Report ####
+30 9 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/sendSummaryReport.py
+
+#### Clean up of csv files ####
+15 9 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/clean_up_old_files.py
+#### End of Clean up of csv files ####
+
+#### End ####
+
+
+
+
+

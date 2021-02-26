@@ -1,0 +1,14 @@
+tags:
+  - DQHI Configurations
+parameters:
+  - in: query
+    name: date
+    description: Pass the date to trigger dqhi calculation; Possible format you can pass i. LB UB (Format yyyy-mm-dd) <br/> ii. LB (Format yyyy-mm-dd) iii. None
+    default: None
+responses:
+  200:
+    description: "Success"
+  400:
+    description: "Bad Request"
+  500:
+    description: "ERROR Failed!"

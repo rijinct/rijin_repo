@@ -1,0 +1,36 @@
+tags:
+  - DQHI Configurations
+parameters:
+  - in: query
+    name: location
+    description: Pass the parameter name.
+    type: string
+    enum: ['Custom', 'Product']
+    required: true
+    default: Custom
+
+  - in: query
+    name: fileName
+    description: Pass the parameter name.
+    type: string
+    enum: [ 'KPI_CDE_MAPPING', 'DQ_RULES_AND_FIELD_DEFINITIONS' ]
+    required: true
+    default: KPI_CDE_MAPPING
+ #Added 3.0
+responses:
+  '200':
+    description: "OK"
+    content:
+      application/vnd.ms-excel:
+        schema:
+          type: string
+          format: binary
+    produces:
+      - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+  400:
+    description: "Bad Request"
+  401:
+    description: "Unauthorized"
+  404:
+    description: "Not Found"
+

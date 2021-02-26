@@ -1,0 +1,20 @@
+tags:
+  - DQHI Configurations
+parameters:
+  - in: query
+    name: date
+    description: Pass specific date in the format (yyyy-mm-dd).
+    type: string
+    required: true
+    default: latest
+responses:
+  '200':
+    description: "Success"
+    content:
+      application/zip:
+        schema:
+          type: string
+          format: binary
+    produces:
+      - application/zip
+    
