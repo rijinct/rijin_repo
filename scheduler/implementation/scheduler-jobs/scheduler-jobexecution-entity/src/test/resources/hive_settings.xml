@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<QuerySettings>
+	<Job>
+		<Name>DEFAULT</Name>
+		<QueryHints>
+			<hint>CREATE TEMPORARY FUNCTION uf_trunc AS
+				'com.project.rithomas.hive.udf.TruncUDF'</hint>
+			<hint>CREATE TEMPORARY FUNCTION greatest AS
+				'com.nexr.platform.hive.udf.GenericUDFGreatest'</hint>
+			<hint>CREATE TEMPORARY FUNCTION msisdn_normalize AS
+				'com.project.rithomas.hive.udf.MsisdnNormalize'</hint>
+			<hint>CREATE TEMPORARY FUNCTION hex_to_num_h AS
+				'com.project.rithomas.hive.udf.HexToNumH'</hint>
+			<hint>CREATE TEMPORARY FUNCTION sysdate AS
+				'com.nexr.platform.hive.udf.UDFSysDate'</hint>
+			<hint>CREATE TEMPORARY FUNCTION nvl2 AS
+				'com.nexr.platform.hive.udf.GenericUDFNVL2'</hint>
+			<hint>CREATE TEMPORARY FUNCTION str_to_date AS
+				'com.nexr.platform.hive.udf.UDFStrToDate'</hint>
+			<hint>CREATE TEMPORARY FUNCTION bin2dec AS
+				'com.project.rithomas.hive.udf.BinToDec'</hint>
+			<hint>CREATE TEMPORARY FUNCTION dec2bin AS
+				'com.project.rithomas.hive.udf.DecToBin'</hint>
+			<hint>CREATE TEMPORARY FUNCTION decode AS
+				'com.nexr.platform.hive.udf.GenericUDFDecode'</hint>
+			<hint>CREATE TEMPORARY FUNCTION substr AS
+				'com.nexr.platform.hive.udf.UDFSubstrForOracle'</hint>
+			<hint>CREATE TEMPORARY FUNCTION to_char AS
+				'com.nexr.platform.hive.udf.UDFToChar'</hint>
+			<hint>CREATE TEMPORARY FUNCTION trunc AS
+				'com.nexr.platform.hive.udf.GenericUDFTrunc'</hint>
+			<hint>CREATE TEMPORARY FUNCTION to_number AS
+				'com.nexr.platform.hive.udf.GenericUDFToNumber'</hint>
+			<hint>CREATE TEMPORARY FUNCTION hex_to_num AS
+				'com.project.rithomas.hive.udf.HexToNumOx'</hint>
+			<hint>CREATE TEMPORARY FUNCTION instr4 AS
+				'com.nexr.platform.hive.udf.GenericUDFInstr'</hint>
+			<hint>CREATE TEMPORARY FUNCTION nvl AS
+				'com.nexr.platform.hive.udf.GenericUDFNVL'</hint>
+			<hint>CREATE TEMPORARY FUNCTION pos_bit_hex AS
+				'com.project.rithomas.hive.udf.PosBitHex'</hint>
+			<hint>CREATE TEMPORARY FUNCTION date_format AS
+				'com.nexr.platform.hive.udf.UDFDateFormat'</hint>
+			<hint>CREATE TEMPORARY FUNCTION RANK AS
+				'com.nexr.platform.hive.udf.GenericUDFRank'</hint>
+			<hint>CREATE temporary function row_sequence as
+				'org.apache.hadoop.hive.contrib.udf.UDFRowSequence'</hint>
+			<hint>SET hive.exec.compress.output=true</hint>
+			<hint>SET
+				mapred.output.compression.codec=org.apache.hadoop.io.compress.SnappyCodec</hint>
+			<hint>SET mapred.output.compression.type=BLOCK</hint>
+			<hint>SET mapred.min.split.size.per.node=100</hint>
+			<hint>SET mapred.min.split.size.per.rack=100</hint>
+			<hint>SET mapred.max.split.size=100</hint>
+			<hint>SET hive.merge.size.per.task=100</hint>
+			<hint>SET hive.merge.smallfiles.avgsize=100</hint>
+			<hint>SET hive.merge.size.smallfiles.avgsize=100</hint>
+			<hint>SET mapred.reduce.tasks=12</hint>
+			<hint>use default</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_CEI_INDEX_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_CEI_MGW_AB_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_CEI_VOICE_4_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_CEI_VOICE_AB_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_GN_DG_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_HTTP_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_HTTP_FAIL_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_HTTP_SESSIONS_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_SGSN_FAIL_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_SGSN_GN_CELL_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_SPL_VOICE_1_15MIN_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+
+
+	<Job>
+		<Name>Perf_CEI_HTTP_1_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_CEI_IPFA_1_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_CEI_MGW_2_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_CEI_SGSN_FAIL_1_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_CEI_SGSN_GN_1_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_CEI_SMS_1_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_SGSN_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_SMS_FAIL_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_SMS_L2_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_VOICE_DEVICE_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_VOICE_FAILURE_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_VOICE_L2_1_HOUR_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+
+
+
+	<Job>
+		<Name>Perf_MGW_A_1_1_15MIN_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+	<Job>
+		<Name>Perf_MGW_B_1_1_15MIN_AggregateJob</Name>
+		<QueryHints>
+			<hint>set hive.exec.parallel=true</hint>
+			<hint>set mapred.reduce.tasks=20</hint>
+			<hint>set hive.groupby.skewindata=true</hint>
+			<hint>set hive.auto.convert.join=true</hint>
+		</QueryHints>
+	</Job>
+</QuerySettings>

@@ -1,0 +1,1 @@
+(( 100.0000001106 - if($KPI_NAME$ is null, cast(NULL as double), $KPI_NAME$)) * $KPI_WEIGHT$) / $KPI_BUCKET$

@@ -1,0 +1,389 @@
+CLEAR_CODE_ID_HEX,CLEAR_CODE_NAME,CLEAR_CODE_ID,CLEAR_CODE_STATUS,IS_TERMINAL_RELATED,CLEAR_CODE_GROUP,CLEAR_CODE_CATEGORY,services_applicable
+-1,NULL IN SOURCE,-1,NULL IN SOURCE,-1,NULL IN SOURCE,NULL IN SOURCE,-2
+0000H,NORMAL END OF THE CALL,0,success,0,Normal Call,Normal_Clearing,0
+0004H,B BUSY OR CONGESTION RECEIVED FROM OUTGOING CIRCUIT,4,success,0,Normal Call,Congestion,2
+0005H,B SUBSCRIBER BUSY,5,success,0,Normal Call,Busy_Subscriber,0
+0006H,B ANSWER TIME OUT,6,success,0,Normal Call,Unanswered,2
+0007H,CALL WAITING TIME OUT,7,success,0,Normal Call,Unanswered,2
+000BH,REROUTING DUE TO B SUBSCRIBER FACILITY,11,success,0,Normal Call,Normal_Clearing,2
+000CH,OUTGOING DIRECTION RESTRICTED DUE TO CRISIS MODE,12,fail,0,Network Related,Network,2
+000DH,CALL IS CLEARED BY OPERATOR,13,fail,0,Network Related,Call_Drop,0
+0010H,ABSENT SUBSCRIBER,16,fail,0,Subscriber Related,No_response,0
+0011H,OPERATOR PRIORITY CALL,17,fail,0,Network Related,Network,2
+0012H,NO PAGING RESPONSE,18,fail,0,Network Related,Network,0
+0013H,CALL TRANSFER RECALL DUE TO CSUBSCRIBER ANSWER TIME-OUT,19,success,0,Normal Call,Normal_Clearing,2
+0015H,NORMAL UNSPECIFIED,21,success,0,Normal Call,Normal_Clearing,2
+0016H,SUBSCRIBER'S CHARGING CAPACITY EXCEEDED IN THE EXCHANGE,22,fail,0,Subscriber Related,Credit_limit_Reached,2
+0017H,ACCUMULATED CALL METER EXCEEDED,23,fail,0,Subscriber Related,Call_Drop,2
+0021H,"B-SUBSCRIBER BUSY, CCBS POSSIBLE",33,success,0,Normal Call,Busy_Subscriber,2
+0022H,"B-SUBSCRIBER BUSY, CCBS NOT POSSIBLE",34,success,0,Normal Call,Busy_Subscriber,2
+0023H,MAX NUMBER OF CALL TRANSFERS EXCEEDED,35,fail,0,Network Related,Call_Drop,2
+0024H,MAX CALL DURATION EXCEEDED,36,fail,0,Subscriber Related,Call_Drop,2
+0025H,CALL DROP BACK RELEASE,37,success,0,Normal Call,Normal_Clearing,2
+0026H,"B-SUBSCRIBER BUSY, CCBS POSSIBLE WITH CCBS-MOBILE STATION",38,success,0,Normal Call,Busy_Subscriber,2
+0027H,HUNTING SERVICE RELEASE,39,success,0,Normal Call,Call_Drop,2
+0028H,CALL DEFLECTION,40,success,0,Normal Call,Normal_Clearing,2
+0029H,MCF REACHED CD PARTY BUSY,41,fail,0,Subscriber Related,Unanswered,2
+002AH,ROAMING RETRY,42,success,0,Normal Call,Normal_Clearing,2
+0030H,MCF REACHED NO ANSWER,48,fail,0,Subscriber Related,Unanswered,2
+0031H,SETUP_NORMAL_EOC,49,success,0,Normal call,Normal_Clearing,2
+0034H,OPTIMAL ROUTING FOR LATE CF,52,success,0,Normal Call,Normal_Clearing,2
+0035H,BACKWARD RELEASE WITH REROUTING,53,success,0,Normal Call,Normal_Clearing,2
+0036H,ANONYMUS CALL REJECTION CLI NOT AVAILABLE,54,success,0,Normal Call,Normal_Clearing,2
+0037H,BLOCKING OF BS30 CALLS,55,fail,0,Network Related,Service_NA,2
+0038H,PREMIUM RATE PING CALL BLOCKED,56,fail,0,Network Related,Service_NA,2
+0040H,COLLECT CALL NOT ACCEPTED,64,fail,0,Network Related,Configuration,2
+0041H,SMS BARRING PREMIUM NUMBER,65,fail,0,Subscriber Related,Service_NA,1
+0042H,MALICIOUS SMS,66,fail,0,Subscriber Related,DROP_SMS,1
+0043H,RELEASE STNSR,67,success,0,Normal Call,Normal_Clearing,2
+0044H,RELEASE STN,68,success,0,Normal Call,Normal_Clearing,2
+0045H,SRVCC LU FAILED,69,fail,0,Network Related,Radio_Failure,2
+0100H,CIRCUIT RE-SEIZED,256,fail,0,Network Related,System_Failure,2
+0101H,CIRCUIT RELEASED BEFORE 'END OF THE CALL' NOTICE,257,fail,0,Network Related,Call_Drop,2
+0102H,CALL RECORD RELEASED DURING CALIBRATION,258,fail,0,Network Related,Call_Drop,2
+0104H,ECT PREVENTED DUE TO CPH CONFIGURATION,260,fail,0,Network Related,Service_NA,2
+0105H,MPTY PREVENTED DUE TO CPH CONFIGURATION,261,fail,0,Network Related,Service_NA,2
+0106H,BOR CONFIGURATION FAILURE,262,fail,0,Network Related,Service_NA,2
+0201H,CALL RELEASED,513,fail,0,Network Related,System_Failure,2
+0202H,CLEAR REQUEST RECEIVED FROM OUTGOING CIRCUIT,514,fail,0,Network Related,Call_Drop,2
+0203H,B-CHANNEL UNACCEPTABLE,515,fail,0,Network Related,Device_Failure,2
+0204H,ESTABLISHED B-CHANNEL,516,fail,0,Network Related,Congestion,2
+0205H,RADIO INTERFACE CONGESTION,517,fail,0,Network Related,Congestion,2
+0206H,CALL REJECTED,518,fail,0,Subscriber Related,Device_Failure,0
+0207H,SUBSCRIBER CONGESTION,519,fail,0,Subscriber Related,Device_Failure,2
+0208H,"SUBSCRIBER OUT OF RADIO COVER, REESTABLISHMENT FAILED",520,fail,0,Network Related,Radio_Failure,0
+0210H,NULL NUP,528,fail,0,Network Related,Call_Drop,2
+0211H,"NETWORK, REJECTED DIVERTED CALLS",529,fail,0,Subscriber Related,Subscriber,2
+0212H,"NETWORK, UNKNOWN DIALLING",530,fail,0,Network Related,System_Failure,2
+0213H,"NETWORK, USER NOT IN CUG",531,fail,0,Network Related,System_Failure,2
+0214H,UNIDENTIFIED CALL NOT ACCEPTED,532,fail,0,Network Related,System_Failure,2
+0216H,MISDIALLED TRUNK PREFIX,534,fail,0,Network Related,System_Failure,2
+0220H,ANONYMOUS CALLS REJECTION,544,fail,0,Subscriber Related,Unanswered,2
+0221H,PORTED NUMBER,545,success,0,Normal Call,Normal_Clearing,2
+0250H,SUBSCRIBER A (MS) IS NOT SUBSCRIBER OF SERVICE CENTRE,592,fail,0,Subscriber Related,Drop_SMS,1
+0251H,MACHINE INDICATES RELEASE,593,success,0,Normal Call,Normal_Clearing,2
+0252H,UNTERMINATED CALL TO A PORTED NUMBER,594,fail,0,Network Related,System_Failure,2
+0253H,LSA NOT ALLOWED,595,success,0,Normal Call,Normal_Clearing,2
+0254H,EXC ACC NON SOLSA MS,596,success,0,Normal Call,Normal_Clearing,2
+0270H,CONGESTION ON MGW,624,fail,0,Network Related,System_Failure,2
+0280H,RADIONW AS MAG FAILURE,640,fail,0,Network Related,Network,2
+0281H,RANAP PROTOCOL ERROR,641,fail,0,Network Related,System_Failure,2
+0282H,RNW INIT SIGN CON FAILURE,642,fail,0,Network Related,Network,2
+0300H,SUBSCRIBER A BARRED DUE TO RESTRICTION IN THE OUTGOING DIRECTION,768,fail,0,Subscriber Related,Barring,0
+0301H,OUTGOING CALLS OF CALLING SUBSCRIBER BARRED BY OPERATOR,769,fail,0,Network Related,Barring,0
+0304H,B-LINE OUT OF SERVICE,772,fail,0,Network Related,Barring,0
+0306H,B-CALLS RESTRICTED,774,fail,0,Subscriber Related,Barring,0
+0307H,B-NUMBER UNUSED,775,fail,0,Subscriber Related,No_response,2
+0308H,B-NUMBER CHANGED,776,fail,0,Network Related,System_Failure,2
+030AH,CLEAR/A ONHOOK DURING SET-UP PHASE,778,success,0,Normal Call,Normal_Clearing,0
+030BH,CLEAR/A ONHOOK DURING WAIT FOR ANSWER PHASE,779,success,0,Normal Call,Normal_Clearing,2
+030CH,ONHOOK TIME OUT,780,success,0,Normal Call,Unanswered,2
+030EH,B LINE BLOCKED,782,fail,0,Network Related,System_Failure,2
+0310H,UNSPECIFIED CUG CALL FAILURE,784,fail,0,Network Related,System_Failure,2
+0311H,BEARER SERVICE NOT PROVISIONED,785,fail,0,Subscriber Related,Service_NA,2
+0312H,TELESERVICE NOT PROVISIONED,786,fail,0,Subscriber Related,TELESERVICE_NOT_PROVISIONED,0
+0313H,ILLEGAL SUBSCRIBER,787,fail,0,Subscriber Related,Subscriber,0
+0314H,UNIDENTIFIED SUBSCRIBER,788,fail,0,Network Related,No_response,0
+0315H,B SUBSCRIBER HAS CALL DIVERSION BARRING,789,fail,0,Subscriber Related,Barring,2
+0316H,MEMORY CAPACITY EXCEEDED IN SUBSCRIBER STATION,790,fail,0,Subscriber Related,MEMORY_CAPACITY_EXCEEDED,1
+0317H,OVERALL TIME LIMIT OF IN-BASED SUBSCRIBER SERVICE HAS BEEN REACHED,791,fail,0,Network Related,System_Failure,2
+0318H,TERMINAL EQUIPMENT SWITCHED OFF,792,fail,0,Subscriber Related,Device_Failure,0
+0319H,ILLEGAL SUBSCRIBER STATION,793,fail,0,Subscriber Related,Device_Failure,0
+031AH,INCOMING CALLS BARRED WITHIN THE CUG,794,fail,0,Network Related,Barring,2
+031CH,SUBSCRIBER NOT A MEMBER OF THE CUG,796,fail,0,Network Related,System_Failure,2
+031DH,OUTGOING CALLS BARRED WITHIN THE CUG,797,fail,0,Network Related,Barring,2
+031EH,CUG INDEX NOT COMPATIBLE WITH REQUESTED BASIC SERVICE,798,fail,0,Network Related,System_Failure,2
+031FH,REQUESTED BASIC SERVICE VIOLATES CUG CONSTRAINTS,799,fail,0,Network Related,System_Failure,2
+0320H,CALLED PARTY SUPPLEMENTARY SERVICE INTERACTION VIOLATED WITHIN CUG,800,fail,0,Network Related,System_Failure,2
+0321H,NO CUG SELECTED,801,fail,0,Subscriber Related,Configuration,2
+0322H,UNKNOWN CUG INDEX,802,fail,0,Subscriber Related,System_Failure,2
+0323H,MULTICALL USAGE REJECTED,803,fail,0,Network Related,System_Failure,2
+0324H,MULTIVENDOR NETWORK RESOURCE OPTIMIZATION,804,fail,0,Network Related,System_Failure,1
+0327H,CCBS RECALL TIMER EXPIRED,807,fail,0,Network Related,Network,2
+032DH,MEDIA OR SERVICE NOT SUPPORTED,813,fail,0,Network Related,System_Failure,2
+0401H,INTERWORKING UNIT CONGESTION,1025,fail,0,Network Related,Congestion,2
+0402H,REGISTER TOTAL TIME EXCEEDED,1026,fail,0,Network Related,System_Failure,2
+0403H,MFCU DEVICE CONGESTION,1027,fail,0,Network Related,Congestion,2
+0404H,PBRU DEVICE CONGESTION,1028,fail,0,Network Related,Congestion,2
+0405H,ERRONEOUS REQUEST FROM CO-PROCESS,1029,fail,0,Network Related,System_Failure,0
+0406H,CONNECTION FAILED IN GSW/SWI,1030,fail,0,Network Related,Network,2
+0407H,ERRONEOUS ANSWER FROM PARTNER PROGRAM BLOCK,1031,fail,0,Network Related,System_Failure,0
+0408H,B-NUMBER LENGTH EXCEEDED,1032,fail,0,Subscriber Related,Subscriber,2
+040AH,CIRCUIT CONGESTION DUE TO TRAFFIC TYPE,1034,fail,0,Network Related,Congestion,2
+040BH,HOP COUNTER EXHAUST,1035,fail,0,Network Related,System_Failure,2
+040CH,MAP CONGESTION,1036,fail,0,Network Related,System_Failure,1
+040DH,UNALLOCATED ROAMING NUMBER,1037,fail,0,Network Related,System_Failure,2
+040EH,ROAMING NOT ALLOWED,1038,fail,0,Network Related,System_Failure,2
+0410H,GT ANALYSIS FAILED,1040,fail,0,Network Related,Configuration,0
+0417H,UNIT REMOVED FROM H.248 TRAFFIC,1047,fail,0,Network Related,System_Failure,2
+0418H,SMS AA BLOCK,1048,fail,0,Network Related,Configuration,1
+0419H,UNIT REMOVED FROM TRAFFIC,1049,fail,0,Network Related,Configuration,2
+0420H,NO SUITABLE CELLS IN LOCATION AREA,1056,fail,0,Network Related,Configuration,2
+0421H,SIP SLA IN RATE EXCEEDED,1057,fail,0,Network Related,Configuration,2
+0422H,SIP SLA OUT RATE EXCEEDED,1058,fail,0,Network Related,Configuration,2
+0423H,SIP SLA IN SESS EXCEEDED,1059,fail,0,Network Related,Configuration,2
+0424H,SIP SLA OUT SESS EXCEEDED,1060,fail,0,Network Related,Configuration,2
+0425H,IU CANCEL DURING IU,1061,fail,0,Network Related,Network,2
+0426H,SLA COMB RATE EXC IN REQ,1062,fail,0,Network Related,Configuration,2
+0427H,SLA COMB RATE EXC OUT REQ,1063,fail,0,Network Related,Configuration,2
+0428H,SLA COMB SESS EXC IN SES,1064,fail,0,Network Related,Configuration,2
+0429H,SLA COMB SESS EXC OUT SES,1065,fail,0,Network Related,Configuration,2
+0450H,UPDR IS MISSING FOR INCOMING CGR,1104,fail,0,Network Related,Configuration,2
+0451H,UPDR IS MISSING FOR OUTGOING CGR,1105,fail,0,Network Related,Configuration,2
+0508H,CHARGING ERROR,1288,fail,0,Network Related,Configuration,2
+0509H,FILE ERROR,1289,fail,0,Network Related,Configuration,0
+0510H,TBH CIRCUIT RESET,1296,fail,0,Network Related,System_Failure,2
+0511H,TBH CIRCUIT SYSTEM STATE CHANGE,1297,fail,0,Network Related,System_Failure,2
+0512H,TBH CIRCUIT USER STATE CHANGE,1298,fail,0,Network Related,System_Failure,2
+0600H,FILE RECORD CONGESTION,1536,fail,0,Network Related,System_Failure,2
+0603H,NO RESPONSE FROM PARTNER PROGRAM BLOCK,1539,fail,0,Network Related,System_Failure,0
+0606H,CONFERENCE UNIT CONGESTION,1542,fail,0,Network Related,Congestion,2
+0608H,SETTING OF CHARGING FAILED,1544,fail,0,Network Related,Configuration,2
+0609H,CALL CLEARED BY MML,1545,fail,0,Network Related,System_Failure,2
+060BH,OVERLOAD CONGESTION,1547,fail,0,Network Related,Congestion,0
+060CH,NO FREE CALL RECORD FOUND,1548,fail,0,Network Related,System_Failure,2
+060EH,UNIT RESTARTED,1550,fail,0,Network Related,System_Failure,0
+0610H,ECHO CANCELLER FAILURE,1552,fail,0,Network Related,System_Failure,2
+0620H,IP USER PLANE UNREACHABLE,1568,fail,0,Network Related,System_Failure,2
+0701H,REGISTER ANALYSIS FAILED,1793,fail,0,Network Related,System_Failure,2
+0702H,QUEUEING TIME EXCEEDED,1794,fail,0,Network Related,Congestion,2
+0705H,MODULE OR V5 INTERFACE NOT AVAILABLE,1797,fail,0,Network Related,System_Failure,2
+0706H,CALL INTERRUPTED DURING REGISTER ANALYSIS,1798,fail,0,Network Related,System_Failure,2
+070AH,FORCED CLEAR OF A CALL,1802,fail,0,Network Related,System_Failure,2
+070BH,MODEM ERROR,1803,fail,0,Network Related,System_Failure,2
+070DH,ANNOUNCEMENT SERVICE FAILURE,1805,fail,0,Network Related,Configuration,2
+070EH,CONFIGURATION ERROR,1806,fail,0,Network Related,Configuration,0
+070FH,DIU POOL ERROR,1807,fail,0,Network Related,System_Failure,2
+0710H,ANALYSIS FOR CARRIER ACCESS CODE,1808,fail,0,Network Related,Configuration,2
+0713H,NO ISUP ROUTE,1811,fail,0,Network Related,Configuration,2
+0714H,ATTRIBUTE DIRECTED ROUTING MISMATCH,1812,fail,0,Network Related,Configuration,2
+0715H,REQUESTED FACILITY WAS NOT AVAILABLE ON THE OUTGOING ROUTE,1813,fail,0,Network Related,Configuration,2
+0716H,REQUESTED BEARER CAPABILITY COULD NOT BE FULFILLED ON THE ROUTE,1814,fail,0,Network Related,System_Failure,2
+0718H,DIGIT ANALYSIS IN CENTRAL MEMORY RESULTED IN CONGESTION,1816,fail,0,Network Related,System_Failure,2
+0719H,NO RESOURCE AVAILABLE FOR CALL,1817,fail,0,Network Related,System_Failure,2
+071BH,REQUESTED CHANNEL NOT AVAILABLE,1819,fail,0,Network Related,System_Failure,2
+0720H,RESOURCE NOT AVAILABLE IN CMN,1824,fail,0,Network Related,System_Failure,2
+0721H,USER PLANE ANALYSIS PROBLEM,1825,fail,0,Network Related,System_Failure,2
+0722H,CALL INTERRUPT IN USER PLANE ANALYSIS,1826,fail,0,Network Related,System_Failure,2
+0723H,CTM CALL IS NOT POSSIBLE,1827,fail,0,Network Related,System_Failure,2
+07FFH,INITIALIZATION VALUE OF CLEAR CODE,2047,fail,0,Network Related,System_Failure,0
+0802H,LENGTH OF CALLING SUBSCRIBER NUMBER EXCEEDED,2050,fail,0,Network Related,System_Failure,2
+0804H,OUTGOING CIRCUIT CONGESTION,2052,fail,0,Network Related,Congestion,2
+0806H,IDENTITY OF SUBSCRIBER IS NOT AVAILABLE,2054,fail,0,Subscriber Related,Subscriber,2
+0807H,WAITING TIME FOR MFC PAUSE SIGNAL EXCEEDED,2055,fail,0,Network Related,System_Failure,2
+0808H,WAITING TIME FOR MFC BACKWARD SIGNAL EXCEEDED,2056,fail,0,Network Related,System_Failure,2
+0809H,ERRONEOUS MFC SIGNAL FROM OUTGOING CIRCUIT,2057,fail,0,Network Related,System_Failure,2
+080AH,ERRONEOUS MFC SIGNAL FROM INCOMING CIRCUIT,2058,fail,0,Network Related,System_Failure,2
+080DH,OUTGOING CIRCUIT OUT OF ORDER,2061,fail,0,Network Related,System_Failure,2
+080EH,INCOMING CIRCUIT OUT OF ORDER,2062,fail,0,Network Related,System_Failure,2
+080FH,CIRCUIT CONGESTION,2063,fail,0,Network Related,Congestion,2
+0810H,FACILITY IS NOT SUPPORTED IN THE PLMN,2064,fail,0,Network Related,Configuration,0
+0811H,NETWORK FAILURE,2065,fail,0,Network Related,System_Failure,0
+0812H,MAP FAILURE,2066,fail,0,Network Related,System_Failure,0
+0813H,SWITCHING EQUIPMENT CONGESTION,2067,fail,0,Network Related,System_Failure,2
+0814H,CIRCUIT GROUP CONGESTION,2068,fail,0,Network Related,Congestion,2
+0815H,ACCESS BARRED TO THE CALLED SUBSCRIBER,2069,fail,0,Subscriber Related,Barring,0
+0816H,"CALL FAILED, SEND SPECIAL INFORMATION TONE",2070,fail,0,Network Related,System_Failure,2
+0817H,"NETWORK, UNALLOCATED NUMBER",2071,fail,0,Network Related,System_Failure,2
+0818H,"NETWORK, LINE OUT OF SERVICE",2072,fail,0,Network Related,System_Failure,2
+0819H,"NETWORK, SUBSCRIBER NUMBER CHANGED",2073,fail,0,Network Related,System_Failure,2
+081AH,CONGESTION IN TERMINAL EXCHANGE,2074,fail,0,Network Related,Congestion,2
+081BH,HLR FAILURE,2075,fail,0,Network Related,System_Failure,2
+081CH,VLR FAILURE,2076,fail,0,Network Related,System_Failure,0
+081DH,CONGESTION IN INTERNATIONAL CALL,2077,fail,0,Network Related,System_Failure,2
+081EH,CONTROLLED NOT READY,2078,fail,0,Network Related,System_Failure,2
+081FH,"NETWORK, OVERLOAD CONGESTION",2079,fail,0,Network Related,System_Failure,2
+0820H,NETWORK MESSAGE CONTENT ERROR,2080,fail,0,Network Related,System_Failure,2
+0821H,INVALID TRANSIT NETWORK SELECTION,2081,fail,0,Network Related,System_Failure,2
+0822H,RECOVERY ON TIMER EXPIRY,2082,fail,0,Network Related,System_Failure,2
+0823H,ERRONEOUS CALL ATTEMPT FROM CO EXCHANGE,2083,fail,0,Network Related,System_Failure,2
+0824H,PCM FAULTY,2084,fail,0,Network Related,System_Failure,2
+0825H,"NETWORK, UNKNOWN CIRCUIT",2085,fail,0,Network Related,System_Failure,2
+0826H,NETWORK MESSAGE DISCARDED,2086,fail,0,Network Related,Configuration,2
+0827H,CARRIER IDENTIFICATION CODE NOT ALLOWED FROM INC0MING CIRCUIT,2087,fail,0,Network Related,System_Failure,2
+082AH,CAC LIM IP ROU PACK LOSS,2090,fail,0,Network Related,System_Failure,2
+082BH,CAC LIMIT IP RT BANDWIDTH,2091,fail,0,Network Related,System_Failure,2
+082CH,CAC LIMIT IP RT TERMS,2092,fail,0,Network Related,System_Failure,2
+082DH,CAC LIMIT MGW IP TERM,2093,fail,0,Network Related,System_Failure,2
+082EH,IP PBX NOT REGISTERED,2094,fail,0,Network Related,Configuration,2
+0830H,NUMBER PORTABILITY,2096,success,0,Normal call,Normal_Clearing,2
+0831H,NUMBER PORTABILITY FAILURE,2097,fail,0,Network Related,System_Failure,2
+0832H,ROUTING ERROR,2098,fail,0,Network Related,System_Failure,2
+0835H,FORMAL ERROR IN SIP MESSAGE,2101,fail,0,Network Related,Configuration,2
+0836H,METHOD NOT ALLOWED,2102,fail,0,Network Related,Configuration,2
+083AH,VLR SERVICE RESTRICTION,2106,fail,0,Network Related,Barring,0
+083BH,UNEXPECTED ANM,2107,fail,0,Network Related,System_Failure,2
+0840H,REFERRED CALL DOES NOT EXIST,2112,fail,0,Network Related,System_Failure,2
+0841H,SESSION DESCRIPTION NOT ACCEPTABLE,2113,fail,0,Network Related,System_Failure,2
+0843H,CONGESTION ON MGW,2115,fail,0,Network Related,Congestion,2
+0844H,RADIONW AS MAG FAILURE,2116,fail,0,Network Related,System_Failure,2
+0845H,RANAP PROTOCOL ERROR,2117,fail,0,Network Related,System_Failure,2
+0846H,RNW INIT SIGN CON FAILURE,2118,fail,0,Network Related,System_Failure,2
+0850H,SERVICE CENTRE CONGESTION,2128,fail,0,Network Related,Congestion,1
+0851H,TRAFFIC TO CONGESTED DESTINATION POINT CODE RESTRICTED BY SIGNALLING,2129,fail,0,Network Related,System_Failure,2
+0860H,REASSEMBLY ERROR IN APM,2144,fail,0,Network Related,System_Failure,2
+0861H,UNIDENTIFIED CONTEXT / ADDRESSING ERROR,2145,fail,0,Network Related,System_Failure,2
+0870H,H248 PROTOCOL ERROR,2160,fail,0,Network Related,System_Failure,2
+0871H,SERVICE CHANGE REQUEST COMMAND RECEIVED,2161,fail,0,Network Related,System_Failure,2
+0872H,UNKNOWN USER PLANE DESTINATION,2162,fail,0,Network Related,Configuration,2
+0873H,ERROR IN CODEC NEGOTIATION,2163,fail,0,Network Related,System_Failure,2
+0874H,UNDEFINED INTERCONNECTION,2164,fail,0,Network Related,System_Failure,2
+0875H,BNC ESTABLISH NOTIFICATION ERROR,2165,fail,0,Network Related,System_Failure,2
+0876H,H248 CONNECTION DOES NOT EXIST,2166,fail,0,Network Related,System_Failure,2
+0877H,MGW LOAD REDUCTION,2167,fail,0,Network Related,System_Failure,2
+0880H,CALL REROUTING RESTRICT,2176,fail,0,Network Related,Configuration,2
+0881H,UNEXPECTED ACTION INDICATOR,2177,fail,0,Network Related,System_Failure,2
+0882H,UNRECOGNISED INFORMATION ELEMENT,2178,fail,0,Network Related,System_Failure,2
+0883H,CAPABILITY FAILURE IN MGW,2179,fail,0,Network Related,System_Failure,2
+0884H,CONTEXT INFO MISMATCH,2180,fail,0,Network Related,System_Failure,2
+0885H,MGW INTERNAL FAILURE,2181,fail,0,Network Related,System_Failure,2
+0886H,MGW NOT SUPP H248 ITEM,2182,fail,0,Network Related,System_Failure,2
+0887H,MGW PROBLEM WITH REQ SERV,2183,fail,0,Network Related,System_Failure,2
+0888H,MGW TERM DOUBLE SEIZURE,2184,fail,0,Network Related,System_Failure,2
+0889H,TERM TAKEN OUT OF SERVICE,2185,fail,0,Network Related,System_Failure,2
+088AH,TERMINATION INFO MISMATCH,2186,fail,0,Network Related,System_Failure,2
+088BH,UNUSED H248 ERROR CODE,2187,fail,0,Network Related,System_Failure,2
+088CH,IW FAILED MSS MGW,2188,fail,0,Network Related,System_Failure,2
+0900H,NO MF FORWARD SIGNAL,2304,fail,0,Network Related,System_Failure,2
+090DH,WAIT TIME FOR ACKNOWLEDGEMENT TO SEIZURE IN OUTGOING CIRCUIT EXCEEDED,2317,fail,0,Network Related,System_Failure,2
+0920H,IP CONTROL PLANE UNREACHABLE,2336,fail,0,Network Related,Configuration,2
+0A02H,INVALID MESSAGE FROM TRUNK CIRCUIT,2562,fail,0,Network Related,System_Failure,2
+0A03H,INTERWORKING FAILED,2563,fail,0,Network Related,System_Failure,2
+0A04H,TRUNK CIRCUIT PROTOCOL ERROR,2564,fail,0,Network Related,System_Failure,2
+0A05H,CIRCUIT RELEASED BY CO-EXCHANGE,2565,fail,0,Network Related,System_Failure,2
+0A07H,CALL FAILURE FROM OUTGOING CIRCUIT,2567,fail,0,Network Related,System_Failure,2
+0A08H,DESTINATION POINT SIGNALLING OUT OF ORDER,2568,fail,0,Network Related,System_Failure,2
+0A09H,ADDRESS COMPLETE MESSAGE TIME-OUT,2569,fail,0,Network Related,System_Failure,2
+0A0BH,NO RESPONSE TO INQUIRY MESSAGE FROM NETWORK,2571,fail,0,Network Related,System_Failure,2
+0A0CH,NO DIGITAL TRUNK,2572,fail,0,Network Related,Configuration,2
+0A0DH,NO ROUTE TO SPECIFIED TRANSIT OR TO DESTINATION,2573,fail,0,Network Related,Configuration,2
+0B10H,V110 FRAME SYNCHRONIZATION FAILURE,2832,fail,0,Network Related,System_Failure,2
+0B11H,MODEM COMMUNICATION ERROR,2833,fail,0,Network Related,System_Failure,2
+0B12H,RLP FRAME SYNCHRONIZATION FAILURE,2834,fail,0,Network Related,System_Failure,2
+0B13H,RADIO INTERFACE FAILURE,2835,fail,0,Network Related,Radio_Failure,0
+0B14H,HANDOVER FAILURE,2836,fail,0,Network Related,HANDOVER FAILURE,0
+0B15H,CIPHERING ALGORITHM IS NOT SUPPORTED,2837,fail,0,Network Related,System_Failure,2
+0B16H,REMOTE EQUIPMENT FAILURE,2838,fail,0,Network Related,System_Failure,0
+0B17H,ADDRESS INCOMPLETE,2839,fail,0,Network Related,System_Failure,2
+0B18H,SERVICE UNAVAILABLE,2840,fail,0,Network Related,System_Failure,2
+0B19H,SERVICE INCOMPATIBLE,2841,fail,0,Network Related,System_Failure,2
+0B1AH,BSSMAP PROTOCOL ERROR,2842,fail,0,Network Related,System_Failure,0
+0B1BH,RADIO INTERFACE MESSAGE FAILURE,2843,fail,0,Network Related,System_Failure,0
+0B1CH,RADIO INTERFACE FAILURE REVERSION TO OLD CHANNEL,2844,fail,0,Network Related,System_Failure,0
+0B1DH,O&M RELEASED INSIDE NETWORK,2845,fail,0,Network Related,Configuration,0
+0B1EH,RADIO RESOURCE UNAVAILABLE,2846,fail,0,Network Related,System_Failure,2
+0B1FH,REQUESTED TERRESTRIAL RESOURCE UNAVAILABLE,2847,fail,0,Network Related,System_Failure,2
+0B20H,NETWORK ADDRESS EXTENSION (NAE) ERROR,2848,fail,0,Network Related,System_Failure,2
+0B21H,DTE IS UNCONTROLLED,2849,fail,0,Network Related,Device_Failure,2
+0B23H,DUAL SEIZURE FROM BIDIRECTIONAL CIRCUIT,2851,fail,0,Network Related,System_Failure,2
+0B2AH,BLOCKING RECEIVED,2858,fail,0,Network Related,System_Failure,2
+0B2BH,PARAMETER DOES NOT EXIST OR IS NOT IMPLEMENTED,2859,fail,0,Network Related,System_Failure,2
+0B2CH,IN APPLICATION PROTOCOL ERROR,2860,fail,0,Network Related,System_Failure,2
+0B2DH,INTELLIGENT NETWORK APPLICATION RESPONSE TIME-OUT,2861,fail,0,Network Related,System_Failure,2
+0B2EH,MAXIMUM NUMBER OF TRIGGERING EVENTS IN A CALL HAS BEEN REACHED,2862,fail,0,Network Related,System_Failure,2
+0B2FH,TCAP ERROR,2863,fail,0,Network Related,System_Failure,2
+0B30H,ASN1 CODING DECODING ERROR,2864,fail,0,Network Related,System_Failure,2
+0B31H,SELECTIVE CALL CONGESTION HAS PREVENTED CALL ATTEMPT,2865,fail,0,Network Related,System_Failure,2
+0B32H,CALL RELEASE ORDERED INTELLIGENT NETWORK APPLICATION,2866,fail,0,Network Related,System_Failure,2
+0B33H,CONTINUITY CHECK FAILURE,2867,fail,0,Network Related,System_Failure,2
+0B38H,IN SERVICE FALLBACK CODE ONE,2872,fail,0,Network Related,System_Failure,2
+0B39H,IN SERVICE FALLBACK CODE TWO,2873,fail,0,Network Related,System_Failure,2
+0B3AH,IN SERVICE FALLBACK CODE THREE,2874,fail,0,Network Related,System_Failure,2
+0B3CH,IN SERVICE FALLBACK CODE FOUR,2876,fail,0,Network Related,System_Failure,2
+0B3EH,CALL PERIOD TIMEOUT,2878,fail,0,Network Related,System_Failure,2
+0B40H,BEARER REDIRECTION FAILURE,2880,fail,0,Network Related,System_Failure,2
+0B41H,BR TO THIS NODE FAILED,2881,fail,0,Network Related,System_Failure,2
+0B42H,BR TO NEXT NODE FAILED,2882,fail,0,Network Related,System_Failure,2
+0B43H,ERROR IN CODEC MODIFICATION,2883,fail,0,Network Related,System_Failure,2
+0B44H,CALL ID ALREADY ALLOC,2884,fail,0,Network Related,System_Failure,2
+0B45H,REQ CODEC TYPE UNAVAIL,2885,fail,0,Network Related,System_Failure,2
+0B46H,REQ A_INT TYPE UNAVAIL,2886,fail,0,Network Related,System_Failure,2
+0B47H,REQ CODEC TYPE NOT SUPP,2887,fail,0,Network Related,System_Failure,2
+0B48H,REQ A_INT TYPE NOT SUPP,2888,fail,0,Network Related,System_Failure,2
+0B49H,NO UP CONNECT FOR CS-CALL,2889,fail,0,Network Related,System_Failure,2
+0C00H,DIAL WAIT TIME EXCEEDED,3072,fail,0,Network Related,System_Failure,2
+0C01H,UNKNOWN DIALLING FROM SUBSCRIBER SIGNALLING,3073,fail,0,Subscriber Related,System_Failure,2
+0C02H,INSUFFICIENT DIALLING FROM SUBSCRIBER SIGNALLING,3074,fail,0,Subscriber Related,System_Failure,2
+0C09H,SERVICE OR FACILITY ACTIVATION RESTRICTED,3081,fail,0,Subscriber Related,System_Failure,2
+0C0AH,SERVICE OR FACILITY USAGE RESTRICTED,3082,fail,0,Subscriber Related,System_Failure,2
+0C0BH,INCONSISTENCY BETWEEN A AND B SUBSCRIBERS,3083,fail,0,Subscriber Related,System_Failure,2
+0C0CH,INVOCATION OF CLIR IS NOT ALLOWED,3084,fail,0,Subscriber Related,System_Failure,2
+0C0DH,BEARER CAPABILITY NOT PRESENTLY AVAILABLE,3085,fail,0,Network Related,System_Failure,2
+0C0EH,"SUBSCRIBER, INTERACTION ERROR",3086,fail,0,Subscriber Related,System_Failure,2
+0C10H,CARRIER ACCESS CODE NOT ALLOWED,3088,fail,0,Network Related,System_Failure,2
+0C11H,DATA CALL TO OPERATOR,3089,success,0,Normal call,Normal_Clearing,2
+0D00H,SUBSCRIBER SIGNALLING MESSAGE CONTENT ERROR,3328,fail,0,Network Related,System_Failure,0
+0D01H,SUBSCRIBER SIGNALLING MESSAGE FORMAT ERROR,3329,fail,0,Network Related,System_Failure,2
+0D03H,SERVICE OR FUNCTION NOT IMPLEMENTED,3331,fail,0,Network Related,System_Failure,2
+0D04H,SUBSCRIBER SIGNALLING PROTOCOL ERROR,3332,fail,0,Network Related,System_Failure,0
+0D06H,AOCC CHARGING ERROR,3334,fail,0,Subscriber Related,Subscriber,2
+0D07H,NO RESPONSE TO CALL ESTABLISHMENT; ALERTING OR CONNECT,3335,fail,0,Subscriber Related,Unanswered,0
+0D08H,GSM ERH 4.08 PROTOCOL TIMER EXPIRES,3336,fail,0,Network Related,System_Failure,0
+0D0DH,SUBSCRIBER SIGNALLING MESSAGE INCOMPATIBLE OR NOT IMPLEMENTED,3341,fail,0,Network Related,System_Failure,2
+0D0EH,UNDEFINED FAX DATA RATE,3342,fail,0,Subscriber Related,Device_Failure,2
+0D0FH,FACILITY REJECTED,3343,fail,0,Network Related,Configuration,2
+0D10H,MANDATORY IE MISSING,3344,fail,0,Subscriber Related,Subscriber,2
+0D50H,INVALID OR INCONSISTENT SHORT MESSAGE IN SUBSCRIBER SIGNALLING,3408,fail,0,Subscriber Related,System_Failure,1
+0D51H,LOCATION AREA NOT ALLOWED,3409,fail,0,Network Related,Configuration,2
+0D52H,PLMN NOT ALLOWED,3410,fail,0,Network Related,Configuration,2
+0D11H,Invalid IE Content,3345,fail,0,Network Related,System_Failure,1
+1009H,ROAMING CALL,4105,success,0,Normal call,Normal_Clearing,2
+100AH,REPEAT ATTEMPT,4106,fail,0,Network Related,System_Failure,2
+100DH,CF UNCON NOTIF TO A,4109,success,0,Normal call,Normal_Clearing,2
+100EH,CF UNCON NO NOTIF TO A,4110,success,0,Normal call,Normal_Clearing,2
+100FH,CF MS NOT REACH NOTIF TO A,4111,success,0,Normal call,Normal_Clearing,2
+1010H,CF MS NOT REACH NO NOTIF TO A,4112,success,0,Normal call,Normal_Clearing,2
+1011H,CF MS BUSY WITH NOTIF TO A,4113,success,0,Normal call,Normal_Clearing,2
+1012H,CF MS BUSY NO NOTIF TO A,4114,success,0,Normal call,Normal_Clearing,2
+1013H,CF MS NOT REPLY NOTIF TO A,4115,success,0,Normal call,Normal_Clearing,2
+1014H,CF MS NOT REPLY NO NOTIF TO A,4116,success,0,Normal call,Normal_Clearing,2
+1015H,ALTERNATIVE_ROUTING_1,4117,success,0,Normal call,Normal_Clearing,2
+1016H,ALTERNATIVE_ROUTING_2,4118,success,0,Normal call,Normal_Clearing,2
+1017H,ALTERNATIVE_ROUTING_3,4119,success,0,Normal call,Normal_Clearing,2
+101FH,B_MODEM_SUBS_BUSY,4127,success,0,Normal Call,Normal_Clearing,2
+1020H,B_MODEM_SUBS_UNOBTAINABLE,4128,fail,0,Subscriber Related,System_Failure,2
+1025H,CF PNS,4133,success,0,Normal call,Normal_Clearing,2
+1027H,CF NIGHTSERVICE,4135,success,0,Normal call,Normal_Clearing,2
+1028H,NEW CD NUMB FROM SCP,4136,success,0,Normal call,Normal_Clearing,2
+102AH,EXT IP CALL,4138,success,0,Normal call,Normal_Clearing,2
+102CH,CD I NOTIF TO A,4140,success,0,Normal call,Normal_Clearing,2
+102DH,CD I NO NOTIF TO A,4141,success,0,Normal call,Normal_Clearing,2
+102EH,CD A NOTIF TO A,4142,success,0,Normal call,Normal_Clearing,2
+102FH,CD A NO NOTIF TO A,4143,success,0,Normal call,Normal_Clearing,2
+1030H,NPRN FORM NPDB,4144,success,0,Normal call,Normal_Clearing,2
+1032H,INTER MSC HO,4146,success,0,Normal call,Normal_Clearing,2
+1033H,CCBS RECALL,4147,success,0,Normal call,Normal_Clearing,2
+1034H,MT ROAMING FORWARDING,4148,success,0,Normal call,Normal_Clearing,2
+1035H,LCF BUSY NOTIF TO A,4149,success,0,Normal call,Normal_Clearing,2
+1036H,LCF BUSY NO NOTIF TO A,4150,success,0,Normal call,Normal_Clearing,2
+1037H,LCF NO ANSW NOTIF TO A,4151,success,0,Normal call,Normal_Clearing,2
+1038H,LCF NO ANSW NO NOTIF TO A,4152,success,0,Normal call,Normal_Clearing,2
+1039H,LCF NO REACH NOTIF TO A,4153,success,0,Normal call,Normal_Clearing,2
+103AH,LCF NO REACH NO NOTIF TO A,4154,success,0,Normal call,Normal_Clearing,2
+103CH,SCF INIT CALL,4156,success,0,Normal call,Normal_Clearing,2
+103DH,POSITION METHOD FAILURE,4157,fail,0,Network Related,System_Failure,2
+103EH,UNAUTHORIZED LCS REQUEST,4158,fail,0,Subscriber Related,Device_Failure,2
+103FH,MS DENIED LCS REQUEST,4159,fail,0,Subscriber Related,Device_Failure,2
+1041H,RELOCATION CANCELLED,4161,fail,0,Network Related,Radio_Failure,2
+1042H,NEW CD NUMB FROM CAMEL,4162,success,0,Normal call,Normal_Clearing,2
+1043H,NEW CD NUMB FROM INAP,4163,success,0,Normal call,Normal_Clearing,2
+1044H,CONT ORIG HALF CALL,4164,success,0,Normal call,Normal_Clearing,2
+1045H,AON INQUIRY NEEDED,4165,success,0,Normal call,Normal_Clearing,2
+1046H,NPRN FORM NPDB IN QOHR,4166,success,0,Normal call,Normal_Clearing,2
+1047H,CD NO NOTIF TO A,4167,success,0,Normal call,Normal_Clearing,2
+1048H,CD NOTIF TO A,4168,success,0,Normal call,Normal_Clearing,2
+1049H,LCF CD NO NOTIF TO A,4169,success,0,Normal call,Normal_Clearing,2
+104AH,LCF CD NOTIF TO A,4170,success,0,Normal call,Normal_Clearing,2
+104BH,LCF CD A NOTIF TO A,4171,success,0,Normal call,Normal_Clearing,2
+104CH,LCF CD A NO NOTIF TO A,4172,success,0,Normal call,Normal_Clearing,2
+104DH,LCF CD I NOTIF TO A,4173,success,0,Normal call,Normal_Clearing,2
+104EH,LCF CD I NO NOTIF TO A,4174,success,0,Normal call,Normal_Clearing,2
+104FH,CF MS BUSY FOR UDUB,4175,success,0,Normal Call,Busy_Subscriber,2
+1050H,OR NOT ALLOWED IN SRI,4176,fail,0,Network Related,System_Failure,2
+1051H,OR NOT ALLOWED WITH CF,4177,fail,0,Network Related,System_Failure,2
+1052H,CF MS BUSY FOR UDUB WITHOUT NOTIF TO A,4178,success,0,Normal Call,Busy_Subscriber,2
+1053H,LCF MS BUSY FOR UDUB,4179,success,0,Normal Call,Busy_Subscriber,2
+1054H,LCF MS BUSY FOR UDUB NONTF,4180,success,0,Normal Call,Busy_Subscriber,2
+1055H,"NEW CD NUMBER IS RECEIVED FROM INANA, CALL IS REROUTED",4181,success,0,Normal Call,Normal_Clearing,2
+1056H,MGCS HALF CALL WHEN SCP SENDS ONLY A MGCS OPERATION BUT NO DL,4182,fail,0,Network Related,Network,2
+1057H,REROUTING FROM BARR ANA,4183,fail,0,Network Related,Configuration,2

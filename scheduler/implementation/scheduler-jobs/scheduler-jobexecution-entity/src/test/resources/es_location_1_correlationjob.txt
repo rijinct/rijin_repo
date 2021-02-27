@@ -1,0 +1,17 @@
+insert overwrite table ES_REGION_1 select
+case when c.city is null then d.city else c.city end,
+case when c.longitude is null then d.longitude else c.longitude end,
+case when c.latitude is null then d.latitude else c.latitude end,
+case when c.mnc is null then d.mnc else c.mnc end,
+case when c.mcc is null then d.mnc else c.mcc end
+from ES_CITY_1 d
+full outer join 
+(select city,region,mcc,mnc,round(avg(latitude),4) latitude,round(avg(longitude),4) longitude
+from EXT_LOCATION_1
+group by region,city,mcc,mnc
+) c
+on (c.region = d.region and c.city = d.city )
+QUERY_SEPARATOR
+insert overwrite table ES_LOC_1 select
+case when c.region is null then d.region else c.region end,
+case when c.city is null then d.city else c.city end,

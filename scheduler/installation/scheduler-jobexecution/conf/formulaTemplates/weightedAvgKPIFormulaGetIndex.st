@@ -1,0 +1,1 @@
+($KPI_WEIGHT_OBJ:{ eachObj | (if($eachObj.sourceKpi$ is null, 0, $eachObj.sourceKpi$) * $eachObj.weight$) $if(eachObj.check)$ + $endif$ }$) / $KPI_BUCKET$

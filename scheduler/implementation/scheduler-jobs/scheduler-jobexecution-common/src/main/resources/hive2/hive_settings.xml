@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<QuerySettings>
+
+	<GlobalSettings>
+		<Job>
+			<Name>DEFAULT</Name>
+			<QueryHints>
+				<hint>CREATE TEMPORARY FUNCTION decode AS 'com.nexr.platform.hive.udf.GenericUDFDecode'</hint>
+				<hint>CREATE TEMPORARY FUNCTION substr AS 'com.nexr.platform.hive.udf.UDFSubstrForOracle'</hint>
+				<hint>CREATE TEMPORARY FUNCTION lpad As 'org.apache.hadoop.hive.ql.udf.UDFLpad'</hint>
+				<hint>CREATE TEMPORARY FUNCTION trim As 'org.apache.hadoop.hive.ql.udf.UDFTrim'</hint>
+				<hint>use HIVE_SCHEMA</hint>
+				<hint>SET hive.auto.convert.join=Global_Default</hint>
+			</QueryHints>
+		</Job>
+
+
+		<Job>
+			<Pattern>.*HOUR_AggregateJob.*</Pattern>
+			<QueryHints>
+				<hint>SET hive.auto.convert.join=Global_Pattern</hint>
+			</QueryHints>
+		</Job>
+	<Job>
+			<Name>Perf_DATA_CP_SEGG_1_HOUR_AggregateJob</Name>
+			<QueryHints>
+				<hint>SET hive.auto.convert.join=Global_Job</hint>
+			</QueryHints>
+		</Job>
+
+		<!-- Default Hints for All Jobs End -->
+
+		<!-- 15 mins Jobs Generic Hint Begin -->
+		<!-- <Job> <Pattern>.*15MIN_AggregateJob.*</Pattern> <QueryHints> <hint>SET 
+			hive.auto.convert.join=true</hint> <hint>SET hive.exec.parallel=true</hint> 
+			<hint>SET hive.groupby.skewindata=true</hint> </QueryHints> </Job> -->
+		<!-- 15 mins Jobs Generic Hint End -->
+
+		<!-- Hour Jobs Generic Hint Begin -->
+		<!-- Hour Jobs Generic Hint End -->
+		<!-- Hour Jobs Specific Hint Begin -->
+
+		<!-- Hour Jobs Specific Hint End -->
+
+		<!-- Daily Jobs Generic Hint Begin -->
+	</GlobalSettings>
+
+
+	<Hive2Settings>
+		<Job>
+			<Name>DEFAULT</Name>
+			<QueryHints>
+				<hint>SET hive.auto.convert.join=true</hint>
+				<hint>SET hive.exec.compress.output=false</hint>
+				<hint>SET mapreduce.job.queuename=defaultjobs</hint>
+				<hint>SET hive.auto.convert.join=Hive2_Default</hint>
+			</QueryHints>
+		</Job>
+
+
+
+		<Job>
+			<Pattern>.*HOUR_AggregateJob.*</Pattern>
+			<QueryHints>
+				<hint>SET hive.auto.convert.join=Hive2_Pattern</hint>
+			</QueryHints>
+		</Job>
+
+
+		<!-- job hint from hive1setting for cp -->
+		<Job>
+			<Name>Perf_DATA_CP_SEGG_1_HOUR_AggregateJob</Name>
+			<QueryHints>
+				<hint>SET hive.auto.convert.join=Hive2_Job</hint>
+			</QueryHints>
+		</Job>
+		
+		<Job>
+			<Name>Perf_DATA_CP_SEGG_1_DAY_AggregateJob</Name>
+			<QueryHints>
+				<hint>SET hive.auto.convert.join=Hive2_Job</hint>
+			</QueryHints>
+		</Job>
+		<Job>
+			<Name>Perf_APNHLR_AC_1_1_HOUR_AggregateJob</Name>
+			<QueryHints>
+				<hint>SET hive.auto.convert.join=Hive2_Default</hint>
+			</QueryHints>
+		</Job>
+	</Hive2Settings>
+
+</QuerySettings>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0" xmlns:xsi="http://www.w3.org/2001/XML-Schema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.project.rithomas.scheduler</groupId>
+		<artifactId>scheduler-implementation</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<groupId>com.project.rithomas.scheduler</groupId>
+	<artifactId>scheduler-k8s</artifactId>
+	<packaging>pom</packaging>
+	<name>scheduler service for k8s</name>
+	<version>1.0-SNAPSHOT</version>
+	<modules>
+		<module>scheduler-k8s-client</module>
+		<module>scheduler-k8s-endpoint</module>
+	</modules>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.rijin.analytics.handler</groupId>
+			<artifactId>analytics-base-exceptionhandler</artifactId>
+		</dependency>
+	</dependencies>
+</project>

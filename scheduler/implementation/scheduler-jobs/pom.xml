@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0" xmlns:xsi="http://www.w3.org/2001/XML-Schema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.project.rithomas.scheduler</groupId>
+		<artifactId>scheduler-implementation</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<groupId>com.project.rithomas.scheduler</groupId>
+	<artifactId>scheduler-jobs-parent</artifactId>
+	<packaging>pom</packaging>
+	<name>PROJECT RITHOMAS scheduler JOBS</name>
+	<version>1.0-SNAPSHOT</version>
+	<modules>
+		<module>scheduler-jobexecution-cei</module>
+		<module>scheduler-jobexecution-common</module>
+		<module>scheduler-jobexecution-quartz</module>
+		<module>scheduler-jobexecution-aggregation</module>
+		<module>scheduler-jobexecution-archiving</module>
+		<module>scheduler-jobexecution-project</module>
+		<module>scheduler-jobexecution-entity</module>
+		<module>scheduler-jobexecution-export</module>
+		<module>scheduler-jobexecution-script</module>
+		<module>scheduler-jobexecution-reaggregation</module>
+		<module>scheduler-jobexecution-tnp</module>
+		<module>scheduler-jobexecution-usage</module>
+	</modules>
+	<profiles>
+		<profile>
+			<id>Platform_Wandisco_2.3</id>
+			<activation>
+				<property>
+					<name>Wandisco23</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<!-- plugin for excluding the java file from compilation -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<configuration>
+							<excludes>
+								<exclude>com/project/rithomas/jobexecution/core/ApplicationIdLoggerHiveServer2Util.java</exclude>
+							</excludes>
+						</configuration>
+						<executions>
+
+							<!-- plugin for excluding the Test file from compilation -->
+							<execution>
+								<id>default-testCompile</id>
+								<phase>test-compile</phase>
+								<configuration>
+									<testExcludes>
+										<exclude>**/ApplicationLoggerFactoryHive2Test.java</exclude>
+										<exclude>com/project/rithomas/jobexecution/core/ApplicationIdLoggerHiveServer2UtilTest.java</exclude>
+									</testExcludes>
+								</configuration>
+								<goals>
+									<goal>testCompile</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>					
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<scm>
+		<connection>scm:svn:http://svne1.access.rijinsiemeprojectetworks.com/isource/svnroot/RITHOMAS/branches/WorkTrunk/scheduler/</connection>
+		<developerConnection>scm:svn:https://svne1.access.rijinsiemeprojectetworks.com/isource/svnroot/RITHOMAS/branches/WorkTrunk/scheduler/</developerConnection>
+		<url>http://svne1.access.rijinsiemeprojectetworks.com/isource/svnroot/RITHOMAS</url>
+	</scm>
+</project>

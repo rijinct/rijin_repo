@@ -1,0 +1,10 @@
+.git/
+.gitignore
+.bzr/
+.bzrignore
+.hg/
+.hgignore
+.svn/
+.project
+.idea/
+*.tmproj

@@ -1,0 +1,1 @@
+insert into project.es_sample_location_1 values (11,"",11,5,"Lac_5",12.99,77.59,"Hyderabad","India",405,55,"2019-01-30 06:00:00.000")

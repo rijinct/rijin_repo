@@ -1,0 +1,2 @@
+(( 1 / $TARGET_KPI_BUCKET$)*$KPI_INT$)*$WEIGHT$
+

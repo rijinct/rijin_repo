@@ -1,0 +1,7 @@
+@Library("GroovyLibraries") _
+ca4ciStandardPipeline {
+	buildType = 'profile'
+    	packageRepository = "scheduler"
+	componentRepoPath = "PlatformApplications/scheduler"
+   	PROPERTY = "rithomas.scheduler.version"
+}

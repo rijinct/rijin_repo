@@ -1,0 +1,89 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<context:annotation-config />
+	
+	<beans profile="default,k8s">
+		<bean id="YFormula"
+			class="com.project.rithomas.jobexecution.generator.formula.LogisticKPIFormulaGetY"
+			scope="prototype" />
+
+		<bean id="ContriFormula"
+			class="com.project.rithomas.jobexecution.generator.formula.LogisticKPIFormulaGetCont"
+			scope="prototype" />
+
+		<bean id="BucketedWeightFormula"
+			class="com.project.rithomas.jobexecution.generator.formula.LogisticKPIFormulaBucketedWeight"
+			scope="prototype" />
+
+		<bean id="IntFormula"
+			class="com.project.rithomas.jobexecution.generator.formula.LogisticKPIFormulaGetWeightedAvg"
+			scope="prototype" />
+
+		<bean id="BaseIntFormula"
+			class="com.project.rithomas.jobexecution.generator.formula.LogisticKPIFormulaGetThreshold"
+			scope="prototype" />
+
+		<bean id="WintFormula"
+			class="com.project.rithomas.jobexecution.generator.formula.LogisticKPIFormulaGetWint"
+			scope="prototype" />
+
+		<bean id="UsageBasedKPIFormula"
+			class="com.project.rithomas.jobexecution.generator.formula.LogisticKPIFormulaGetUsageBasedFormula"
+			scope="prototype" />
+
+		<bean id="HigherUsageBasedKPIFormula"
+			class="com.project.rithomas.jobexecution.generator.formula.LogisticKPIFormulaGetHigherUsageBasedFormula"
+			scope="prototype" />
+
+		<bean id="WeightedAvgKPIContriFormula"
+			class="com.project.rithomas.jobexecution.generator.formula.WeightedAvgKPIFormulaGetCont"
+			scope="prototype"/>
+
+		<bean id="WeightedAvgKPIFormulaGetIndex"
+			class="com.project.rithomas.jobexecution.generator.formula.WeightedAvgKPIFromulaGetIndex"
+			scope="prototype"/>
+
+		<bean id="WeightedAvgBucketedWeightKPIFormula"
+			class="com.project.rithomas.jobexecution.generator.formula.WeightedAvgKPIFormulaBucketedWeight"
+			scope="prototype"/>
+
+		<bean id="logisticFormulaTypeProvider"
+			class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean">
+			<property name="serviceLocatorInterface"
+				value="com.project.rithomas.jobexecution.applicationbeans.LogisticKPIFormulaTypeProvider" />
+			<property name="serviceMappings">
+				<props>
+					<prop key="GET_Y">YFormula</prop>
+					<prop key="GET_CONTRI">ContriFormula</prop>
+					<prop key="GET_BUCKETED_WEIGHT">BucketedWeightFormula</prop>
+					<prop key="GET_INT">IntFormula</prop>
+					<prop key="GET_BASE_INT">BaseIntFormula</prop>
+					<prop key="GET_WINT">WintFormula</prop>
+					<prop key="GET_USAGE_BASED_KPI">UsageBasedKPIFormula</prop>
+					<prop key="GET_HIGHER_USAGE_BASED_KPI">HigherUsageBasedKPIFormula</prop>
+				</props>
+			</property>
+		</bean>
+		<bean id="weightedAvgFormulaTypeProvider"
+			class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean">
+			<property name="serviceLocatorInterface"
+				value="com.project.rithomas.jobexecution.applicationbeans.WeightedAvgKPIFormulaTypeProvider"/>
+			<property name="serviceMappings">
+				<props>
+					<prop key="GET_WEIGHTED_AVG">WeightedAvgKPIFormulaGetIndex</prop>
+					<prop key="GET_CONTRI">WeightedAvgKPIContriFormula</prop>
+					<prop key="GET_BUCKETED_WEIGHT">WeightedAvgBucketedWeightKPIFormula</prop>
+					<prop key="GET_USAGE_BASED_KPI">UsageBasedKPIFormula</prop>
+					<prop key="GET_HIGHER_USAGE_BASED_KPI">HigherUsageBasedKPIFormula</prop>
+				</props>
+			</property>
+		</bean>
+</beans>
+</beans>  

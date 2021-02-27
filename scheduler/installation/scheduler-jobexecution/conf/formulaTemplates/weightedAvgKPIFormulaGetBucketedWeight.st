@@ -1,0 +1,1 @@
+$KPI_WEIGHT_OBJ:{ eachObj | if($eachObj.sourceKpi$ is NULL or $eachObj.weight$ = 0, 0, $eachObj.weight$) $if(eachObj.check)$ + $endif$ }$

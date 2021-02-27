@@ -1,0 +1,1 @@
+LEAST(pow ( ($KPI_OBJ:{ obj | pow(( nvl( $obj.sourceKpiInt$ , '0'))*$obj.weight$ , 3 ) $if(obj.check)$ + $endif$ }$ ) / $TARGET_KPI_BUCKET$, 1/3), 16)
