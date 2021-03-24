@@ -1,0 +1,72 @@
+<table>
+    <row>
+        <tablename>PS_BB_BROWSING_HOUR_1</tablename>
+        <table_description>PS_BB_BROWSING_HOUR_1</table_description>
+        <columnname>HTTP_METHOD_COUNT</columnname>
+        <level>PS</level>
+        <definition>ANNUAL INCOME LEVEL OF THE CUSTOMER</definition>
+        <datatype>NUMBER</datatype>
+        <formula>HTTP_METHOD_COUNT</formula>
+        <readbylist>PS_SMS_SEGG_DAY</readbylist>
+        <writtenbylist>US_BB_BROWSING_1</writtenbylist>
+        <jobidlist>NONE</jobidlist>
+        <interval>NONE</interval>
+        <ultimateSourcetable_description>http_method_count</ultimateSourcetable_description>
+    </row>
+    <row>
+        <tablename>PS_BB_BROWSING_HOUR_1</tablename>
+        <table_description>PS_BB_BROWSING_HOUR_1</table_description>
+        <columnname>HTTP_METHOD_COUNT</columnname>
+        <level>PS</level>
+        <definition>ANNUAL INCOME LEVEL OF THE CUSTOMER</definition>
+        <datatype>NUMBER</datatype>
+        <formula>HTTP_METHOD_COUNT</formula>
+        <readbylist>PS_SMS_SEGG_DAY</readbylist>
+        <writtenbylist>US_BB_APPLICATIONS_1</writtenbylist>
+        <jobidlist>NONE</jobidlist>
+        <interval>NONE</interval>
+        <ultimateSourcetable_description>http_method_count</ultimateSourcetable_description>
+    </row>
+	<row>
+        <tablename>PS_BB_BROWSING_HOUR_1</tablename>
+        <table_description>PS_BB_BROWSING_HOUR_1</table_description>
+        <columnname>HTTP_METHOD_COUNT2</columnname>
+        <level>PS</level>
+        <definition>ANNUAL INCOME LEVEL OF THE CUSTOMER</definition>
+        <datatype>NUMBER</datatype>
+        <formula>HTTP_METHOD_COUNT2</formula>
+        <readbylist>PS_SMS_SEGG_DAY</readbylist>
+        <writtenbylist>US_BB_APPLICATIONS_1</writtenbylist>
+        <jobidlist>NONE</jobidlist>
+        <interval>NONE</interval>
+        <ultimateSourcetable_description>HTTP_METHOD_COUNT2</ultimateSourcetable_description>
+    </row>
+	<row>
+        <tablename>PS_BB_BROWSING_DAY_1</tablename>
+        <table_description>PS_BB_BROWSING_HOUR_1</table_description>
+        <columnname>HTTP_METHOD_COUNT1</columnname>
+        <level>PS</level>
+        <definition>ANNUAL INCOME LEVEL OF THE CUSTOMER</definition>
+        <datatype>NUMBER</datatype>
+        <formula>HTTP_METHOD_COUNT2</formula>
+        <readbylist>PS_SMS_SEGG_DAY</readbylist>
+        <writtenbylist>US_BB_APPLICATIONS_1</writtenbylist>
+        <jobidlist>NONE</jobidlist>
+        <interval>NONE</interval>
+        <ultimateSourcetable_description>HTTP_METHOD_COUNT2</ultimateSourcetable_description>
+    </row>
+	<row>
+        <tablename>PS_BB_BROWSING_DAY_1</tablename>
+        <table_description>PS_BB_BROWSING_HOUR_1</table_description>
+        <columnname>HTTP_METHOD_COUNT2</columnname>
+        <level>PS</level>
+        <definition>ANNUAL INCOME LEVEL OF THE CUSTOMER</definition>
+        <datatype>NUMBER</datatype>
+        <formula>HTTP_METHOD_COUNT2</formula>
+        <readbylist>PS_SMS_SEGG_DAY</readbylist>
+        <writtenbylist>US_BB_APPLICATIONS_1</writtenbylist>
+        <jobidlist>NONE</jobidlist>
+        <interval>NONE</interval>
+        <ultimateSourcetable_description>HTTP_METHOD_COUNT2</ultimateSourcetable_description>
+    </row>
+</table>

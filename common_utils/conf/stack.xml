@@ -1,0 +1,20 @@
+<table>
+    <row>
+        <tablename>table1</tablename>
+		<tabledesc>table1_desc</tabledesc>
+        <columnname>col1</columnname>
+        <ultimateSourceTable>sourceTable1</ultimateSourceTable>
+    </row>
+    <row>
+        <tablename>table1</tablename>
+		<tabledesc>table1_desc</tabledesc>
+        <columnname>col1</columnname>
+        <ultimateSourceTable>sourceTable2</ultimateSourceTable>
+    </row>
+    <row>
+        <tablename>table2</tablename>
+		<tabledesc>table2_desc</tabledesc>
+        <columnname>table2_col1</columnname>
+        <ultimateSourceTable>sourceTable2</ultimateSourceTable>
+    </row>
+</table> 

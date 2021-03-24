@@ -1,0 +1,5 @@
+{"tradedDate": "22MAY2020", 
+"data": "data", 
+"optLink": "/marketinfo/sym_map/symbolMapping.jsp?symbol=SBIN&instrument=-&date=-&segmentLink=17&symbolCount=2", 
+"otherSeries": ["EQ", "N2", "N5", "N6"], 
+"futLink": "/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=SBIN&instrument=FUTSTK&expiry=28MAY2020&type=-&strike=-", "lastUpdateTime": "22-MAY-2020 16:00:00"}

@@ -1,0 +1,30 @@
+<table>
+    <row>
+			<tablename>PS_DATA_CP_SEGG_1_HOUR</tablename>
+			<columnname>GLOBAL_ENODEB_IDENTIFIER</columnname>
+			<definition>GLOBAL_ENODEB_IDENTIFIER</definition>
+			<ultimateSourcetable>table1</ultimateSourcetable>
+			<ultimateSourceColumns>col1</ultimateSourceColumns>
+	</row>
+	<row>
+			<tablename>PS_DATA_CP_SEGG_1_HOUR</tablename>
+			<columnname>GLOBAL_ENODEB_IDENTIFIER</columnname>
+			<definition>GLOBAL_ENODEB_IDENTIFIER</definition>
+			<ultimateSourcetable>table3</ultimateSourcetable>
+			<ultimateSourceColumns>col1</ultimateSourceColumns>
+	</row>
+	<row>	
+			<tablename>PS_DATA_CP_SEGG_1_DAY</tablename>
+			<columnname>GLOBAL_ENODEB_IDENTIFIER2</columnname>
+			<definition>GLOBAL_ENODEB_IDENTIFIER2</definition>
+			<ultimateSourcetable>table4</ultimateSourcetable>
+			<ultimateSourceColumns>col4</ultimateSourceColumns>
+    </row>
+	<row>
+			<tablename>ES_HOTSPOT_1</tablename>
+			<columnname>COL1</columnname>
+			<definition>COL1</definition>
+			<ultimateSourcetable></ultimateSourcetable>
+			<ultimateSourceColumns></ultimateSourceColumns>
+	</row>
+</table>
