@@ -3,25 +3,23 @@ source $NGDB_HOME/ifw/lib/application/utils/application_definition.sh
 
 function install_pg_cron()
 {
-	cd /opt/nsn/ngdb/postgres-9.5/data/
-	File=postgresql.conf
+	File=/opt/nsn/ngdb/postgres-9.5/data/postgresql.conf
 	count=`grep -c "pg_cron" "$File"`
 	echo $count
 	if [ $count -eq 1 ]; 
 	then
 		echo "pg_cron looks to be installed and configured, hence skipping"
 	else
-		cwd=$(pwd)
 		echo "Installing pgcron"
-		cd pg_cron-master/
+		cd pg_cron-master
 		export PATH=/usr/pgsql-9.5/bin/:$PATH
 		make
 		sudo PATH=$PATH make install
 		sleep 5s
 		cd /usr/pgsql-9.5/share/extension
 		mv pg_cron--1.0.sql pg_cron--1.2.sql
-		sed -i -e "\$ashared_preload_libraries = 'pg_cron'" postgresql.conf
-		sed -i -e "\$acron.database_name = 'sai'" postgresql.conf
+		sed -i -e "\$ashared_preload_libraries = 'pg_cron'" $File
+		sed -i -e "\$acron.database_name = 'sai'" $File
 		
 		tableExists=$(checkIfTableExists "cleanup_tables_metadata")
 		if [[ "$tableExists" != "t" ]];then

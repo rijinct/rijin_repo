@@ -1,0 +1,95 @@
+events:
+- event1: # basic test
+    start_level: minor
+    escalation_freq: 3
+    condition: trigger1
+    minor:
+    - email
+    major:
+    - email
+    critical:
+    - email
+    - restart
+    email_notification: 
+      subject: None
+      body: None
+    restart_notification:
+      service_name: couchbase
+  event2: # basic test 2
+    start_level: minor
+    escalation_freq: 10
+    condition: trigger2
+    clear:
+    - clear_trap
+    minor:
+    - trap
+    major:
+    - trap
+    - email
+    critical:
+    - trap
+    - email
+    email_notification: 
+      subject: None
+      body: None
+  event3: # to test complex trigger conditions
+    start_level: minor
+    escalation_freq: 3
+    condition: (trigger1 or trigger2) and (trigger3 or trigger4)
+    critical:
+    - email
+    email_notification: 
+      subject: None
+      body: None
+    reset_triggers:
+    - trigger3
+  event4: # to test escalation beyond critical
+    start_level: critical
+    escalation_freq: 1
+    condition: (trigger1 or trigger2) and (trigger3 or trigger4)
+    clear:
+      - clear_trap
+    critical:
+      - email
+    email_notification: 
+      subject: None
+      body: None
+  event5: # to test restart container action
+    start_level: minor
+    escalation_freq: 3
+    condition: trigger3
+    minor:
+    - restart_container
+    major:
+    - restart_container
+    critical:
+    - restart_container
+  event6: # to test consolidate triggers action
+    start_level: critical
+    escalation_freq: 1
+    condition: trigger1 or trigger2 or trigger3 or trigger4
+    critical:
+      - service_stability
+    service_stability_notification:
+      subject: "{} services failed!"
+      body: "List of failed services:\n{}" 
+  event7: # to test consolidation
+    start_level: minor
+    escalation_freq: 3
+    condition: trigger_cons1 or trigger_cons2
+    critical:
+    - email
+    email_notification: 
+      subject: None
+      body: None   
+    consolidated: yes
+    ttl_secs: 60
+  event8: # to test aggregation action
+    start_level: critical
+    escalation_freq: 1
+    condition: hour_jobs_failed_trigger
+    critical:
+      - aggregation
+    aggregation_notification:
+      subject: "Aggregation Status"
+      body: "" 

@@ -1,0 +1,11 @@
+apiVersion: v1
+description: A Helm chart for Health Monitoring
+name: healthmonitoring
+version: "${project_helm_version}"
+dependencies:
+  - name: cmdb
+    version: 7.12.03
+    repository: "@CSF"
+    condition: cmdb.enabled
+    tags:
+    - cmdb

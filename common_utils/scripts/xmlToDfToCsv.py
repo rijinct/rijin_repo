@@ -50,18 +50,19 @@ class variousInputFormatToDf:
 if __name__ == "__main__":
 
     #file_name = 'dataQualityResults_US'
-    file_name = 'Pre-Prod\dataQualityStatistics_2021-03-26_14-15-45'
+    file_name = 'zeta\dataQualityResults_2021-04-23_21-48-50'
     xml_file = r"C:\Users\rithomas\Desktop\NokiaCemod\14. MyProjects\rijin_git\rijin_repo\common_utils\conf\{f}{e}" \
                r"".format(f=file_name,e='.xml')
     csv_file = r"C:\Users\rithomas\Desktop\NokiaCemod\14. MyProjects\rijin_git\rijin_repo\common_utils\conf\{f}{" \
                r"e}".format(f=file_name,e='.xlsx')
     #xml_df_columns = ['kpiName','definition','descriptiveExample','businessRule','calculationRule','LogicalTable',
     # 'LogicalColumn','Status']
-    #xml_df_columns = ['schemaName', 'databaseType', 'tableID', 'tableName', 'fieldID', 'fieldName', 'ruleID',
-         #             'ruleName', 'ruleDescription', 'typeID', 'objectType', 'supportDataType', 'threshold',
-          #            'totalRecord', 'badRecord', 'score', 'isCheckPass']
+    xml_df_columns = ['schemaName', 'databaseType', 'tableID', 'tableName', 'fieldID', 'fieldName', 'ruleID',
+                      'ruleName', 'ruleDescription', 'typeID', 'objectType', 'supportDataType', 'threshold',
+                      'totalRecord', 'badRecord', 'score', 'isCheckPass']
 
-    xml_df_columns = ['objectType', 'parentObjectID', 'schemaName', 'databaseType', 'objectID', 'objectName', 'objectDescription', 'score', 'completenessScore', 'conformityScore', 'consistencyscore', 'integrityScore', 'rangeScore', 'uniquenessScore']
+    #xml_df_columns = ['objectType', 'parentObjectID', 'schemaName', 'databaseType', 'objectID', 'objectName',
+    # 'objectDescription', 'score', 'completenessScore', 'conformityScore', 'consistencyscore', 'integrityScore', 'rangeScore', 'uniquenessScore']
     filter_list = ['Subscriber Group']    
     xml_to_csv_obj = variousInputFormatToDf(xml_file,csv_file,xml_df_columns)    
     xml_to_csv_obj.get_df_from_xml_with_df_columns()

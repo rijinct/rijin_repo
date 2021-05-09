@@ -1,0 +1,471 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "healthmonitoring.fullname" . }}
+  labels:
+    app: {{ template "healthmonitoring.fullname" . }}
+    chart: {{ template "healthmonitoring.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    namespace: "{{ .Release.Namespace }}"
+    env: "{{ .Values.application.environment }}"
+    component: "{{ .Values.application.tier }}"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  minReadySeconds: 60
+  selector:
+    matchLabels:
+      app: {{ template "healthmonitoring.fullname" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "healthmonitoring.fullname" . }}
+        chart: {{ template "healthmonitoring.chart" . }}
+        release: {{ .Release.Name }}
+        heritage: {{ .Release.Service }}
+        namespace: "{{ .Release.Namespace }}"
+        env: "{{ .Values.application.environment }}"
+        component: "{{ .Values.application.tier }}"
+        version: {{ template "healthmonitoring.version" . }}
+    spec:
+      serviceAccountName: {{ template "healthmonitoring.fullname" . }}
+      initContainers:
+{{ if .Values.cmdb.enabled }}
+        - name: wait-for-mariadb
+          image: "{{ .Values.global.registry1 }}/busybox"
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          resources:
+            requests:
+              memory: {{ .Values.mariadbwaitJob.resources.requests.memory | quote }}
+              cpu: {{ .Values.mariadbwaitJob.resources.requests.cpu }}
+            limits:
+              memory: {{ .Values.mariadbwaitJob.resources.limits.memory | quote }}
+              cpu: {{ .Values.mariadbwaitJob.resources.limits.cpu | quote }}          
+          command:  ['sh','-c', 'until nc -z -v -w30 {{ template "healthmonitoring.cmdb.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local {{ .Values.services.mysql.port | quote}}; do echo Waiting for database connection...;sleep 2;done;']
+{{ end }}
+{{- if .Values.is_kerberos_enabled }}
+        - name: krb5-admin-init
+          image: "{{ .Values.global.registry4 }}/{{ .Values.kadmin.image.name }}:{{ .Values.kadmin.image.tag }}"
+          imagePullPolicy: "{{ .Values.kadmin.image.pullPolicy }}"
+          resources:
+            requests:
+              cpu: "0.05"
+              memory: "5Mi"
+            limits:
+              cpu: "0.1"
+              memory: "20Mi"
+          volumeMounts:
+            - name: krb5-config-volume
+              mountPath: {{ .Values.kerberos.krb5ConfigVolumeMountPath }}
+              subPath: krb5.conf
+            - name: shared-data
+              mountPath: {{ .Values.kerberos.sharedDataMountPath }}
+          env:
+            - name: KRB_NAMESPACE
+              value: {{ .Release.Namespace }}            
+            - name: KRB5_OS_USER
+              value: "{{ .Values.krb5.os_user }}"
+            - name: KRB5_SECRET_ADMIN_USER
+              valueFrom:
+                secretKeyRef:
+                  name: acp-cdlk-access-cdlk-access-secrets
+                  key: kdc-http-username
+            - name: KRB5_SECRET_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: acp-cdlk-access-cdlk-access-secrets
+                  key: kdc-http-passwd
+{{- end }}
+{{- if .Values.global.is_nodeaffinity_enabled }}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: is_worker
+                operator: In
+                values:
+                - "true"
+              - key: nodeType
+                operator: NotIn
+                values:
+                - kf-enable
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - topologyKey: "kubernetes.io/hostname"
+              labelSelector:
+                matchLabels:
+                  release: {{ .Release.Name | quote }}
+                  app: {{ template "healthmonitoring.fullname" . }}
+{{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.global.registry3 }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          resources:
+            requests:
+              memory: {{ .Values.resources.requests.memory | quote }}
+              cpu: {{ .Values.resources.requests.cpu }}
+            limits:
+              memory: {{ .Values.resources.limits.memory | quote }}
+              cpu: {{ .Values.resources.limits.cpu | quote }}
+          livenessProbe:
+            exec:
+              command:
+              - cat
+              - /opt/nsn/ngdb/monitoring/conf/monitoring.xml
+            initialDelaySeconds: 30
+            periodSeconds: 50
+          readinessProbe:
+            exec:
+              command:
+              - cat
+              - /opt/nsn/ngdb/monitoring/conf/monitoring.xml
+            initialDelaySeconds: 30
+            periodSeconds: 50
+          env:
+            - name: IS_K8S
+              value: "{{ .Values.k8.enabled }}"
+            - name: LOCAL_TZ
+              value: {{ .Values.timezone.localtimezone }}
+            - name: connection_pooling_enabled
+              value: "{{ .Values.hiveConfigProperties.connection_pooling_enabled }}"
+            - name: db_driver
+              value: {{ .Values.hiveConfigProperties.db_driver }}
+{{- if .Values.cdlk.enabled }}
+            - name: HIVE_JDBC_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.hiveConfigMapAccess }}
+                  key: HIVE_JDBC_URL
+            - name: HIVE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.hiveConfigMapAccess }}
+                  key: HIVE_HOST
+            - name: HIVE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.hiveConfigMapAccess }}
+                  key: HIVE_PORT
+            - name: SPARK2_THRIFT1_JDBC_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.hiveConfigMapAccess }}
+                  key: SPARK2_THRIFT1_JDBC_URL
+            - name: SPARK2_THRIFT2_JDBC_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.hiveConfigMapAccess }}
+                  key: SPARK2_THRIFT2_JDBC_URL
+            - name: SPARK2_THRIFT3_JDBC_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.hiveConfigMapAccess }}
+                  key: SPARK2_THRIFT3_JDBC_URL
+            - name: CDLK_CLUSTERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.cdlkConfigMapAccessContext }}
+                  key: CDLK_CLUSTERNAME
+            - name: CDLK_CLUSTERHOST
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.cdlkConfigMapAccessContext }}
+                  key: CDLK_CLUSTERHOST
+            - name: CDLK_CLUSTERPORT
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.cdlkConfigMapAccessContext }}
+                  key: CDLK_CLUSTERPORT
+            - name: IDLE_CONNECTION_TEST_PERIOD_IN_MINUTES
+              value: "{{ .Values.hiveConfigProperties.IDLE_CONNECTION_TEST_PERIOD_IN_MINUTES }}"
+            - name: IDLE_CONNECTION_TEST_SQL
+              value: "{{ .Values.hiveConfigProperties.IDLE_CONNECTION_TEST_SQL }}"
+            - name: max_connections
+              value: "{{ .Values.hiveConfigProperties.max_connections }}"
+            - name: min_connections
+              value: "{{ .Values.hiveConfigProperties.min_connections }}"
+            - name: HADOOP_CONF_DIR
+              value: {{ .Values.app.hadoopConfDir }}
+            - name: HIVE_CONF_DIR
+              value: {{ .Values.app.hiveConfDir }}
+{{- end }}
+            - name: hive_username
+              value: "{{ .Values.hiveConfigProperties.hive_username }}"
+            - name: DB_SCHEMA
+              {{ if .Values.database.enabled }}
+              value: "{{ .Values.database.schemaName }}"
+              {{ end }}
+            - name: CEMOD_SDK_DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.configMap.extEndpoints.name }}
+                  key: CEMOD_SDK_DB_URL
+            - name: CEMOD_POP3_SERVER_IP
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.configMap.extEndpoints.name }}
+                  key: CEMOD_POP3_SERVER_IP
+            - name: CEMOD_SMTP_SENDER_EMAILID
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.configMap.extEndpoints.name }}
+                  key: CEMOD_SMTP_SENDER_EMAILID
+            - name: CEMOD_SMTP_RECEIVER_EMAILIDS
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.configMap.extEndpoints.name }}
+                  key: CEMOD_SMTP_RECEIVER_EMAILIDS
+            - name: CEMOD_SDK_DB_USERNAME
+              value: {{ .Values.app.sdkDBUserName }}
+            - name: CEMOD_SDK_DB_DRIVER
+              value: {{ .Values.app.sdkDBDriver }}
+            - name: CEMOD_SDK_SCHEMA_NAME
+              value: {{ .Values.app.sdkSchemaName }}
+            - name: OUTPUT_MONITORING_PATH
+              value: "{{ .Values.persistence.outputMountPath }}"
+            - name: RELEASE_NAMESPACE
+              value: "{{ .Release.Namespace }}"
+            - name: KRB5CCNAME
+              value: "/tmp/krb5-credentials/krb5cc_user"
+            - name: CEMOD_MARIA_DB_DRIVER
+              value: {{ .Values.mariadbConfigProperties.mariaDbDriver }}
+            - name: CEMOD_DOMAIN_NAME
+              value: {{ .Values.mariadbConfigProperties.domainName }}
+            - name: CEMOD_QS_DB_SCHEMA_NAME
+              value: {{ .Values.queryschedulerConfigProperties.schemaName }}
+            - name: CEMOD_WS_DB_SCHEMA_NAME
+              value: {{ .Values.webserviceConfigProperties.schemaName }}
+            - name: CEMOD_MONITORING_SCHEMA_NAME
+              value: {{ .Values.monitoringMariaDbConfigProperties.schemaName }}
+            - name: CEMOD_QS_SERVICE_NAME
+              value: "{{ .Values.queryschedulerConfigProperties.qsServiceName }}.{{ .Release.Namespace }}"
+            - name: CEMOD_WS_SERVICE_NAME
+              value: "{{ .Values.webserviceConfigProperties.wsServiceName }}.{{ .Release.Namespace }}"
+            - name: CEMOD_MONITORING_SERVICE_NAME
+              value: "{{ .Values.monitoringMariaDbConfigProperties.monitoringServiceName }}.{{ .Release.Namespace }}"
+            - name: CEMOD_API_AGGREGATOR_SERVICE_NAME
+              value: "{{ .Values.apiaggregator.name }}.{{ .Release.Namespace }}"
+            - name: CEMOD_API_AGGREGATOR_PORT
+              value: "{{ .Values.apiaggregator.port }}"
+            - name: CEMOD_QS_PORT
+              value: "{{ .Values.queryschedulerConfigProperties.port }}"
+            - name: CEMOD_WS_PORT
+              value: "{{ .Values.webserviceConfigProperties.port }}"
+            - name: CEMOD_MONITORING_PORT
+              value: "{{ .Values.monitoringMariaDbConfigProperties.port }}"
+            - name: CEMOD_QS_USER
+              value: {{ .Values.queryschedulerConfigProperties.username }}
+            - name: CEMOD_WS_USER
+              value: {{ .Values.webserviceConfigProperties.username }}
+            - name: CEMOD_MONITORING_USER
+              value: {{ .Values.monitoringMariaDbConfigProperties.username }}
+            - name: CEMOD_QS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ template "queryscheduler.hm.secrets" . }}"
+                  key: repl-user-password
+            - name: CEMOD_WS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ template "webservice.hm.secrets" . }}"
+                  key: repl-user-password
+            - name: CEMOD_MONITORING_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ template "monitoring.cmdb.secrets" . }}"
+                  key: repl-user-password
+{{- if .Values.is_elasticsearch_enabled }}                 
+            - name: ELASTICSEARCH_ENDPOINT_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.apaasContextConfigMap }}
+                  key: ELASTICSEARCH_NAME
+            - name: ELASTICSEARCH_ENDPOINT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.apaasContextConfigMap }}
+                  key: ELASTICSEARCH_PORT
+{{- end }}                  
+            - name: KAFKA_BROKER_ENDPOINT            
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.appaskafkaConfigMap }}
+                  key: KAFKA_BROKER_ENDPOINT
+            - name: KAFKA_ZOOKEEPER_ENDPOINT
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.appaskafkaConfigMap }}
+                  key: KAFKA_ZOOKEEPER_ENDPOINT
+{{- if .Values.is_kerberos_enabled }}
+            - name: KRB5CCNAME
+              value: "/tmp/krb5-credentials/krb5cc_user"
+            - name: KEYTAB_LOCATION
+              value: "/tmp/krb5-credentials/ngdb.keytab"
+            - name: POD_HOSTNAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: USER_PRINCIPAL
+              value: "{{ .Values.krb5.os_user }}/$(POD_HOSTNAME)@{{ .Values.realm }}"
+{{- end }}
+          volumeMounts:
+{{- if .Values.cdlk.tls.enabled }}
+            - name: cdlk-tls-secret
+              mountPath: {{ .Values.cdlk.tls.cert_path }}
+{{- end }}
+            - name: ca4ci-ext-configmap
+              mountPath: "{{ .Values.app.extEndpointDir }}"
+            - name: monitoring-output
+              mountPath: "{{ .Values.persistence.outputMountPath }}"
+{{- if .Values.cdlk.enabled }}
+            - name: hadoop-client-properties
+              mountPath: "{{ .Values.app.hadoopConfDir }}"
+{{- end }}
+{{- if .Values.cdlk.enabled }}
+            - name: hive-client-properties
+              mountPath: "{{ .Values.app.hiveConfDir }}"
+{{- end }}
+            - name: {{ .Values.volumegfs.name | quote }}
+              mountPath: {{ .Values.volumegfs.mountpath | quote }}
+{{- if .Values.is_kerberos_enabled }}
+            - name: shared-data
+              mountPath: {{ .Values.kerberos.sharedDataMountPath }}
+            - name: krb5-config-volume
+              mountPath: {{ .Values.kerberos.krb5ConfigVolumeMountPath }}
+              subPath: krb5.conf
+{{- end }}
+{{- if .Values.timezone.enabled }}
+            - name: timezone-config
+              mountPath: /etc/localtime
+              readOnly: true
+{{- end }}
+            - name: monitoring-settings
+              mountPath: "{{ .Values.app.monitoringSettingsConfDir }}"
+            - name: monitoring-alarms
+              mountPath: "{{ .Values.app.mointoringAlarmsDir }}"
+            - name: monitoring-cad-properties
+              mountPath: "{{ .Values.app.mointoringCadPropDir }}"
+          ports:
+            - name: http
+              containerPort: {{ .Values.httpPort }}
+              protocol: TCP
+{{- if .Values.is_kerberos_enabled }}
+        - name: krb5-tgt-init
+          image: "{{ .Values.global.registry4 }}/{{ .Values.kinit.image.name }}:{{ .Values.kinit.image.tag }}"
+          imagePullPolicy: "{{ .Values.kinit.image.pullPolicy }}"
+          resources:
+            requests:
+              cpu: {{ .Values.krb.requests.cpu | quote }}
+              memory: {{ .Values.krb.requests.memory | quote }}
+            limits:
+              cpu: {{ .Values.krb.limits.cpu | quote }}
+              memory: {{ .Values.krb.limits.memory | quote }}
+          volumeMounts:
+            - name: krb5-config-volume
+              mountPath: {{ .Values.kerberos.krb5ConfigVolumeMountPath }}
+              subPath: krb5.conf
+            - name: shared-data
+              mountPath: {{ .Values.kerberos.sharedDataMountPath }}
+          env:
+            - name: KRB_NAMESPACE
+              value: {{ .Release.Namespace }}            
+            - name: KRB5_OS_USER
+              value: "{{ .Values.krb5.os_user }}"
+            - name: KRB5_CRON_EXPRESSION
+              value: "{{ .Values.kinit.cron.expression }}"
+            - name: KRB_COMPONENT
+              value: {{ template "healthmonitoring.fullname" . }}
+            - name: KRB5_SECRET_ADMIN_USER
+              valueFrom:
+                secretKeyRef:
+                  name: acp-cdlk-access-cdlk-access-secrets
+                  key: kdc-http-username
+            - name: KRB5_SECRET_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: acp-cdlk-access-cdlk-access-secrets
+                  key: kdc-http-passwd
+{{- end }}
+      volumes:
+      - name: ca4ci-ext-configmap
+        configMap:
+          name: {{ .Values.app.configMap.extEndpoints.name }}
+      - name: monitoring-output
+        persistentVolumeClaim:
+          claimName: {{ template "healthmonitoring.fullname" . }}-pvc
+{{- if .Values.cdlk.enabled }}
+      - name: hadoop-client-properties
+        configMap:
+          name: {{ .Values.app.hadoopConfigMap }}
+{{- end }}
+{{- if .Values.cdlk.enabled }}
+      - name: hive-client-properties
+        configMap:
+          name: {{ .Values.app.hiveConfigMap }}
+{{- end }}
+      - name: apaas-cdlk-access
+        configMap:
+          name: {{ .Values.app.hiveConfigMapAccess }}
+      - name: acp-cdlk-access-context
+        configMap:
+          name: {{ .Values.app.cdlkConfigMapAccessContext }}
+      - name: ca4ci-ext-endpoints
+        configMap:
+          name: {{ .Values.app.configMap.extEndpoints.name }}
+      - name: {{ .Values.volumegfs.name | quote }}
+        glusterfs:
+          endpoints: {{ .Values.glusterfs.endpoints | quote }}
+          path: {{ .Values.glusterfs.path | quote }}
+      - name: vault-token
+        secret:
+          secretName: {{ .Values.app.secret.vault.name }}
+          items:
+           - key: CEMOD_VAULT_TOKEN
+             path: vault.token
+{{- if .Values.is_kerberos_enabled }}
+      - name: krb5-config-volume
+        configMap:
+          defaultMode: 420
+          name: {{ .Values.krb5.configmap }}
+      - name: shared-data
+        emptyDir: {}
+{{- end }}
+{{- if .Values.timezone.enabled }}
+      - name: timezone-config
+        hostPath:
+          path: /usr/share/zoneinfo/{{ .Values.timezone.localtimezone }}
+{{- end }}
+      - name: monitoring-settings
+        configMap:
+          name: {{ template "healthmonitoring.fullname" . }}-settings
+      - name: monitoring-alarms
+        configMap:
+          name: {{ template "healthmonitoring.fullname" . }}-alarms
+      - name: monitoring-cad-properties
+        configMap:
+          name: {{ template "healthmonitoring.fullname" . }}-cad
+{{- if .Values.cdlk.tls.enabled }}
+      - name: cdlk-tls-secret
+        secret:
+          defaultMode: 420
+          items:
+          - key: jssecacerts
+            path: jssecacerts
+          secretName: {{ .Values.cdlk.tls.secret_name }}
+{{- end }}
+{{- if .Values.securityContext.enabled }}
+      securityContext:
+        runAsUser: {{ .Values.securityContext.runAsUser }}
+        fsGroup: {{ .Values.securityContext.fsGroup }}
+        runAsGroup: {{ .Values.securityContext.runAsGroup }}
+        readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
+        allowPrivilegeEscalation: {{ .Values.securityContext.allowPrivilegeEscalation }}
+{{- end }}

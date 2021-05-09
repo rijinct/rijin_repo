@@ -1,0 +1,18 @@
+tags:
+  - Technical Metadata Configuration
+summary: Get Output XML
+parameters:
+  - in: query
+    name: date
+    description: Pass date in the format (yyyy-mm-dd). If no date is specfied, latest output will be retrieved.
+    type: string
+responses:
+  '200':
+    description: "Success"
+    content:
+      application/zip:
+        schema:
+          type: string
+          format: binary
+    produces:
+      - application/zip

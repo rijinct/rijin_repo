@@ -1,0 +1,124 @@
+#!groovy
+RHEL6_NODE = 'cemod_trunk_scheduler'
+RHEL7_NODE = 'cemod_trunk_rhel7_scheduler'
+env.component_path = "PlatformApplications/monitoring"
+env.comp_URL = "ssh://ca_cp@bhgerrit.ext.net.nokia.com:8282/CA4CI/"
+component_URL = "$comp_URL$component_path"
+
+properties([
+  parameters([
+    string(name: 'PACKAGE_DIRECTORY', defaultValue: 'MONITORING' , description: 'PACKAGE DIRECTORY in installers'),
+    string(name: 'BUILD_PROFILE', defaultValue: 'Wandisco27 Cloudera512' , description: 'Build profiles'),
+    booleanParam(name: 'publish', defaultValue: true, description: 'Set true to publish artifacts'),
+    booleanParam(name: 'PROMOTE_TO_PRODUCT', defaultValue: false, description: 'Set true to promote artifacts'),
+    choice(name: 'BUILD_CLOUDERA_ON', choices: 'R7\nR6\nBOTH_R6R7', description: 'Where to start the new environment'),
+]),
+  [
+    $class: 'ThrottleJobProperty',
+    categories: ['PLATFORM_JOBS'],
+    limitOneJobWithMatchingParams: false,
+    maxConcurrentPerNode: 0,
+    maxConcurrentTotal: 0,
+    paramsToUseForLimit: '',
+    throttleEnabled: true,
+    throttleOption: 'category'
+  ],
+    pipelineTriggers([cron('H 23 * * *'), pollSCM('H/2 * * * *')])
+])
+
+pipeline {
+  agent none
+  
+  stages {
+     stage('Checkout') {
+          when {
+            expression { return !(env.BUILD_PROFILE == "Cloudera512" && BUILD_CLOUDERA_ON == "R7") }
+        }
+        agent { label RHEL6_NODE }
+      steps {
+        step([$class: 'WsCleanup'])
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout'],[$class: 'RelativeTargetDirectory', relativeTargetDir: component_path],[$class: 'MessageExclusion', excludedMessage: '(?s).*Merge.*'],[$class: 'PathRestriction', excludedRegions: 'Jenkinsfile', includedRegions: '']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '786d2e2f-a5ab-4660-995e-f83a53c20793', url: component_URL]]])
+        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'ContinuousIntegration'], [$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: 'buildscripts/GITbuildenv/']]], [$class: 'CleanBeforeCheckout'], [$class: 'ChangelogToBranch', options: [compareRemote: 'ContinuousIntegration', compareTarget: 'TEST1']], [$class: 'PathRestriction', excludedRegions: '.*', includedRegions: '']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '786d2e2f-a5ab-4660-995e-f83a53c20793', url: 'ssh://ca_cp@bhgerrit.ext.net.nokia.com:8282/ContinuousIntegration']]]
+      }
+    }
+	
+    stage('Build') {
+         when {
+             expression { return !(env.BUILD_PROFILE == "Cloudera512" && BUILD_CLOUDERA_ON == "R7") }
+        }
+      agent { label RHEL6_NODE }
+      steps {
+          script {
+            def info = new com.nokia.ca4ci.gitdetails()
+            info.getGITdetails(component_path)
+            sh '''
+                if [  "${BUILD_CLOUDERA_ON}" == "R7" ]; then
+                    BUILD_PROFILE=${BUILD_PROFILE/Cloudera512}
+                    echo BUILD_PROFILE=$BUILD_PROFILE
+                fi
+                source ContinuousIntegration/buildscripts/GITbuildenv/build_platform_components.sh ${component_path}
+            '''
+            if( env.BUILD_CLOUDERA_ON == "BOTH_R6R7" ) {
+                env.OLD_WORKSPACE=env.WORKSPACE
+                stash env.PACKAGE_DIRECTORY
+            }
+          }
+      }
+    }
+
+    stage('Checkout_RHEL7') {
+    agent { label RHEL7_NODE }
+     when {
+            expression { return !(env.BUILD_CLOUDERA_ON == "R6" || env.BUILD_PROFILE == "Wandisco27") }
+        }
+      steps {
+        script {
+        step([$class: 'WsCleanup'])
+        if( env.BUILD_CLOUDERA_ON == "BOTH_R6R7" ) { 
+            unstash env.PACKAGE_DIRECTORY
+        }
+        else{
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout'],[$class: 'RelativeTargetDirectory', relativeTargetDir: component_path],[$class: 'MessageExclusion', excludedMessage: '(?s).*Merge.*'],[$class: 'PathRestriction', excludedRegions: 'Jenkinsfile', includedRegions: '']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '360e18e2-081c-45f2-a1f1-76610d6a3744', url: component_URL]]])
+            checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'ContinuousIntegration'], [$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: 'buildscripts/GITbuildenv/']]], [$class: 'CleanBeforeCheckout'], [$class: 'ChangelogToBranch', options: [compareRemote: 'ContinuousIntegration', compareTarget: 'TEST1']], [$class: 'PathRestriction', excludedRegions: '.*', includedRegions: '']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '786d2e2f-a5ab-4660-995e-f83a53c20793', url: 'ssh://ca_cp@bhgerrit.ext.net.nokia.com:8282/ContinuousIntegration']]]
+        }
+        }
+      }
+    }
+    stage('Build_RHEL7') {
+    agent { label RHEL7_NODE }
+     when {
+            expression { return !(env.BUILD_CLOUDERA_ON == "R6" || env.BUILD_PROFILE == "Wandisco27") }
+        }
+      steps {
+          script {
+            env.BUILD_PROFILE = "Cloudera512"
+            env.JDK8 = "true"
+            if( env.BUILD_CLOUDERA_ON == "BOTH_R6R7" ) { 
+                env.RHEL = "6AND7" }
+            else{
+                env.RHEL = "7" 
+                def info = new com.nokia.ca4ci.gitdetails()
+                info.getGITdetails(component_path) }
+            sh '''
+                if [ "${BUILD_CLOUDERA_ON}" == "BOTH_R6R7" ]; then
+                    source ContinuousIntegration/buildscripts/GITbuildenv/build_platform_components.sh ${component_path}/installation
+                else
+                    source ContinuousIntegration/buildscripts/GITbuildenv/build_platform_components.sh ${component_path}
+                fi
+            '''
+	    def errstat = new com.nokia.ca4ci.errorstat()
+            errstat.ErrorStatus()
+          }
+      }
+    }
+    stage('CheckErrors') {
+        agent { label RHEL6_NODE }
+      steps {
+          script {
+            def errstat = new com.nokia.ca4ci.errorstat()
+            errstat.ErrorStatus()
+          }
+      }
+    }
+  }
+}

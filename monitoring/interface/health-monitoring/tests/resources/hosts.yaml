@@ -1,0 +1,62 @@
+hostgroups:
+  application:
+    couchbase:
+      ha_status: No
+      name: cemod_couchbase_hosts
+      hosts: [h1, h2, h3]
+    scheduler:
+      ha_status: Yes
+      name: cemod_scheduler_active_fip_host
+      hosts: [h4, h5]
+    dalserver:
+      name: cemod_dalserver_active_fip_host
+      hosts: [h4, h5]
+    email:
+      fields: [cemod_smtp_sender_emailids, cemod_smtp_ip, cemod_smtp_host, cemod_smtp_receiver_emailids]
+      cemod_smtp_sender_emailids: root@localhost
+      cemod_smtp_ip: 127.0.0.1
+      cemod_smtp_host: nsn.mail.com
+      cemod_smtp_receiver_emailids: root@localhost;ngdb@localhost
+    snmp:
+      fields: [cemod_snmp_ip, cemod_snmp_port, cemod_snmp_community]
+      list_fields: []
+      cemod_snmp_ip: 127.0.0.1
+      cemod_snmp_port: 162
+      cemod_snmp_community: 2011#Sai#2025
+    postgres_sdk:
+      fields: [cemod_sdk_db_name, cemod_application_sdk_database_linux_user, cemod_postgres_sdk_fip_active_host, cemod_application_sdk_db_port]
+      list_fields: []
+      cemod_sdk_db_name: sai
+      cemod_application_sdk_database_linux_user: postgres
+      cemod_postgres_sdk_fip_active_host: postgressdk-fip.nokia.com
+      cemod_application_sdk_db_port: 5432
+    mariadb:
+      fields: [mariadb_db_name, mariadb_user, mariadb_password, mariadb_active_host, mariadb_connect_timeout]
+      list_fields: []
+      mariadb_db_name: test
+      mariadb_user: mariadb
+      mariadb_password: test123
+      mariadb_active_host: mariadb.test.nokia.com
+      mariadb_connect_timeout: 86400
+  platform:
+    hdfs:
+      name: cemod_hdfs_master
+      hosts: [h6]
+    spark:
+      name: cemod_spark_master
+      hosts: [h1]
+    zookeeper:
+      name: cemod_zookeep_install_hosts
+      hosts: [h7, h8, h9]
+    postgres_hive:
+      fields: [cemod_hive_dbname, cemod_hive_metastore_db_user, cemod_postgres_active_fip_host, cemod_hive_metastore_db_port]
+      list_fields: []
+      cemod_hive_dbname: sai
+      cemod_hive_metastore_db_user: postgres
+      cemod_postgres_active_fip_host: postgressdk-fip.nokia.com
+      cemod_hive_metastore_db_port: 5432
+  portal:
+    tomcat:
+      ha_status: Yes
+      name: tomcat
+      hosts: [p1, p2]

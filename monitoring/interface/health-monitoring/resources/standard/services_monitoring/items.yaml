@@ -1,0 +1,9 @@
+items:
+   ServiceStability:
+   -  cemod_services:
+         schedule: every 15 mins
+         enabled: True
+         csv_header: Date,Host,Service,Last_Restart_Time,Uptime,Downtime
+         csv_filename: ServiceStability_DATE.csv
+         commands:
+         -  status: python /opt/nsn/ngdb/monitoring/scripts/Servicestability.py

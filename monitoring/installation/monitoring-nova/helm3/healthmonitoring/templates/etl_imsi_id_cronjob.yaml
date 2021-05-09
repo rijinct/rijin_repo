@@ -1,0 +1,47 @@
+{{- if .Values.rbac.enabled }}
+{{- if .Values.rbac.create }}
+{{- $defaultServiceAccount := include "healthmonitoring.fullname" . }}
+{{- $serviceAccount := .Values.rbac.serviceAccount | default $defaultServiceAccount -}}
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: etl-imsi-id-exceptions-job
+  labels:
+    componentGroup: "{{ .Values.application.tier }}"
+    namespace: "{{ .Release.Namespace }}"
+spec:
+  schedule: "*/30 * * * *"
+  suspend: true
+  successfulJobsHistoryLimit: 0
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      backoffLimit: 1
+      template:
+        spec:
+          restartPolicy: Never
+          serviceAccountName: {{ $serviceAccount }}
+          containers:
+             - name: etl-imsi-id-exceptions-job
+               image: "{{ .Values.global.registry }}/{{ .Values.imageKubectl.name }}:{{ .Values.imageKubectl.tag }}"
+               imagePullPolicy: {{ .Values.imageKubectl.pullPolicy }}
+               resources:
+                 requests:
+                   cpu: "0.05"
+                   memory: "5Mi"
+                 limits:
+                   cpu: "0.1"
+                   memory: "20Mi"
+               command:
+               - sh
+               - "-c"
+               - |
+                 echo "Started getting  imsi-id exceptions "
+                 pod_name=`kubectl get pods -n {{ .Release.Namespace }} |grep {{ template "healthmonitoring.fullname" . }}|tr -d [:space:]|awk -F"[0-9]/[0-9]" '{print $1}'`
+                 kube_path={{ .Values.app.accessPath }}
+                 kubectl exec -it $pod_name -n {{ .Release.Namespace }} -c healthmonitoring sh <<< "mkdir -p $kube_path"
+                 pod_output=$(for pod in $(kubectl get pods -n {{ .Release.Namespace }}  | grep etltopology-.*-sink | awk '{ print $1 }'); do  topology=$(echo $pod | sed  -e 's~-sink.*~~' -e 's~^etltopology-~~') ; kubectl logs -c etltopology $pod -n {{ .Release.Namespace }}  | sed -n "/$(date --date='30 minutes ago' '+%Y-%m-%dT%H:%M')/,\$p"| grep "ERROR" | grep "Could not generate id" >/dev/null ;  echo "$topology:$?" ; done | sort -u)
+                 kubectl exec -it $pod_name -n {{ .Release.Namespace }} -c healthmonitoring sh <<< "echo \"$pod_output\" > $kube_path/etl_imsi_id.txt"
+                 echo "Completed Writing to a file"
+{{- end }}
+{{- end }}

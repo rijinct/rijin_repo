@@ -1,0 +1,213 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: {{ template "healthmonitoring.fullname" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  name: {{ template "healthmonitoring.fullname" . }}-alarms
+  namespace: {{ .Release.Namespace }}
+data:
+    alarms: |-
+      health-monitoring-alarms:
+      - ETL_LAG_HIGH:
+          eventType: 11
+          id: "230001"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: critical
+          text: ETL Lag High
+      - ETL_BACKLOG_HIGH:
+          eventType: 11
+          id: "230002"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: critical
+          text: ETL Backlog is high
+      - ETL_INPUT_FILE_SIZE_LARGE:
+          eventType: 11
+          id: "230003"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: critical
+          text: Large Size File(s) are at ETL Input Directory
+      - POSTGRES_USER_CONNECTIONS_HIGH:
+          eventType: 11
+          id: "230004"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: critical
+          text: Postgres user's connections are high
+      - TOTAL_HDFS_USED_PERC_HIGH:
+          eventType: 11
+          id: "230005"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: critical
+          text: Total Hdfs used percentage is high
+      - CEI_INDEX_CHANGE:
+          eventType: 11
+          id: "230006"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: critical
+          text: CEI Index Changed
+      - MISSING_DAT_AND_CTR_FILES:
+          eventType: 11
+          id: "230007"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "346"
+          severity: critical
+          text: Dat & Ctr files are missing
+      - MEDIATION_NOT_SENDING_DATA:
+          eventType: 11
+          id: "230008"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "346"
+          severity: critical
+          text: Mediation Not Sending Data
+      - DIMENSION_FILES_NOT_ARRIVING:
+          eventType: 11
+          id: "230009"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: critical
+          text: Dimension Files are not arriving
+      - DIMENSION_JOB_FAILED:
+          eventType: 11
+          id: "230100"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "346"
+          severity: critical
+          text: Dimension Job(s) Failed
+      - QS_JOB_FAILED:
+          eventType: 11
+          id: "230101"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "346"
+          severity: critical
+          text: Qs Job(s) Failed
+      - USAGE_JOB_FAILED:
+          eventType: 11
+          id: "230102"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "346"
+          severity: critical
+          text: Usage Job(s) Failed
+      - AGGREGATION_JOB_FAILED:
+          eventType: 11
+          id: "230103"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "346"
+          severity: critical
+          text: Aggregation Job(s) Failed
+      - DELAYED_USAGE_JOBS:
+          eventType: 11
+          id: "230104"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: critical
+          text: Delayed Usage Job(s)
+      - LONG_RUNNING_JOBS:
+          eventType: 11
+          id: "230105"
+          snmp_enabled: true
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: major
+          text: Long Running Job(s)
+      - SUMMARY_REPORT:
+          eventType: 11
+          id: "230106"
+          snmp_enabled: false
+          email_enabled: true
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: minor
+          text: Summary Report
+      - MNT_VOLUME_BREACHED:
+          eventType: 11
+          id: "230107"
+          enabled: true
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: major
+          email_enabled: true
+          snmp_enabled: true
+          text: Total Mnt used percent is high
+      - SERVICES_DOWN:
+          eventType: 11
+          id: "230108"
+          enabled: true
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: critical
+          email_enabled: true
+          snmp_enabled: true
+          text: Spark Thrift Services Down
+      - SELF_HEALED_HUNG_SERVICES:
+          eventType: 11
+          id: "230109"
+          enabled: true
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: warning
+          email_enabled: true
+          snmp_enabled: true
+          text: Spark Thrift Hung Services Self Healed
+      - HDFS_WRITE_SPEED_NOT_OK:
+          eventType: 11
+          id: "230110"
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: critical
+          email_enabled: true
+          snmp_enabled: true
+          text: Hadoop Write Speed Not OK
+      - HDFS_READ_SPEED_NOT_OK:
+          eventType: 11
+          id: "230111"
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: critical
+          email_enabled: true
+          snmp_enabled: true
+          text: Hadoop Read Speed Not OK
+      - DQM_FILECOUNT_ALARM:
+          eventType: 11
+          id: "230112"
+          key: HealthMonitoring
+          probableCause: "351"
+          severity: major
+          email_enabled: true
+          snmp_enabled: true
+          text: Too Many Files in DQM Folder

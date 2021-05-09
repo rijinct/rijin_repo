@@ -1,0 +1,26 @@
+triggers:
+-  day_job_failure_trigger:
+      items:
+         day_agg_item: Aggregations.day_aggregations
+      variables:
+         day_agg_status: ${day_agg_item['table']['Status']}
+      condition: "{day_agg_status} == 'E'"
+   day_job_long_running_trigger:
+      items:
+         day_agg_item: Aggregations.day_aggregations
+      variables:
+         duration: ${day_agg_item['table']['Execution_Duration']}
+      condition: "int({duration}) > 30"
+   day_job_boundary_trigger:
+      items:
+         day_agg_item: Aggregations.day_aggregations_boundary
+      variables:
+         boundary: ${day_agg_item['table']['Cycles Behind']}
+      condition: "({boundary} or 0) >= 1"
+   day_job_enabled_not_executed_trigger:
+      items:
+         day_agg_item: Aggregations.day_aggregations_boundary
+      variables:
+         boundary: ${day_agg_item['table']['Cycles Behind']}
+         enabled_flag: ${day_agg_item['table']['Job Enabled']}
+      condition: "{enabled_flag} == 'Enabled' and ({boundary} or 0) >= 1"

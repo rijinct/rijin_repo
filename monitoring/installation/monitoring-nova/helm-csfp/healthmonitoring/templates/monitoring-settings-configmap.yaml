@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: {{ template "healthmonitoring.fullname" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  name: {{ template "healthmonitoring.fullname" . }}-settings
+  namespace: {{ .Release.Namespace }}
+data:
+    {{ if .Files.Get "config/monitoring.xml" }}
+    monitoring.xml: {{ .Files.Get "config/monitoring.xml" | indent 5 }}
+    {{ else }}
+    {{ fail "Supply monitoring.xml file! add 'monitoring.xml' to your chart 'config' directory." }}
+    {{ end }}

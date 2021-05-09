@@ -1,0 +1,12 @@
+TAG_XPATH_LOC = './row/formula'
+SUBPROC_SCRIPT = 'sql_parser.sh'
+EXECUTOR = 'sh'
+csv_columns = ['Kpi_Name','Definition','Descriptive_Example','Business_Rule','Calculation_Rule','LogicalTable','LogicalColumn','Asset_Type','DOMAIN_NAME','DOMAIN_TYPE','COMMUNITY']
+XML_DF_COLUMNS = ['tablename','table_description','columnname','level','definition', 'datatype', 'formula','sequence', 'readbylist', 'writtenbylist', 'jobidlist', 'interval']
+monitoring_output_dir='/opt/nsn/ngdb/monitoring/output/'
+output_directory = "/opt/nsn/ngdb/monitoring/output/cad/"
+custom_xsl_path = '/opt/nsn/ngdb/monitoring/output/cad/custom/xsl/'
+technical_meta_xsl_custom = custom_xsl_path +'technicalMetadata.xsl'
+technical_meta_xsl_default = '/opt/nsn/ngdb/monitoring/cad/metadata/technical/technicalMetadata.xsl'
+operational_meta_xsl_custom = custom_xsl_path +'operationalMetadata.xsl'
+operational_meta_xsl_default = '/opt/nsn/ngdb/monitoring/cad/metadata/operational/operationalMetadata.xsl'

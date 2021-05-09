@@ -1,0 +1,23 @@
+items:
+   AggregationJobMonitoring:
+   -  hour_aggregations:
+         schedule: every hour at 58th min
+         enabled: True
+         csv_header: hour,job_name,start_time,end_time,executionduration,status
+         csv_filename: hourJobsStatus_DATE_Allhours.csv
+         commands:
+         -  status: python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py HOUR
+   -  day_aggregations:
+         schedule: every day at 8th hour
+         enabled: True
+         csv_header: day,job_name,start_time,end_time,executionduration,status
+         csv_filename: dayJobsStatus_DATE.csv
+         commands:
+         -  status: python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py DAY
+   -  week_aggregations:
+         schedule: every monday at 9th hour
+         enabled: True
+         csv_header: week,job_name,start_time,end_time,executionduration,status
+         csv_filename: weekJobsStatus_DATE.csv
+         commands:
+         -  status: python /opt/nsn/ngdb/monitoring/scripts/checkAggregations.py WEEK

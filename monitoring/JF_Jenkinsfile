@@ -1,0 +1,7 @@
+@Library("GroovyLibraries") _
+ca4ciStandardPipeline {
+	buildType = 'profile'
+    packageRepository = "MONITORING"
+	componentRepoPath = "PlatformApplications/monitoring"
+   
+}

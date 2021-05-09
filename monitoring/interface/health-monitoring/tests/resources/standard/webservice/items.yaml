@@ -1,0 +1,12 @@
+items:
+  tomcat:
+  - item1:
+      schedule: every hour
+      host: tomcat
+      enabled: True
+      vars:
+        - port: 8091
+      commands:
+        - var1: cmd1
+        - var2: ^date
+      hm_type: backlog

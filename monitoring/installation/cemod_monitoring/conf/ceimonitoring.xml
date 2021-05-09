@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+
+<CEI>
+        <!-- If any new index are added please add as below -->
+        <indexDeltaPointsThreshold value ="5" />
+        <presentation Name="Mixed Media"  attributeName="APP_CAT_TYPE_1_INDEX" />
+        <presentation Name="Browsing"  attributeName="APP_CAT_TYPE_2_INDEX"/>
+        <presentation Name="Communication"  attributeName="APP_CAT_TYPE_3_INDEX"/>
+        <presentation Name="Content Sharing"  attributeName="APP_CAT_TYPE_4_INDEX" />
+        <presentation Name="Audio Streaming"  attributeName="APP_CAT_TYPE_5_INDEX" />
+        <presentation Name="Premium Video"  attributeName="APP_CAT_TYPE_6_INDEX"/>
+        <presentation Name="BCSI"  attributeName="CEI_BCSI_INDEX"/>
+        <presentation Name="NEI"  attributeName="CEI_INDEX"/>
+        <presentation Name="CEI"  attributeName="CEI_O_INDEX"/>
+        <presentation Name="CSI"  attributeName="CEI_TT_INDEX"/>
+        <presentation Name="Connectivity" attributeName="CONNECTIVITY_CEI_INDEX"/>
+        <presentation Name="Data" attributeName="DATA_CEI_INDEX"/>
+        <presentation Name="Radio" attributeName="RADIO_CEI_INDEX"/>
+        <presentation Name="SMS" attributeName="SMS_CEI_INDEX"/>
+        <presentation Name="PI" attributeName="PROFILE_INDEX"/>
+        <presentation Name="Voice" attributeName="VOICE_CEI_INDEX"/>
+        <presentation Name="Voice CS" attributeName="VOICE_CS_CEI_INDEX"/>
+        <presentation Name="VoLTE" attributeName="VOLTE_CEI_INDEX" />
+        <presentation Name="VoLTE Connectivity" attributeName="VOLTE_CONNECTIVITY_INDEX"/>
+        <presentation Name="VoLTE Usage" attributeName="VOLTE_USAGE_INDEX"/>
+        <presentation Name="VoWiFi" attributeName="VOWIFI_CEI_INDEX"/>
+        <presentation Name="VoWiFi Connectivity" attributeName="VOWIFI_CONNECTIVITY_INDEX"/>
+        <presentation Name="VoWiFi Usage" attributeName="VOWIFI_USAGE_INDEX"/>
+
+    </CEI>
+
+
+<SMTP>
+       <property name="IP" value="127.0.0.1" />
+       <property name="Host" value="nsn.mail.com" />
+       <property name="SenderEmailID" value="root@localhost" />
+       <property name="RecepientEmailIDs" value="root@localhost;ngdb@localhost"/>
+   </SMTP>
+
+</Config>

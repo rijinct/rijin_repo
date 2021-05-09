@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{- include "monitoring.cmdb.secrets" . | indent 2 }}
+type: Opaque
+data:
+  repl-user: {{ .Values.cmdb.mariadb.repl_user | b64enc | quote }}
+  {{- if .Values.cmdb.mariadb.repl_user_password }}
+  repl-user-password: {{ .Values.cmdb.mariadb.repl_user_password | quote }}
+  {{- else }}
+  repl-user-password: {{ randAlphaNum 16 | b64enc | quote }}
+  {{- end }}

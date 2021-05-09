@@ -1,0 +1,19 @@
+report:
+   Hardware, Network, OS:
+      Check if all Data nodes are UP:
+         description: One or more nodes are down
+         recommendation: Recommendation1
+         condition: node_down_trigger
+      Check CPU utilization:
+         description: CPU utilization is high ({cpu})
+         recommendation: Recommendation2
+         condition: high_cpu_usage_trigger
+   Hadoop:
+      Check hadoop read write performance:
+         description: Hadoop read/write performance is low
+         recommendation: Recommentdation3
+         condition: hadoop_access_slow_trigger
+      Check for too many name node entries:
+         description: Too many node name entries
+         recommendation: Recommendation4
+         condition: too_many_name_node_entries_trigger

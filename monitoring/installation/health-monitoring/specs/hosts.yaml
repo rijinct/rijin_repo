@@ -1,0 +1,49 @@
+hostgroups:
+  application:
+    couchbase:
+      ha_status: No
+      name: cemod_couchbase_hosts
+      hosts: []
+    scheduler:
+      ha_status: Yes
+      name: cemod_scheduler_active_fip_host
+      hosts: []
+    dal:
+      name: cemod_dalserver_active_fip_host
+      hosts: []
+    webservice:
+      name: cemod_webservice_active_fip_host
+      hosts: []
+    analyticswebservice:
+      name: cemod_analytics_hosts
+      hosts: []
+    postgres_sdk:
+      fields: [cemod_sdk_db_name, cemod_application_sdk_database_linux_user, cemod_postgres_sdk_fip_active_host, cemod_application_sdk_db_port, cemod_sdk_db_url]
+    mariadb:
+      fields: [mariadb_db_name, mariadb_user, mariadb_password, mariadb_active_host, mariadb_connect_timeout]
+    localhost:
+      hosts: [localhost]
+    email:
+      fields: [cemod_smtp_sender_emailids, cemod_smtp_ip, cemod_smtp_sender_emailid, cemod_pop3_server_ip, cemod_smtp_receiver_emailids]
+    kafka-hosts:
+      name: cemod_kafka_app_hosts
+      hosts: []
+  platform:
+    namenode:
+      name: cemod_hive_hosts
+      hosts: []
+    datanode:
+      name: cemod_hbase_slaves
+      hosts: []
+    postgres_hive:
+      fields: [cemod_hive_dbname, cemod_hive_metastore_db_user, cemod_postgres_active_fip_host, cemod_hive_metastore_db_port]
+  portal:    
+    portal_tomcat:
+      name: cemod_portal_hosts
+      hosts: []
+    portal_httpd:
+      name: cemod_portal_hosts
+      hosts: []
+    portal_postgres:
+      name: cemod_portal_hosts
+      hosts: []

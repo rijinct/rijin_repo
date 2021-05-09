@@ -1,0 +1,10 @@
+[run]
+source = 
+	healthmonitoring
+branch = True
+
+omit = 
+	healthmonitoring/collectors/__init__.py
+
+[report]
+fail_under = 10

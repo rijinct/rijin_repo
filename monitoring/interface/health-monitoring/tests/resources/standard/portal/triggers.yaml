@@ -1,0 +1,7 @@
+triggers:
+- tomcat_not_active:
+    items:
+        item1: application1.item1
+    variables:
+       var1: ${item1['var1']}
+    condition: "{var1}"

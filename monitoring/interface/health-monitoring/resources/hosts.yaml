@@ -1,0 +1,26 @@
+hostgroups:
+  application:
+    couchbase:
+      ha_status: No
+      name: cemod_couchbase_hosts
+      hosts: []
+    scheduler:
+      ha_status: Yes
+      name: cemod_scheduler_active_fip_host
+      hosts: []
+    localhost:
+      hosts: [localhost]
+    email:
+      fields: [cemod_smtp_sender_emailIDs, cemod_smtp_ip, cemod_smtp_host]
+      list_fields: [cemod_smtp_receiver_emailIDs]
+      cemod_smtp_sender_emailIDs: root@localhost
+      cemod_smtp_ip: 127.0.0.1
+      cemod_smtp_host: nsn.mail.com
+      cemod_smtp_receiver_emailIDs: [root@localhost, ngdb@localhost]
+  platform:
+    namenode:
+      name: cemod_hive_hosts
+      hosts: []
+    datanode:
+      name: cemod_hbase_slaves
+      hosts: []

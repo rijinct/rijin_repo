@@ -1,0 +1,15 @@
+<!-- Sample scheduler xml to SCHEDULE/RESCHEDULE simple jobs -->
+<JobSchedulingData operation="SCHEDULE">
+	<Schedule>
+		<Trigger>
+			<!-- This format of simple trigger without a starttime,repeat interval
+			     				and repeat count will execute the trigger at the current time, once -->
+			<Simple>
+				<TriggerName>Trigger_FAILJOBNAME</TriggerName>
+				<TriggerGroup>FAILJOBGROUP</TriggerGroup>
+				<JobName>FAILJOBNAME</JobName>
+				<JobGroup>FAILJOBGROUP</JobGroup>
+			</Simple>
+		</Trigger>
+	</Schedule>
+</JobSchedulingData>

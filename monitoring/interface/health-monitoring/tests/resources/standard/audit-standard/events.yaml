@@ -1,0 +1,57 @@
+events:
+- audit_standard_event1:
+    start_level: critical
+    escalation_freq: 99999
+    condition: node_down_trigger
+    clear:
+    - audit
+    critical:
+    - audit
+    audit_notification:
+      report: standard
+      category: Hardware, Network, OS
+      name: Check if all Data nodes are UP
+    consolidated: false
+    ttl_secs: 0
+  audit_standard_event2:
+    start_level: critical
+    escalation_freq: 99999
+    condition: high_cpu_usage_trigger
+    clear:
+    - audit
+    critical:
+    - audit
+    audit_notification:
+      report: standard
+      category: Hardware, Network, OS
+      name: Check CPU utilization
+    consolidated: false
+    ttl_secs: 0
+  audit_standard_event3:
+    start_level: critical
+    escalation_freq: 99999
+    condition: hadoop_access_slow_trigger
+    clear:
+    - audit
+    critical:
+    - audit
+    audit_notification:
+      report: standard
+      category: Hadoop
+      name: Check hadoop read write performance
+    consolidated: false
+    ttl_secs: 0
+  audit_standard_event4:
+    start_level: critical
+    escalation_freq: 99999
+    condition: too_many_name_node_entries_trigger
+    clear:
+    - audit
+    critical:
+    - audit
+    audit_notification:
+      report: standard
+      category: Hadoop
+      name: Check for too many name node entries
+    consolidated: false
+    ttl_secs: 0

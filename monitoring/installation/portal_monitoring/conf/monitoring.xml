@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+			<NotificationService>		
+			<SMTP>				
+				<property name="IP" value="127.0.0.1" />
+				<property name="Host" value="nsn.mail.com" />
+				<property name="SenderEmailID" value="root@localhost" />
+				<property name="RecepientEmailIDs" value="root@localhost;ngdb@localhost"/>
+			</SMTP> 
+</NotificationService>
+	
+<DiskUsage>
+        <property diskusagethreshold='90' />
+</DiskUsage>
+
+<PostgresUserInformation>
+        <property userconnectionthreshold='500' />
+</PostgresUserInformation>
+
+		
+</Config>

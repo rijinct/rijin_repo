@@ -1,0 +1,40 @@
+triggers:
+-  hour_agg_execution_duration_breached_trigger:
+      items:
+         hour_agg: AggregationJobMonitoring.hour_aggregations
+      variables:
+         duration: ${hour_agg.status.executionduration}
+         threshold: ${config.AGGREGATIONTHRESHOLD.Hour.value}
+      condition: "int({duration} or 0) > {threshold}"
+   hour_aggregation_failed_trigger:
+      items:
+         hour_agg: AggregationJobMonitoring.hour_aggregations
+      variables:
+         status: ${hour_agg.status.status}
+      condition: "{status} == 'E'"
+   day_agg_execution_duration_breached_trigger:
+      items:
+         day_agg: AggregationJobMonitoring.day_aggregations
+      variables:
+         duration: ${day_agg.status.executionduration}
+         threshold: ${config.AGGREGATIONTHRESHOLD.Day.value}
+      condition: "int({duration} or 0) > {threshold}"
+   day_aggregation_failed_trigger:
+      items:
+         day_agg: AggregationJobMonitoring.day_aggregations
+      variables:
+         status: ${day_agg.status.status}
+      condition: "{status} == 'E'"
+   week_agg_execution_duration_breached_trigger:
+      items:
+         week_agg: AggregationJobMonitoring.week_aggregations
+      variables:
+         duration: ${week_agg.status.executionduration}
+         threshold: ${config.AGGREGATIONTHRESHOLD.Week.value}
+      condition: "int({duration} or 0) > {threshold}"
+   week_aggregation_failed_trigger:
+      items:
+         week_agg: AggregationJobMonitoring.week_aggregations
+      variables:
+         status: ${week_agg.status.status}
+      condition: "{status} == 'E'"

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+			<NotificationService>		
+			<SMTP>				
+				<property name="IP" value="127.0.0.1" />
+				<property name="Host" value="nsn.mail.com" />
+				<property name="SenderEmailID" value="root@localhost" />
+				<property name="RecepientEmailIDs" value="root@localhost;ngdb@localhost"/>
+			</SMTP> 
+             </NotificationService>
+			 
+<!--Add Host Names and IPADDR for Data Sources only for machines which are pingable as example given below /!-->
+<!-- <Host Name="" IPADDR="xx.xx.xx.xx" /> -->
+            <DataSources>
+				<Host Name="" IPADDR="XX.XX.XX.XX" />		
+	        </DataSources>	
+
+<!--Add Host Names and IPADDR for Cemod Sources only for machines which are pingable as example given below /!-->	
+			<CemodSources>
+				<Host Name="" IPADDR="XX.XX.XX.XX" />		
+			</CemodSources>	
+			<DiskUsage>
+                <property diskusagethreshold='90' />
+            </DiskUsage>
+			
+</Config>

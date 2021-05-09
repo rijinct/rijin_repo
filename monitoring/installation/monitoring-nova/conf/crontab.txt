@@ -1,0 +1,123 @@
+#### Start of Postgres Scripts ####
+59 */1 * * * source /ngdb/monitoringEnv.sh;python /opt/nsn/ngdb/monitoring/scripts/getPostgresUserConnectionsAndAlert.py
+*/15 * * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py USAGE
+*/15 * * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py 15MIN
+59 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py HOUR
+59 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py DIMENSION
+59 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py DAY
+59 */1 * * 1 source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py WEEK
+59 */1 1 * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py MONTH
+*/15 * * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py TNP
+*/15 * * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py QS
+5 8 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkJobs.py DAYQS
+1 9 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkJobs.py WEEKQS
+09 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/checkJobs.py USAGE
+59 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getBoundary.py 15MIN
+59 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getBoundary.py HOUR
+59 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getBoundary.py DAY
+59 */1 * * 1  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getBoundary.py WEEK
+9 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getBoundary.py USAGE
+59 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alertFailedJobs.py REAGG
+59 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getBoundary.py REAGG
+59 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/long_running_job.py
+#### End of Postgres Scripts ####
+
+#### Start of Hive Scripts ####
+0 3 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/usage_table_count.py
+0 4-16/2 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/table_counts_and_var_factor.py day
+0 4-16/2 * * 1  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/table_counts_and_var_factor.py week
+0 4-16/2 1 * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/table_counts_and_var_factor.py month
+0 2 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getAllDimensionCount.py
+0 * * * *  source /ngdb/monitoringEnv.sh; python -m healthmonitoring.collectors.tablecountstats.data_traffic
+#### End of Hive Scripts ####
+
+#### Start of Hdfs Scripts ####
+59 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/hdfs_ngdb_file_system_usage.py TOTAL
+0 8 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/hdfs_ngdb_file_system_usage.py HDFS
+15 8 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/hdfs_ngdb_file_system_usage.py NGDB
+0 9 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/hdfs_ngdb_file_system_usage.py DIMENSION
+30 8 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/hdfs_ngdb_file_system_usage.py USAGE
+5 8 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/hdfs_ngdb_file_system_usage.py 15MIN
+15 9 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/hdfs_ngdb_file_system_usage.py HOUR
+0 12 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/hdfs_ngdb_file_system_usage.py DAY
+0 14 * * 1  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/hdfs_ngdb_file_system_usage.py WEEK
+30 10 1 * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/hdfs_ngdb_file_system_usage.py MONTH
+#### End of Hdfs Scripts ####
+
+#### Start of Spark Scripts ####
+50 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/sparkMonitoring.py
+#### End of Spark Scripts ####
+
+#### Start of Maria DB Scripts ####
+20 9 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/qsCacheCountTableLevel.py DAY
+1 9 * * 1  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/qsCacheCountTableLevel.py WEEK
+20 9 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/qsCacheCountTableLevel.py DIMENSION
+#### End of Maria DB Scripts ####
+
+#### Start of ETL ####
+*/15 * * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/getEtlTopologiesLag.py
+*/15 * * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/etl_topologies_status.py
+13,26,39,52 * * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/kafka_connectors_status.py
+10 */6 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alert_missing_files_at_etl.py
+10 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alert_missing_dimension_files.py
+30 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/alert_large_files_at_etl.py
+#### End of ETL ####
+
+#### Start of HDFS ####
+*/15 * * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/backlogs.py
+#### End of HDFS ####
+
+#### Start of Couchbase Stats ####
+5 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/couchbase_stats.py
+#### End of Couchbase Stats ####
+
+#### Start of SDK Export Stats ####
+59 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/sdk_export_stats.py
+#### End of SDK Export Stats ####
+
+#### Start of CEI Index Change ####
+45 */1 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/cei_index_alert.py
+#### End of CEI Index Changes ####
+
+#### Start of Yarn Queue Stats ####
+*/1 * * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/yarn_queue_stats.py
+#### End of Yarn Queue Stats ####
+
+#### Summary Report ####
+17 8,14,20 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/summaryReport.py
+
+#### Clean up of csv files ####
+15 9 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/clean_up_old_files.py
+#### End of Clean up of csv files ####
+
+#### Start of MNT Volume script ####
+59 */1 * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/mnt_usage_data_collection.py
+#### End of MNT Volume script ####
+
+#### Start of Spark Self Heal script ####
+*/30 * * * *  source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/spark_self_heal.py
+#### End of Spark Self Heal script ####
+
+#### Start of HDFS read/write test ####
+00 08,18 * * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/scripts/hdfs_performance.py
+#### End of HDFS read/write test ####
+
+#### Start of DQM File count check ####
+00 */12 * * *  source /ngdb/monitoringEnv.sh; python -m healthmonitoring.collectors.etl.dqm_alert
+#### End of DQM File count check ####
+
+#### Start of MEPH  check ####
+00 08 * * *  source /ngdb/monitoringEnv.sh; python -m healthmonitoring.collectors.etl.meph_check
+#### End of MEPH check ####
+
+#### Start of IMSI ID generation exception check ####
+*/30 * * * *  source /ngdb/monitoringEnv.sh; python -m healthmonitoring.collectors.etl.imsi_id_exception_check
+#### End of IMSI ID generation exception check ####
+
+#### Start of script to retrieve operational metadata ####
+00 09 * * * source /ngdb/monitoringEnv.sh; python /opt/nsn/ngdb/monitoring/cad/scripts/getMetadataAsXML.py operational
+#### End of script to retrieve operational metadata ####
+
+#### Start of Edge Node Utilities ####
+0 */8 * * * source /ngdb/monitoringEnv.sh; python -m healthmonitoring.collectors.edgenode.rpms_info
+#### End of Edge Node Utilities ####

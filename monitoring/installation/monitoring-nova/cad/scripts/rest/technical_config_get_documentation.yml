@@ -1,0 +1,10 @@
+tags:
+  - Technical Metadata Configuration
+summary: Get the configured table list
+responses:
+  200:
+    description: "Success"
+  400:
+    description: "Bad Request"
+  500:
+    description: ERROR Failed!

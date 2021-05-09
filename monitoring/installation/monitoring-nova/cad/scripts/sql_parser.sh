@@ -1,0 +1,1 @@
+java -Djava.ext.dirs=/opt/nsn/ngdb/monitoring/ext-dependencies/hive-lib com.nokia.cemod.SQLParser.SQLParser "$@"

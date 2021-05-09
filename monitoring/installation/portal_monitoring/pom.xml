@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XML-Schema-instance"
+        xmlns="http://maven.apache.org/POM/4.0"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.nsn.ngdb.packages.monitoring</groupId>
+        <artifactId>NOKIA-PORTAL-MONITORING</artifactId>
+        <packaging>pom</packaging>
+        <version>1.0-SNAPSHOT</version>
+        <name>NOKIA PORTAL MONITORING</name>
+        <url>http://www.nokiasiemensnetworks.com/</url>
+
+        <parent>
+                <groupId>com.nokia.monitoringtypes</groupId>
+                <artifactId>monitoringtypes</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <relativePath>..</relativePath>
+        </parent>
+
+        <properties>
+                <MONITORING_HOME>/opt/portal/monitoring/</MONITORING_HOME>
+        </properties>
+
+
+        <build>
+                <directory>${rpm.target.directory}/${project.artifactId}</directory>
+                <finalName>${artifactId}-${version}</finalName>
+                <plugins>
+                        <plugin>
+                                <groupId>org.codehaus.mojo</groupId>
+                                <artifactId>rpm-maven-plugin</artifactId>
+                                <!-- <version>2.0-beta-1</version> -->
+                                <executions>
+                                        <execution>
+                                                <phase>package</phase>
+                                                <goals>
+                                                        <goal>rpm</goal>
+                                                </goals>
+                                        </execution>
+                                </executions>
+                                <configuration>
+                                        <release>${rpm.release}</release>
+                                        <copyright>2017,NOKIA</copyright>
+                                        <distribution>NOKIA</distribution>
+                                        <group>Development/Debuggers</group>
+                                        <mappings>
+
+                                                <mapping>
+                                                        <filemode>775</filemode>
+                                                        <username>root</username>
+                                                        <groupname>root</groupname>
+                                                        <directory>${MONITORING_HOME}/scripts/</directory>
+                                                        <sources>
+                                                                <source>
+                                                                        <location>scripts/</location>
+                                                                </source>
+                                                        </sources>
+                                                </mapping>
+                                                <mapping>
+                                                        <filemode>775</filemode>
+                                                        <username>root</username>
+                                                        <groupname>root</groupname>
+                                                        <directory>${MONITORING_HOME}/conf/</directory>
+                                                        <configuration>true</configuration>
+                                                        <sources>
+                                                                <source>
+                                                                        <location>conf/</location>
+                                                                </source>
+                                                        </sources>
+                                                </mapping>
+												<mapping>
+                                                        <filemode>775</filemode>
+                                                        <username>root</username>
+                                                        <groupname>root</groupname>
+                                                        <directory>${MONITORING_HOME}/utils/</directory>
+                                                        <sources>
+                                                                <source>
+                                                                        <location>utils/</location>
+                                                                </source>
+                                                        </sources>
+                                                </mapping>
+                                        </mappings>
+                                        <preinstallScript>pre-install.sh</preinstallScript>
+                                        <postinstallScript>post-install.sh</postinstallScript>
+                                        <preremoveScript>pre-uninstall.sh</preremoveScript>
+                                </configuration>
+                        </plugin>
+                </plugins>
+        </build>
+</project>

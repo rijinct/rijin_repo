@@ -1,0 +1,19 @@
+report:
+   Day Aggregations:
+      Check if day aggregations are OK:
+         description: Day Job(s) Failed
+         recommendation: Check the respective job logs & take action
+         condition: day_job_failure_trigger
+         show_columns: Job_Name,Start_Time
+      Check if any day aggregations are Long Running:
+         description: Day Job(s) Long Running
+         recommendation: Tune the respective day job query
+         condition: day_job_long_running_trigger
+      Check if day aggregations boundary up-to-date:
+         description: Day Job(s) boundary not up-to-date
+         recommendation: Check for day job failures
+         condition: day_job_boundary_trigger
+      Check if enabled day aggregations are executed:
+         description: Day Job(s) enabled but not executed
+         recommendation: Check for day job failures
+         condition: day_job_enabled_not_executed_trigger

@@ -1,0 +1,112 @@
+items:
+  application1:
+  - item1: #Simple cmd, quotes in cmd, vars in cmd, cmd w/o vars
+      schedule: every hour
+      host: couchbase
+      enabled: yes
+      vars:
+        - port: 8091
+      commands:
+        - hour_jobs_status: cmd1
+        - var2: ss -nlp | grep {port} | tr -s ' ' | gawk -F"," '{{print $2}}' | gawk -F"=" '{{print $2}}'
+        - var3: echo {var2}
+        - var4: ^date
+      hm_type: backlog
+  - item2: #Without enabled field
+      schedule: every 15th min
+      host: scheduler
+      commands:
+        - count: cmd3
+        - type: cmd4
+        - hour_jobs_status: cmd
+  application2:
+  - item3:
+      schedule: every 10th hour
+      host: host1
+      enabled: no
+      commands:
+        - var1: cmd1
+        - var4: cmd4
+  - item4: #Explicitly enabled
+      schedule: every hour from 10:00 to 12:00 
+      host: host5
+      enabled: yes
+      commands:
+        - var1: cmd1
+        - var2: cmd2
+  application3:
+  - item5: #disabled
+      schedule: every monday at 09:00
+      host: host2
+      enabled: no
+      commands:
+        - var1: cmd1
+        - var5: cmd5
+  - item6: #localhost
+      schedule: first of every month at 09:00
+      host: localhost
+      enabled: yes
+      commands:
+        - var1: cmd1
+        - var2: cmd2
+  - item7: #file field
+      schedule: first of every month at 09:00
+      host: scheduler
+      enabled: yes
+      commands:
+        - var1_file: cal 2000
+        - var2: wc -l {var1_file}
+  - item8: #dict output
+      schedule: first of every month at 09:00
+      enabled: yes
+      commands:
+        - var1: cmd3
+  - item9: #"any" host
+      schedule: None
+      host: couchbase/any
+      enabled: yes
+      commands:
+        - var1: cmd1
+  - item10: #localhost for single cmd
+      schedule: None
+      host: scheduler
+      enabled: yes
+      commands:
+        - var1_localhost: cmd1
+        - var2: cmd2
+  - item11: #localhost for single cmd file field
+      schedule: None
+      host: scheduler
+      enabled: yes
+      commands:
+        - var1_localhost_file: cal 2000
+        - var2_localhost: wc -l {var1_localhost_file}
+  application4:
+  - item12: #csv writing enabled
+      schedule: None
+      host: scheduler
+      csv_header: Date, Service Name, Last Restart Time, Uptime
+      csv_directory: ServiceStability
+      csv_filename: serviceStability_DATE.csv
+      csv_header_always: yes
+      db_category: serviceStability
+      enabled: yes
+      commands:
+        - var1_localhost_file: cal 2000
+        - var2_localhost: wc -l {var1_localhost_file}
+  - item13: #csv writing disabled
+      schedule: None
+      host: scheduler
+      csv_header:
+      csv_filename:
+      csv_header_always: no
+      enabled: yes
+      commands:
+        - var1_localhost_file: cal 2000
+        - var2_localhost: wc -l {var1_localhost_file}
+  container:
+  - item1:
+      schedule: every min
+      vars:
+        - value1: 1
+      commands: []

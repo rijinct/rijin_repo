@@ -1,0 +1,16 @@
+events:
+-  service_down_event:
+      start_level: critical
+      escalation_freq: 3
+      condition: service_down_trigger
+      minor:
+      - email
+      major:
+      - email
+      critical:
+      - email
+      email_notification:
+         subject: Service Down
+         body: NA
+      consolidated: no
+      ttl_secs: 0
