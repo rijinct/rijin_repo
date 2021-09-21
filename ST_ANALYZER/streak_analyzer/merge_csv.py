@@ -2,11 +2,12 @@ import os
 import glob
 import pandas as pd
 
-month="Jan"
+month="June"
 month_val="2"
 year="2021"
 
-streak_dir=r"C:\Users\admin\Desktop\Rijin\data\15mins\{y}\{m}\Strategy1".format(y=year,m=month)
+#streak_dir=r"C:\Users\admin\Desktop\Rijin\data\15mins\{y}\{m}\Strategy1".format(y=year,m=month)
+streak_dir="/Users/rthomas/Desktop/Rijin/Streak/data/15mins/{y}/{m}/Strategy1".format(y=year,m=month)
 print(streak_dir)
 #cd "$streak_dir"
 os.chdir(streak_dir)

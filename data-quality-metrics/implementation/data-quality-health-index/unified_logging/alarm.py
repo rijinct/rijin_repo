@@ -1,3 +1,8 @@
+'''
+Created on 16-Sep-2021
+
+@author: rithomas
+'''
 from .message_abc import MessageABC, LogType
 from .alarm_task import AlarmTask
 from .perceived_severity import PerceivedSeverity

@@ -1,3 +1,8 @@
+'''
+Created on 16-Sep-2021
+
+@author: rithomas
+'''
 from .message_abc import MessageABC, LogType
 import sys
 import locale

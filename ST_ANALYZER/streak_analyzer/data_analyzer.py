@@ -5,16 +5,17 @@ Created on 31-Dec-2020
 '''
 import pandas as pd
 
-month="Jan"
+month="June"
 month_val="2"
 year="2021"
 
-streak_dir=r"C:\Users\admin\Desktop\Rijin\data\15mins\{y}\{m}\Strategy1".format(y=year,m=month)
+#streak_dir=r"C:\Users\admin\Desktop\Rijin\data\15mins\{y}\{m}\Strategy1".format(y=year,m=month)
+streak_dir="/Users/rthomas/Desktop/Rijin/Streak/data/15mins/{y}/{m}/Strategy1".format(y=year,m=month)
 file_name = '{m}.{f}'.format(m=month,f='csv')
 
-file = '{p}\{f}'.format(p=streak_dir, f=file_name)
-day_sym_file = '{p}\{m}-{f}'.format(p=streak_dir, f='day_symbol.csv', m=month)
-day_pl_file = '{p}\{m}-{f}'.format(p=streak_dir, f='day_pl.csv', m=month)
+file = '{p}/{f}'.format(p=streak_dir, f=file_name)
+day_sym_file = '{p}/{m}-{f}'.format(p=streak_dir, f='day_symbol.csv', m=month)
+day_pl_file = '{p}/{m}-{f}'.format(p=streak_dir, f='day_pl.csv', m=month)
 
 df = pd.read_csv(file)
 df.columns = ['date', 'symbol', 'buy_sell', 'quantity', 'buy_price', 'pl', 'trigger_type']
@@ -27,7 +28,10 @@ df['profit'] = (df['sell_price'] - df['buy_price']) * df['quantity']
 #df['diff_pl'] = df['price'] - df['buy_value']
 #df['day_prof'] = df['diff_pl'] * -df['quantity']
 df = df.loc[(df['buy_sell'] == 'BUY') & (df['sell_symbol'] == 'SELL'), :].drop_duplicates()
+#df['date'] =pd.to_datetime(df.date)
+#df = df.sort_values(by='date')
 df.to_csv(day_sym_file)
+exit(0)
 df[['date', 'time']] = df.date.str.split(expand=True)
 df2 = df.loc[:,['profit']].groupby(df['date']).sum()
 df2.to_csv(day_pl_file)

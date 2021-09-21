@@ -1,3 +1,9 @@
+'''
+Created on 16-Sep-2021
+
+@author: rithomas
+'''
+
 import logging
 from .logger import Logger
 from .message import Message

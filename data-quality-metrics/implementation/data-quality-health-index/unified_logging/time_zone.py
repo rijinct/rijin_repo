@@ -1,3 +1,8 @@
+'''
+Created on 16-Sep-2021
+
+@author: rithomas
+'''
 from hashlib import sha224
 import os
 import os.path
