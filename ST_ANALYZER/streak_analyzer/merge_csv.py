@@ -2,7 +2,7 @@ import os
 import glob
 import pandas as pd
 
-month="June"
+month="Jan"
 month_val="2"
 year="2021"
 

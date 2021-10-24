@@ -28,7 +28,7 @@ def delete_strategy():
 
 def main():
     i = 1
-    while (i < 97):
+    while (i < 75):
         delete_strategy()
         i += 1
 

@@ -23,8 +23,8 @@ def write_symbol(sym):
     
    
 def create_strategy(symbol,lot,i):
-    symbol_fut = symbol + '21OCT'
-    symbol_nse = symbol + ' '
+    symbol_nse = symbol + '21NOV'
+    #symbol_nse = symbol + ' '
     ### To copy
     #time.sleep(2)
      
@@ -168,7 +168,8 @@ def create_strategy(symbol,lot,i):
     print('click My strategies tab position: {}'.format(mouse.position))
     mouse.click(Button.left)
     time.sleep(3)
- 
+    exit(0)
+
 #############################
 #     #mouse.wheel(-3)
 #     #time.sleep(3)
@@ -221,7 +222,7 @@ def main(pattern):
     #try: 
         #window_foreground(pattern)
         #maximize_window(pattern)
-        i=1
+        i=42
         file1 = open('/Users/rthomas/Desktop/Rijin/rijin_git/ST_ANALYZER/streak_analyzer/sym_list.txt')
         Lines = file1.readlines()
         #Lines=['HINDPETRO','ZEEL']

@@ -5,7 +5,7 @@ Created on 31-Dec-2020
 '''
 import pandas as pd
 
-month="June"
+month="Jan"
 month_val="2"
 year="2021"
 
