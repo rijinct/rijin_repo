@@ -1,7 +1,0 @@
-items:
-  Kubernetes:
-  - kubectl:
-      schedule: every 30 mins
-      enabled: yes
-      commands:
-        - glusterfs: python -m healthmonitoring.collectors.kubernetes.kubectl get_glusterfs_status

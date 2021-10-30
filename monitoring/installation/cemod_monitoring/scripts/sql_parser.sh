@@ -1,1 +1,0 @@
-java -Djava.ext.dirs=/opt/nsn/ngdb/monitoring/lib:/opt/nsn/ngdb/monitoring/lib/3rdparty com.nokia.cemod.SQLParser.SQLParser "$@"

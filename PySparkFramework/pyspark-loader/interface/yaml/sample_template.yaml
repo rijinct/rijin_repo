@@ -1,7 +1,0 @@
-common:
-  description: 'Usage: __main__.py'
-  number_of_output_files: 3
-target_path: hdfs_path_required_in_case_of_one_to_many_template
-sql:
-  query: "select * from tab"
-

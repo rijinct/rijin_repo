@@ -1,4 +1,0 @@
-apiVersion: v2
-description: A Helm chart for DQHI
-name: data-quality-health-index
-version: "${project_helm_version}"

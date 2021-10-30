@@ -1,4 +1,0 @@
-include requirements.txt
-recursive-include resources *
-recursive-include healthmonitoring *.py
-global-exclude *.py[cod] __pycache__

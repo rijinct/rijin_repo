@@ -1,7 +1,0 @@
-triggers:
--  glusterfs_down_trigger:
-      items:
-         kubectl_item: Kubernetes.kubectl
-      variables:
-         output: ${kubectl_item['glusterfs']}
-      condition: "{output} == 0"

@@ -1,7 +1,0 @@
-dependencies:
-  - name: cmdb
-    version: 7.5.3
-    repository: "@CSF"
-    condition: cmdb.enabled
-    tags:
-    - cmdb

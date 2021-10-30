@@ -1,1 +1,0 @@
-CASE WHEN $KPI_WEIGHT$ = 0.0 THEN cast(NULL as double) ELSE LEAST(pow( pow(($KPI_INT$ * $KPI_WEIGHT$ ),3)/$KPI_BUCKET$ , 1/3 ), 16) END

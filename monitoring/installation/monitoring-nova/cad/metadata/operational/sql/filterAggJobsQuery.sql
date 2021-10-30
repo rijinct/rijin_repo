@@ -1,1 +1,0 @@
-select job_name,start_time,(case when status='S' then 'Pass' else 'Fail' end) as status,description from sairepo.etl_status where job_name like '%%Agg%%' and (status='S' and  description like '%%Aggregation is completed%%' or status='E') and start_time >= TIMESTAMP 'yesterday' and start_time < TIMESTAMP 'today' order by job_name,start_time;

@@ -1,6 +1,0 @@
-"cell_id","sac_id","cell_sac_id","lac_id","location_name","latitude","longitude","city","region","mcc","mnc","test_time"
-"11","0","11","1","Lac_1","12.99","77.59","Bangalore","Karnataka","405","55","30-Jan-2019 06:00:00"
-"11","0","11","2","Lac_2","12.99","77.59","Bangalore","glücklich","405","55","30-Jan-2019 06:00:00"
-"11","0","11","3","Lac_4","12.99","77.59","Bangalore","Karnataka","405","55","30-Jan-2019 06:00:00"
-"11","0","11","4","Lac_3","12.99","77.59","Bangalore","Karnataka,India","405","55","30-Jan-2019 06:00:00"
-"11","0","11","5","Lac_5","12.99","77.59","Bangalore","Karnataka","405","55","30-Jan-2019 06:00:00"

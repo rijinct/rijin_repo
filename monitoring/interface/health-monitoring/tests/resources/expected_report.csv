@@ -1,9 +1,0 @@
-Item,Status,Description,Recommendation
-failure_category,NOT OK,,
-failure_item,NOT OK,Services are not up,Restart the services
-ok_item,OK,N/A,N/A
-failure_item,NOT OK,Services are not up,Restart the services
-ok_category,OK,,
-ok_item,OK,N/A,N/A
-ok_item,OK,N/A,N/A
-ok_item,OK,N/A,N/A

@@ -1,7 +1,0 @@
-triggers:
--  service_down_trigger:
-      items:
-         stability: ServiceStability.cemod_services
-      variables:
-         last_restart_time: ${stability.status.Last_Restart_Time}
-      condition: "{last_restart_time} == 'Service is down'"
