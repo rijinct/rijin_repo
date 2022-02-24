@@ -17,3 +17,6 @@ else
         echo "Only root may add a user to the system."
         exit 2
 fi
+
+
+Note: Sometimes wheel group wont be present so use sudo. ie, usermod -aG sudo dpdb 

@@ -1349,3 +1349,10 @@ TO remove 1 line before pattern and 9 lines after pattern
 =====================================
 
 sed '$N;$N;N;/opt\/nsn\/ngdb\/ContentAndAdaptation\/usage_job/{$d;N;N;N;N;N;N;N;N;N;d};P;D' AdapterRPMGen_Scripts/pom.xml
+
+Using screen command: 
+=====================
+
+Step 1: Type screen command and enter, 
+Step 2: close terminal, it will show detached in screen -ls, thats ok, 
+step 3: reattach by screen -r "id"
