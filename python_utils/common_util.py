@@ -43,13 +43,18 @@ if __name__ == "__main__":
     cts.collectionQuery(['{}'])
     '''
     print(data["sourceQuery"])
-    interval = "daily"
+    interval = args.interval
     instrument = get_instrument(data["sourceQuery"], interval)
     if interval == "daily":
         mod_sourceQuery = day_sourceQuery.format(instrument)
     else:
         mod_sourceQuery = default_sourceQuery.format(instrument)
-    data["sourceQuery"] = mod_sourceQuery
-    print(mod_sourceQuery)
-    print(data["sourceQuery"])
+    # data["sourceQuery"] = mod_sourceQuery
+    # data["properties"]["visit_details"]["properties"]["source_document"]["sourcedFrom"] = "hubURI('Visit')"
+    # print(mod_sourceQuery)
+    # print(data["sourceQuery"])
+
+    ##pregSumm changes
+    data["uriExpression"] = "concat(\"/pregnancySummary/\",generate-id())"
+    data["properties"]["status_update"]["properties"]["source_document"]["sourcedFrom"] = "concat(\"/pregnancySummary/\",generate-id(),\".json\")"
     write_json(data, json_file)

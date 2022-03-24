@@ -1,34 +1,34 @@
 sed
 ======
 
-sed [options] ‘<sed-script>’ input_file(s)
+sed [options] ï¿½<sed-script>ï¿½ input_file(s)
 
 Options:
 -------
- -i – It is used to perform in-place editing.
- -e – It is used to specify multiple scripts with a single sed command.
- -n – It is used to suppress default behavior (displaying all lines from input file, selected lines printed twice) of action, „p?.
- -f – It is used to specify a file that contains sed script.
- -r – It is used for extended regular expressions in the script
+ -i ï¿½ It is used to perform in-place editing.
+ -e ï¿½ It is used to specify multiple scripts with a single sed command.
+ -n ï¿½ It is used to suppress default behavior (displaying all lines from input file, selected lines printed twice) of action, ï¿½p?.
+ -f ï¿½ It is used to specify a file that contains sed script.
+ -r ï¿½ It is used for extended regular expressions in the script
 
 Actions:
 -------
  All the commands specified below, reads input into buffer from the input file, takes action on the input in the buffer, and send the processed output to standard  output file. These are put in the action, ie, 
 
- -a – This will append text after specified line.
- -i – This will insert text before specified line.
- -q – This will quit after processing specified line.
- -„r file name? – This will append text read from file name.
- -„R file name? – This will append a line read from file name.
- -d – This will delete specified lines.
- -p – This will print specified lines, if n option is not specified, prints all
+ -a ï¿½ This will append text after specified line.
+ -i ï¿½ This will insert text before specified line.
+ -q ï¿½ This will quit after processing specified line.
+ -ï¿½r file name? ï¿½ This will append text read from file name.
+ -ï¿½R file name? ï¿½ This will append a line read from file name.
+ -d ï¿½ This will delete specified lines.
+ -p ï¿½ This will print specified lines, if n option is not specified, prints all
 
 Actions:
 -------
--„s/regexp/replacement /„ - This subsititutes the first occurrence of regular expression regexp (in all matching lines) with the replacement pattern.
--„s/regexp/replacement /g„ - This substitutes all occurrences of regular expression regexp (in all matching lines) with the replacement pattern.
--„w file name? - This writes the current pattern space to file name.
--„W file name? – This writes the first line of current pattern space to file name.
+-ï¿½s/regexp/replacement /ï¿½ - This subsititutes the first occurrence of regular expression regexp (in all matching lines) with the replacement pattern.
+-ï¿½s/regexp/replacement /gï¿½ - This substitutes all occurrences of regular expression regexp (in all matching lines) with the replacement pattern.
+-ï¿½w file name? - This writes the current pattern space to file name.
+-ï¿½W file name? ï¿½ This writes the first line of current pattern space to file name.
 
 
 sed script consists of address action pair
@@ -61,7 +61,7 @@ $ cat -n employee1.lst
 
 
 Explanation:
-sed prints from the third to the fifth lines from the file employee1.lst. If –n option is not specified, all the lines are printed, and the selected lines are printed twice.
+sed prints from the third to the fifth lines from the file employee1.lst. If ï¿½n option is not specified, all the lines are printed, and the selected lines are printed twice.
 
 2) $ sed -ne '3p' -ne '6p' employee1.lst
 
@@ -121,14 +121,14 @@ $ cat -n employee1.lst
 6 109:karan:Clerk
 
 Explanation:
-sed substitutes the pattern “manager” with “GM” in the file employee1.lst on the line starting with pattern “105”; interactive option -i effects the change in the file.
+sed substitutes the pattern ï¿½managerï¿½ with ï¿½GMï¿½ in the file employee1.lst on the line starting with pattern ï¿½105ï¿½; interactive option -i effects the change in the file.
 
 2) $ who | sed -n '/^murali/p'
 
 murali pts/17 2009-07-09 14:20 (9.122.197.21)
 Explanation:
-The output of the command „who? is piped to sed; sed displays only those
-lines that begin with the pattern „murali?.
+The output of the command ï¿½who? is piped to sed; sed displays only those
+lines that begin with the pattern ï¿½murali?.
 
 
 sed Regular Expression
@@ -173,8 +173,8 @@ Basic Regular Expression examples
 ---------------------------------
 
 Explanation:
-In the above code example, „1,$? refers to a range; it means the address,first line to the last line of the file; sed substitutes all occurrences
-(because of the global switch, „g?) of either organization or organization to organization in the file myorg1, specified as parameter. The operator
+In the above code example, ï¿½1,$? refers to a range; it means the address,first line to the last line of the file; sed substitutes all occurrences
+(because of the global switch, ï¿½g?) of either organization or organization to organization in the file myorg1, specified as parameter. The operator
 [ ] refers to character class regular expression.
 
 $cat myorg1
@@ -185,9 +185,9 @@ This organisation is involved in the following activities:
 1) $ sed '1,$s/organi[zs]ation/organization/g' myorg1
 
 Explanation:
-In the above code example, ‘1,$’ refers to a range; it means the address, 
+In the above code example, ï¿½1,$ï¿½ refers to a range; it means the address, 
 first line to the last line of the file; sed substitutes all occurrences 
-(because of the global switch, ‘g’) of either organization or organization 
+(because of the global switch, ï¿½gï¿½) of either organization or organization 
 to organization in the file myorg1, specified as parameter. The operator
 [ ] refers to character class regular expression
 
@@ -197,15 +197,15 @@ Explanation:
 Long-listing output of ls command is piped to sed; sed command displays only those
 lines which begin with the character d. 
 
-Repeated pattern “&”
+Repeated pattern ï¿½&ï¿½
 --------------------
 
 To make the entire source pattern appear also at the destination
 
 Example:
-sed ‘s/director/executive director/’ emp.lst
-sed ‘s/director/executive &/’ emp.lst # same as above
-sed ‘/director/s//executive &/’ emp.lst # repeated &
+sed ï¿½s/director/executive director/ï¿½ emp.lst
+sed ï¿½s/director/executive &/ï¿½ emp.lst # same as above
+sed ï¿½/director/s//executive &/ï¿½ emp.lst # repeated &
  				                 # remembered pattern
 
 
@@ -229,9 +229,9 @@ Let us assume that we need to check if the entered number is an integer. These a
 
 echo -e "-5" | sed -n -r '/^[+-]?[0-9]+$/p'
 
-Explanation: As we have used EREs namely ‘?’ and ‘+’, we need to specify –r option 
+Explanation: As we have used EREs namely ï¿½?ï¿½ and ï¿½+ï¿½, we need to specify ï¿½r option 
 with sed. The above code checks that the user has entered a valid integer. sed checks 
-if the string begins with zero or one occurrence of ‘+’ or ‘-’, succeeded by one or more
+if the string begins with zero or one occurrence of ï¿½+ï¿½ or ï¿½-ï¿½, succeeded by one or more
 occurrences of digit character.
 
 Interval Regular Expressions
@@ -239,9 +239,9 @@ Interval Regular Expressions
 
 sed and grep uses Interval Regular Expressions (IRE). IRE uses an integer to specify the number of characters preceding a pattern. The IRE uses an escaped pair of curly braces and takes three forms: 
 
-ch\{m\} – With this, the ch can occur m times
-ch\{m,n\} – With this, the ch can occur between m and n times
-ch\{m,\} – With this, ch can occur at least m times
+ch\{m\} ï¿½ With this, the ch can occur m times
+ch\{m,n\} ï¿½ With this, the ch can occur between m and n times
+ch\{m,\} ï¿½ With this, ch can occur at least m times
 The value of m and n cannot exceed 255.
 
 $ echo $num
@@ -256,7 +256,7 @@ $ echo $num | sed -n '/^[0-9]\{5\}$/p'; echo
 
 
 Explanation:
-sed prints the number if it is a five digit number; specifying ‘^’ and ‘$’ at the beginning and end of the pattern is to do an exact match.  
+sed prints the number if it is a five digit number; specifying ï¿½^ï¿½ and ï¿½$ï¿½ at the beginning and end of the pattern is to do an exact match.  
 We have used the Interval Regular Expression to match exactly five occurrences of digit character.
 
 
@@ -278,7 +278,7 @@ sed 's/\([A-Za-z]*\)*([A-Za-z]*\)/'\2,\1' teldir.txt
 
 
 Explanation:
-The matches from pattern space for regular expressions specified within a pair of parenthesis are remembered by sed and stored in variables named 1, 2, and so on.  Hence, we can access these matches by specifying these numbers, preceded by a backslash, “\”.
+The matches from pattern space for regular expressions specified within a pair of parenthesis are remembered by sed and stored in variables named 1, 2, and so on.  Hence, we can access these matches by specifying these numbers, preceded by a backslash, ï¿½\ï¿½.
 
 
 awk
@@ -286,16 +286,16 @@ awk
 
 The awk script could either be specified within a pair of quotes, or could be written into a file, and this file could be specified with the awk command.
 Syntax:
-awk [options] ‘<selection_criteria> { <action(s)> }’ <input_file(s)>
+awk [options] ï¿½<selection_criteria> { <action(s)> }ï¿½ <input_file(s)>
 
 
 options
 -------
 
-e – This is used to specify multiple scripts with a single awk command.
-F – This is used to specify Input Field Separator.
-f – This is used to specify a file that contains awk script.
-v – This is used to pass shell variable to awk environment.
+e ï¿½ This is used to specify multiple scripts with a single awk command.
+F ï¿½ This is used to specify Input Field Separator.
+f ï¿½ This is used to specify a file that contains awk script.
+v ï¿½ This is used to pass shell variable to awk environment.
 
 
 Unary
@@ -340,12 +340,12 @@ Assignment operator
 ---------------------
 
 = 	This is the general assignment operator.
-==   This the “equal to” operator.
- !=   This the “ not equal to” operator.
- <	This the “less than” operator.
- <=	This the “ less than or equal to” operator.
- >	This the “greater than” operator.
- >=	This the “greater than or equal to” operator.
+==   This the ï¿½equal toï¿½ operator.
+ !=   This the ï¿½ not equal toï¿½ operator.
+ <	This the ï¿½less thanï¿½ operator.
+ <=	This the ï¿½ less than or equal toï¿½ operator.
+ >	This the ï¿½greater thanï¿½ operator.
+ >=	This the ï¿½greater than or equal toï¿½ operator.
  ~	This is the pattern binding equal to operator.
  !~	 This the pattern binding not equal to operator.
 
@@ -353,7 +353,7 @@ Assignment operator
 The awk operators: Logical
 --------------------------
 
-!   	This is the “Not” operator.
+!   	This is the ï¿½Notï¿½ operator.
 &&   	This is the logical and operator, also known as short circuit operator.
 ||      	This is the logical or operator, also known as short circuit operator.
 
@@ -403,26 +403,26 @@ $ ls -l Sample/ | awk -F" " '{ sum += $5 } \ END { print "Sum of sizes of all fi
 
 
 Explanation: 
-The ls command with –l option pipes long-listing of files in “Sample” to awk; for every line of ls command output read by awk, awk adds value of fifth field, $5 to the variable sum and stores the result in the variable sum. In this code, it can be observed that we used arithmetic assignment operator, +=.
+The ls command with ï¿½l option pipes long-listing of files in ï¿½Sampleï¿½ to awk; for every line of ls command output read by awk, awk adds value of fifth field, $5 to the variable sum and stores the result in the variable sum. In this code, it can be observed that we used arithmetic assignment operator, +=.
 
 
 The awk built-in Field variables
 --------------------------------
 
-$0 – This contains entire record.
-$1 – This contains first field, based on field delimiter.
-$2 – This contains second field.
-$x – For x is a positive integer, this contains the xth field.
+$0 ï¿½ This contains entire record.
+$1 ï¿½ This contains first field, based on field delimiter.
+$2 ï¿½ This contains second field.
+$x ï¿½ For x is a positive integer, this contains the xth field.
 
 
-ARGC – This is the number of command line arguments.
-ARGV – This is the array of command line arguments; array is indexed from 0 to ARGC – 1.
-ARGIND – This is the index in ARGV of the current file being processed.
-ERRNO – If a system error occurs either doing a redirection for getline,  during a read for getline, or during a close(), then ERRNO will contain a string describing the error.
-FILENAME – This is the name of the current input file.
-FNR – This is the input record number in current input file.
-FS – This is the input field separator, that is a space by default.
-IGNORECASE – This controls the case-sensitivity of all regular expression and string operations. If IGNORECASE  has a non-zero value, then string comparisons and pattern matching in rules, field splitting with FS, record separating with RS, regular expression matching with  ~  and  !~,  and  the  gensub(), gsub(), index(), match(), split(), and sub() built-in functions all ignorecase when doing regular expression operations.
+ARGC ï¿½ This is the number of command line arguments.
+ARGV ï¿½ This is the array of command line arguments; array is indexed from 0 to ARGC ï¿½ 1.
+ARGIND ï¿½ This is the index in ARGV of the current file being processed.
+ERRNO ï¿½ If a system error occurs either doing a redirection for getline,  during a read for getline, or during a close(), then ERRNO will contain a string describing the error.
+FILENAME ï¿½ This is the name of the current input file.
+FNR ï¿½ This is the input record number in current input file.
+FS ï¿½ This is the input field separator, that is a space by default.
+IGNORECASE ï¿½ This controls the case-sensitivity of all regular expression and string operations. If IGNORECASE  has a non-zero value, then string comparisons and pattern matching in rules, field splitting with FS, record separating with RS, regular expression matching with  ~  and  !~,  and  the  gensub(), gsub(), index(), match(), split(), and sub() built-in functions all ignorecase when doing regular expression operations.
 
 
 $ awk 'BEGIN { for (i=0; i<ARGC; i++) { print ARGV[i]; }}' Kalam Bose Raman
@@ -698,7 +698,7 @@ the \< and \>.
 The second sed should produce closer to what you may have been expecting and
 would match fox, the, bar, bat, its, joe, etc....
 Returning from detour to our discussion on
-curly braces …
+curly braces ï¿½
 The above RE ( sed \%\<[a-z][a-z][a-z]\>%p' /usr/share/dict/words ) is a little long,
 so we could shorten it using the splat to:
 sed '/\<[a-z]\{3\}\>/p' /usr/share/dict/words
@@ -942,7 +942,7 @@ $ ./DBORL/prod/bin/rijin
 ./DBORL/rijin
 
 ==============================================
-How to run  last executed find command in Unix – Example 1
+How to run  last executed find command in Unix ï¿½ Example 1
 find . -name "*.java"
 
 ================
@@ -952,18 +952,18 @@ find . -mtime -1 (find all the files modified less than 1 day)
 find . -mtime +1 (find all the files modified more than 1 day)
 ==================================
 
-How to find all the files and directories which holds the 777 permission in Unix box – Exmaple 3
+How to find all the files and directories which holds the 777 permission in Unix box ï¿½ Exmaple 3
 find . -perm 644
 ==========================
 Case insensitive search using find in Unix
-find . –iname "error" –print ( -i is for ignore )
+find . ï¿½iname "error" ï¿½print ( -i is for ignore )
 =========================
 
 How to delete temporary files using find command in Unix?
-find . -name "*.tmp" -print | xargs rm –f
+find . -name "*.tmp" -print | xargs rm ï¿½f
 =========================
 How to find all text file which contains word Exception using find command in Unix ?
-find . –name "*.txt" –print | xargs grep "Exception"
+find . ï¿½name "*.txt" ï¿½print | xargs grep "Exception"
 ==========================
 Example 7 -  Finding files only in current directory not searching on sub directories:
 find . -maxdepth 1 -type f -newer first_file
@@ -991,9 +991,9 @@ NETWORK COMMANDS
 hostname
 
 hostname with no options displays the machines host name
-hostname –d displays the domain name the machine belongs to
-hostname –f displays the fully qualified host and domain name
-hostname –i displays the IP address for the current machine
+hostname ï¿½d displays the domain name the machine belongs to
+hostname ï¿½f displays the fully qualified host and domain name
+hostname ï¿½i displays the IP address for the current machine
 
 
 ping
@@ -1012,9 +1012,9 @@ netstat
 Most useful and very versatile for finding connection to and from the host. You can find out all the multicast groups (network) subscribed by this host by issuing "netstat -g"
 
 netstat -nap | grep port will display process id of application which is using that port
-netstat -a  or netstat –all will display all connections including TCP  and UDP  
-netstat --tcp  or netstat –t will display only TCP  connection
-netstat --udp or netstat –u will display only UDP  connection
+netstat -a  or netstat ï¿½all will display all connections including TCP  and UDP  
+netstat --tcp  or netstat ï¿½t will display only TCP  connection
+netstat --udp or netstat ï¿½u will display only UDP  connection
 netstat -g will display all multicast network subscribed by this host.
 
 nslookup
@@ -1028,7 +1028,7 @@ A handy utility to view the number of hops and response time to get to a remote 
 
 
 finger
-View user information, displays a user’s login name, real name, terminal name and write status. this is pretty old unix command and rarely used now days.
+View user information, displays a userï¿½s login name, real name, terminal name and write status. this is pretty old unix command and rarely used now days.
 
 telnet
 Connects destination host via telnet protocol, if telnet connection establish on any port means connectivity between two hosts is working fine.
@@ -1356,3 +1356,4 @@ Using screen command:
 Step 1: Type screen command and enter, 
 Step 2: close terminal, it will show detached in screen -ls, thats ok, 
 step 3: reattach by screen -r "id"
+step 4: To scroll up and down in a screen window: In Mac -> press ctrl + a + esc, after that use up and down arrow.

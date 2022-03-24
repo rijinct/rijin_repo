@@ -8,7 +8,7 @@
     "batchSize": 100,
     "validateEntity": "doNotValidate",
     "targetFormat": "JSON",
-    "attachSourceDocument": true,
+    "attachSourceDocument": "true",
     "sourceRecordScope": "instanceOnly",
     "name": "map_Visit_nature_play_wa",
     "targetEntityType": "http://example.org/Visit-1.0.0/Visit",
@@ -54,7 +54,7 @@
                     "sourcedFrom": "'postnatal'"
                 },
                 "source_document": {
-                    "sourcedFrom": "$URI"
+                    "sourcedFrom": "hubURI('Visit')"
                 },
                 "data": {
                     "sourcedFrom": "string(data(.))"
