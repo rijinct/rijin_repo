@@ -1,0 +1,1 @@
+install chrome plug-in "Trade Rocket" for automatic buy/sell. 
