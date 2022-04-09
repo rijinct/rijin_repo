@@ -1,5 +1,5 @@
-** VS shortcuts
+## VS JavaScript shortcuts
 
-To format Javascript: 
 
-Shift + Option + F
+Action | Command
+Format code | Shift + Option + F
