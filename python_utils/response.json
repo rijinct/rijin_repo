@@ -1,0 +1,1399 @@
+{
+    "questionnaires": [
+      {
+        "state": "Outdated",
+        "phaseUuid": null,
+        "isTemplate": false,
+        "createdAt": "2021-10-25T00:45:43.003314Z",
+        "uuid": "08b4a1f5-6609-4fe7-9b64-dfa95a11a3e4",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 0,
+              "unansweredQuestions": 48,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 0,
+              "unansweredQuestions": 48,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "Young Peds Study (DGS-135)",
+        "package": {
+          "name": "DSG Knowledge Model",
+          "version": "1.0.1",
+          "id": "TKI:lifesciences:1.0.1"
+        },
+        "permissions": [
+          {
+            "uuid": "6971acbb-1173-46b5-8791-c1396d80a4f9",
+            "questionnaireUuid": "08b4a1f5-6609-4fe7-9b64-dfa95a11a3e4",
+            "member": {
+              "lastName": "Doyle",
+              "uuid": "7c57e026-1818-4ffe-8336-44098a525e6e",
+              "gravatarHash": "ffddffa683276f0f957067454eafa7e6",
+              "imageUrl": null,
+              "firstName": "Bree",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          }
+        ],
+        "updatedAt": "2021-10-25T00:45:43.003314Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Default",
+        "phaseUuid": "b101f2d0-2476-452d-aa8d-95a41a02b52c",
+        "isTemplate": false,
+        "createdAt": "2022-02-24T03:18:49.379738Z",
+        "uuid": "12b7c02d-72ca-4f32-a218-1735b6692b7f",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 66,
+              "unansweredQuestions": 27,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 160,
+              "unansweredQuestions": 103,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "Leducq",
+        "package": {
+          "name": "DSG Knowledge Model",
+          "version": "1.0.3",
+          "id": "TKI:lifesciences:1.0.3"
+        },
+        "permissions": [
+          {
+            "uuid": "ff9f0cff-d18f-49a3-9011-6bf06ff0780e",
+            "questionnaireUuid": "12b7c02d-72ca-4f32-a218-1735b6692b7f",
+            "member": {
+              "lastName": "Drouart",
+              "uuid": "e9820486-a83e-4093-856b-72344cbc93fb",
+              "gravatarHash": "25bcab778c8655cea906419a1c263e08",
+              "imageUrl": null,
+              "firstName": "Guillaume",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "COMMENT",
+              "EDIT",
+              "ADMIN"
+            ]
+          },
+          {
+            "uuid": "6b0772d0-8e93-4050-a90f-51df3ea417d7",
+            "questionnaireUuid": "12b7c02d-72ca-4f32-a218-1735b6692b7f",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "COMMENT",
+              "EDIT",
+              "ADMIN"
+            ]
+          }
+        ],
+        "updatedAt": "2022-02-24T03:23:27.933893Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Default",
+        "phaseUuid": "b101f2d0-2476-452d-aa8d-95a41a02b52c",
+        "isTemplate": false,
+        "createdAt": "2022-02-22T02:38:35.351998Z",
+        "uuid": "17851797-f38b-4db0-9e2b-801db58db4e9",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 0,
+              "unansweredQuestions": 20,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 0,
+              "unansweredQuestions": 48,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "CIRCA DIEM",
+        "package": {
+          "name": "DSG Knowledge Model",
+          "version": "1.0.3",
+          "id": "TKI:lifesciences:1.0.3"
+        },
+        "permissions": [
+          {
+            "uuid": "f69e53a4-d7a7-439b-81af-6804d47c3331",
+            "questionnaireUuid": "17851797-f38b-4db0-9e2b-801db58db4e9",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "COMMENT",
+              "EDIT",
+              "ADMIN"
+            ]
+          }
+        ],
+        "updatedAt": "2022-02-22T02:38:35.351998Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Default",
+        "phaseUuid": null,
+        "isTemplate": false,
+        "createdAt": "2021-05-03T03:00:30.217Z",
+        "uuid": "51128efa-66d4-4bb0-a814-579b5741fbde",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 264,
+              "unansweredQuestions": 28,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 264,
+              "unansweredQuestions": 28,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "OASIS",
+        "package": {
+          "name": "Life Sciences DSW Knowledge Model",
+          "version": "2.3.0",
+          "id": "dsw:lifesciences:2.3.0"
+        },
+        "permissions": [
+          {
+            "uuid": "5051d078-4556-4754-99d3-aa5c7f25dc14",
+            "questionnaireUuid": "51128efa-66d4-4bb0-a814-579b5741fbde",
+            "member": {
+              "lastName": "Pearce",
+              "uuid": "c6997839-81c2-4f54-b25c-7359f38fc662",
+              "gravatarHash": "0b355fe36a98a339fda505d85a7427c7",
+              "imageUrl": null,
+              "firstName": "Natasha",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "117c4df6-8fcb-4a58-8fc3-a7025063b5e2",
+            "questionnaireUuid": "51128efa-66d4-4bb0-a814-579b5741fbde",
+            "member": {
+              "lastName": "Attey",
+              "uuid": "3f320e09-0e97-4ea5-a982-933970dafa68",
+              "gravatarHash": "9c3e635febcad6d5f11e7064b33bec79",
+              "imageUrl": null,
+              "firstName": "Matilda",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "6f9f9815-456d-4b14-ac08-38d74f9ad59b",
+            "questionnaireUuid": "51128efa-66d4-4bb0-a814-579b5741fbde",
+            "member": {
+              "lastName": "Erceg",
+              "uuid": "df62c1fa-dbf1-4822-ae03-5c62b4400eac",
+              "gravatarHash": "89fea2b81bbc998f2d07b08fcd298173",
+              "imageUrl": null,
+              "firstName": "Erin",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "2d8e40f6-2ec5-428a-8dd7-e0f58ddfce40",
+            "questionnaireUuid": "51128efa-66d4-4bb0-a814-579b5741fbde",
+            "member": {
+              "lastName": "Cross",
+              "uuid": "190a6da2-2715-4261-80bc-09c78fdea78c",
+              "gravatarHash": "578bd59e334c8beea77a3c04cb03bdee",
+              "imageUrl": null,
+              "firstName": "Donna",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "72c1742e-fa33-43df-875a-0d07c2242919",
+            "questionnaireUuid": "51128efa-66d4-4bb0-a814-579b5741fbde",
+            "member": {
+              "lastName": "Doyle",
+              "uuid": "7c57e026-1818-4ffe-8336-44098a525e6e",
+              "gravatarHash": "ffddffa683276f0f957067454eafa7e6",
+              "imageUrl": null,
+              "firstName": "Bree",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW"
+            ]
+          },
+          {
+            "uuid": "2415818d-4c89-44d8-a346-c9ca6e772fc7",
+            "questionnaireUuid": "51128efa-66d4-4bb0-a814-579b5741fbde",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "18d4e439-03c7-499b-91a3-cdfb00b56db0",
+            "questionnaireUuid": "51128efa-66d4-4bb0-a814-579b5741fbde",
+            "member": {
+              "lastName": "Eiffler",
+              "uuid": "e1980493-0a50-4f0f-b7dd-2edb098dccac",
+              "gravatarHash": "34875a76f49b9c05d422a921b06157d8",
+              "imageUrl": null,
+              "firstName": "Nat",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          }
+        ],
+        "updatedAt": "2021-07-16T04:32:48.648Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Default",
+        "phaseUuid": null,
+        "isTemplate": false,
+        "createdAt": "2021-05-19T15:54:24.929Z",
+        "uuid": "53aced4b-f674-44c6-aaa0-7de8b2f1f1b9",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 4,
+              "unansweredQuestions": 30,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 4,
+              "unansweredQuestions": 30,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "FAIR",
+        "package": {
+          "name": "FAIR Convergence Matrix Questionnaire",
+          "version": "3.0.0",
+          "id": "gofair:fair-convergence-matrix:3.0.0"
+        },
+        "permissions": [
+          {
+            "uuid": "980874cc-1476-4e0e-ae76-9e4d4fda039e",
+            "questionnaireUuid": "53aced4b-f674-44c6-aaa0-7de8b2f1f1b9",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          }
+        ],
+        "updatedAt": "2021-05-19T15:54:24.929Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Outdated",
+        "phaseUuid": "1796fa3c-9f53-475f-89ff-c66a0453c42e",
+        "isTemplate": true,
+        "createdAt": "2022-01-20T03:12:49.596784Z",
+        "uuid": "5f70b4e0-f56d-4bfd-8742-b1f6a1cfde62",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 1,
+              "unansweredQuestions": 37,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 1,
+              "unansweredQuestions": 52,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "Project Demo changed",
+        "package": {
+          "name": "DSG Knowledge Model",
+          "version": "1.0.2",
+          "id": "TKI:lifesciences:1.0.2"
+        },
+        "permissions": [
+          {
+            "uuid": "8724121b-b373-4a2c-8876-28bb5e3d9a51",
+            "questionnaireUuid": "5f70b4e0-f56d-4bfd-8742-b1f6a1cfde62",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "COMMENT",
+              "EDIT",
+              "ADMIN"
+            ]
+          }
+        ],
+        "updatedAt": "2022-02-17T02:17:52.564376Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Default",
+        "phaseUuid": null,
+        "isTemplate": false,
+        "createdAt": "2021-03-26T03:54:30.891Z",
+        "uuid": "68bfada6-dece-4cd1-b958-b7ef6dd46912",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 301,
+              "unansweredQuestions": 20,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 301,
+              "unansweredQuestions": 20,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "Flubub",
+        "package": {
+          "name": "Life Sciences DSW Knowledge Model",
+          "version": "2.3.0",
+          "id": "dsw:lifesciences:2.3.0"
+        },
+        "permissions": [
+          {
+            "uuid": "2cee0b1c-8091-42ad-ad1e-38237594979a",
+            "questionnaireUuid": "68bfada6-dece-4cd1-b958-b7ef6dd46912",
+            "member": {
+              "lastName": "Ben Othman",
+              "uuid": "446eb228-7d7f-4271-a2d2-03860d5a1df2",
+              "gravatarHash": "4b137ca9720386f50af3f4a5379510e6",
+              "imageUrl": null,
+              "firstName": "Rym",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "097e8912-6ee6-4b5c-ba8b-bc3713b9f1af",
+            "questionnaireUuid": "68bfada6-dece-4cd1-b958-b7ef6dd46912",
+            "member": {
+              "lastName": "Doyle",
+              "uuid": "7c57e026-1818-4ffe-8336-44098a525e6e",
+              "gravatarHash": "ffddffa683276f0f957067454eafa7e6",
+              "imageUrl": null,
+              "firstName": "Bree",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW"
+            ]
+          },
+          {
+            "uuid": "49d2492e-7ba3-4ff1-abb5-256b34d9addc",
+            "questionnaireUuid": "68bfada6-dece-4cd1-b958-b7ef6dd46912",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "3de67647-32fe-49f7-a49a-f74fc57b54d5",
+            "questionnaireUuid": "68bfada6-dece-4cd1-b958-b7ef6dd46912",
+            "member": {
+              "lastName": "Eiffler",
+              "uuid": "e1980493-0a50-4f0f-b7dd-2edb098dccac",
+              "gravatarHash": "34875a76f49b9c05d422a921b06157d8",
+              "imageUrl": null,
+              "firstName": "Nat",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          }
+        ],
+        "updatedAt": "2021-07-16T04:31:15.018Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Default",
+        "phaseUuid": null,
+        "isTemplate": false,
+        "createdAt": "2021-08-18T03:36:24.172Z",
+        "uuid": "6ccc4980-8b7e-4c43-9a75-0a5d9fe9b773",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 7,
+              "unansweredQuestions": 51,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 7,
+              "unansweredQuestions": 51,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "CliniKids",
+        "package": {
+          "name": "Life Sciences DSW Knowledge Model",
+          "version": "2.3.0",
+          "id": "dsw:lifesciences:2.3.0"
+        },
+        "permissions": [
+          {
+            "uuid": "aa1bcfb3-f10a-4657-8998-b5cf64eebe64",
+            "questionnaireUuid": "6ccc4980-8b7e-4c43-9a75-0a5d9fe9b773",
+            "member": {
+              "lastName": "Melvin",
+              "uuid": "ef836a9d-c333-40c4-a26f-aa44434fdffd",
+              "gravatarHash": "82b609828d817290618ec4fcce36003b",
+              "imageUrl": null,
+              "firstName": "Leah",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "7affdf9e-aed2-483f-af09-b67c12b1a246",
+            "questionnaireUuid": "6ccc4980-8b7e-4c43-9a75-0a5d9fe9b773",
+            "member": {
+              "lastName": "Upson",
+              "uuid": "85328f2d-9c92-4160-bb6f-47a2866556d5",
+              "gravatarHash": "cff73c78e203b732214b279c48d5e4af",
+              "imageUrl": null,
+              "firstName": "Gemma",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "ffa02ca8-bb57-45a0-91e0-281da2ae5456",
+            "questionnaireUuid": "6ccc4980-8b7e-4c43-9a75-0a5d9fe9b773",
+            "member": {
+              "lastName": "Alvares",
+              "uuid": "13ff8ffb-a7b9-493f-a3d6-4015f32a7e73",
+              "gravatarHash": "8855c0c083f4f61ab308f8802bf5f2b8",
+              "imageUrl": null,
+              "firstName": "Gail",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "3d35134d-687e-4984-a254-cfca5990a106",
+            "questionnaireUuid": "6ccc4980-8b7e-4c43-9a75-0a5d9fe9b773",
+            "member": {
+              "lastName": "Melvin",
+              "uuid": "77fea7a4-1b52-45de-bbe2-b709ef9ef2ee",
+              "gravatarHash": "7057d0abde1617785cd145e60921fe4c",
+              "imageUrl": null,
+              "firstName": "Lisa",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "93a23bf4-140e-4634-8d85-99d6a578164a",
+            "questionnaireUuid": "6ccc4980-8b7e-4c43-9a75-0a5d9fe9b773",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "2609c67a-ec37-4db0-aca8-9b150adae9c3",
+            "questionnaireUuid": "6ccc4980-8b7e-4c43-9a75-0a5d9fe9b773",
+            "member": {
+              "lastName": "Eiffler",
+              "uuid": "e1980493-0a50-4f0f-b7dd-2edb098dccac",
+              "gravatarHash": "34875a76f49b9c05d422a921b06157d8",
+              "imageUrl": null,
+              "firstName": "Nat",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          }
+        ],
+        "updatedAt": "2021-08-18T03:38:32.931Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Default",
+        "phaseUuid": null,
+        "isTemplate": false,
+        "createdAt": "2021-05-03T04:04:17.361Z",
+        "uuid": "8788557b-5985-4289-b40b-5b0901edfa59",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 34,
+              "unansweredQuestions": 59,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 34,
+              "unansweredQuestions": 59,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "The ORIGINS Project",
+        "package": {
+          "name": "Telethon Kids Institute",
+          "version": "1.1.0",
+          "id": "TKI:TKI100:1.1.0"
+        },
+        "permissions": [
+          {
+            "uuid": "7c6208e2-c627-47d7-81ec-b3cc4a477635",
+            "questionnaireUuid": "8788557b-5985-4289-b40b-5b0901edfa59",
+            "member": {
+              "lastName": "Fuller",
+              "uuid": "998e2ab4-975c-4ac9-8051-4842f0dcdc26",
+              "gravatarHash": "a3a94e86f527da51cf6a782d48be1a87",
+              "imageUrl": null,
+              "firstName": "Emma",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "22f260fa-e755-4dc9-b1ba-9097e5223037",
+            "questionnaireUuid": "8788557b-5985-4289-b40b-5b0901edfa59",
+            "member": {
+              "lastName": "Whalan",
+              "uuid": "1ec0c0d2-aa30-4f84-8a16-15c27d8cb95b",
+              "gravatarHash": "5d5322e2e6fb17611f3713769694b458",
+              "imageUrl": null,
+              "firstName": "Sarah",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "4b9f1db9-49c5-4766-9754-62ef6add028b",
+            "questionnaireUuid": "8788557b-5985-4289-b40b-5b0901edfa59",
+            "member": {
+              "lastName": "Doyle",
+              "uuid": "7c57e026-1818-4ffe-8336-44098a525e6e",
+              "gravatarHash": "ffddffa683276f0f957067454eafa7e6",
+              "imageUrl": null,
+              "firstName": "Bree",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW"
+            ]
+          },
+          {
+            "uuid": "58e6eff5-4971-4039-bd88-eccfa7f2610b",
+            "questionnaireUuid": "8788557b-5985-4289-b40b-5b0901edfa59",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "d9e0a4fc-91a1-46d4-963d-702b1d3b7cbc",
+            "questionnaireUuid": "8788557b-5985-4289-b40b-5b0901edfa59",
+            "member": {
+              "lastName": "Eiffler",
+              "uuid": "e1980493-0a50-4f0f-b7dd-2edb098dccac",
+              "gravatarHash": "34875a76f49b9c05d422a921b06157d8",
+              "imageUrl": null,
+              "firstName": "Nat",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          }
+        ],
+        "updatedAt": "2021-07-16T04:34:01.519Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Default",
+        "phaseUuid": "b101f2d0-2476-452d-aa8d-95a41a02b52c",
+        "isTemplate": false,
+        "createdAt": "2022-02-22T02:39:03.804243Z",
+        "uuid": "88b4fceb-a414-4adf-8377-49b6b3cfe629",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 0,
+              "unansweredQuestions": 20,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 0,
+              "unansweredQuestions": 48,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "Indigenous Genomics",
+        "package": {
+          "name": "DSG Knowledge Model",
+          "version": "1.0.3",
+          "id": "TKI:lifesciences:1.0.3"
+        },
+        "permissions": [
+          {
+            "uuid": "af2fec81-05ce-4ef5-b90d-8468de44d385",
+            "questionnaireUuid": "88b4fceb-a414-4adf-8377-49b6b3cfe629",
+            "member": {
+              "lastName": "Bruce",
+              "uuid": "238183c4-d980-47fc-aa55-ca04d33f8e76",
+              "gravatarHash": "258c204c7104a4d04809b920d47ef458",
+              "imageUrl": null,
+              "firstName": "Kaashifah",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "COMMENT",
+              "EDIT",
+              "ADMIN"
+            ]
+          },
+          {
+            "uuid": "d328cb15-5601-461d-b10b-a89ce6f0c717",
+            "questionnaireUuid": "88b4fceb-a414-4adf-8377-49b6b3cfe629",
+            "member": {
+              "lastName": "Breen",
+              "uuid": "103fd867-0d98-4c25-ad43-154fc6905d6f",
+              "gravatarHash": "dc2b4bce1bd0eb98f33147526769c487",
+              "imageUrl": null,
+              "firstName": "Jimmy",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "COMMENT",
+              "EDIT",
+              "ADMIN"
+            ]
+          },
+          {
+            "uuid": "8297b26a-cede-4a8b-b21a-e6b574ee0358",
+            "questionnaireUuid": "88b4fceb-a414-4adf-8377-49b6b3cfe629",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "COMMENT",
+              "EDIT",
+              "ADMIN"
+            ]
+          }
+        ],
+        "updatedAt": "2022-02-28T02:41:24.440259Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Default",
+        "phaseUuid": null,
+        "isTemplate": false,
+        "createdAt": "2021-05-03T03:00:30.217Z",
+        "uuid": "966e3493-b1bf-4b95-b3d2-9a16de6ad241",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 264,
+              "unansweredQuestions": 30,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 264,
+              "unansweredQuestions": 30,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "OASIS",
+        "package": {
+          "name": "DSG Knowledge Model",
+          "version": "1.0.3",
+          "id": "TKI:lifesciences:1.0.3"
+        },
+        "permissions": [
+          {
+            "uuid": "6485c7f9-b49f-437b-938e-8e313662b807",
+            "questionnaireUuid": "966e3493-b1bf-4b95-b3d2-9a16de6ad241",
+            "member": {
+              "lastName": "Pearce",
+              "uuid": "c6997839-81c2-4f54-b25c-7359f38fc662",
+              "gravatarHash": "0b355fe36a98a339fda505d85a7427c7",
+              "imageUrl": null,
+              "firstName": "Natasha",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "COMMENT",
+              "EDIT",
+              "ADMIN"
+            ]
+          },
+          {
+            "uuid": "359b6651-4bb0-4913-b830-a437c7f10f7d",
+            "questionnaireUuid": "966e3493-b1bf-4b95-b3d2-9a16de6ad241",
+            "member": {
+              "lastName": "Attey",
+              "uuid": "3f320e09-0e97-4ea5-a982-933970dafa68",
+              "gravatarHash": "9c3e635febcad6d5f11e7064b33bec79",
+              "imageUrl": null,
+              "firstName": "Matilda",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "COMMENT",
+              "EDIT",
+              "ADMIN"
+            ]
+          },
+          {
+            "uuid": "d7e2747b-9d16-42f3-b96f-bd8058e064ed",
+            "questionnaireUuid": "966e3493-b1bf-4b95-b3d2-9a16de6ad241",
+            "member": {
+              "lastName": "Erceg",
+              "uuid": "df62c1fa-dbf1-4822-ae03-5c62b4400eac",
+              "gravatarHash": "89fea2b81bbc998f2d07b08fcd298173",
+              "imageUrl": null,
+              "firstName": "Erin",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "COMMENT",
+              "EDIT",
+              "ADMIN"
+            ]
+          },
+          {
+            "uuid": "4c6fb5b7-a105-48c4-86dc-ae4b5b873ac6",
+            "questionnaireUuid": "966e3493-b1bf-4b95-b3d2-9a16de6ad241",
+            "member": {
+              "lastName": "Cross",
+              "uuid": "190a6da2-2715-4261-80bc-09c78fdea78c",
+              "gravatarHash": "578bd59e334c8beea77a3c04cb03bdee",
+              "imageUrl": null,
+              "firstName": "Donna",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "COMMENT",
+              "EDIT"
+            ]
+          },
+          {
+            "uuid": "742ea3c4-afee-4e1c-9008-3b1d0d8b53ca",
+            "questionnaireUuid": "966e3493-b1bf-4b95-b3d2-9a16de6ad241",
+            "member": {
+              "lastName": "Doyle",
+              "uuid": "7c57e026-1818-4ffe-8336-44098a525e6e",
+              "gravatarHash": "ffddffa683276f0f957067454eafa7e6",
+              "imageUrl": null,
+              "firstName": "Bree",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW"
+            ]
+          },
+          {
+            "uuid": "f5295718-dec4-4e58-9e5d-8d366fade3a7",
+            "questionnaireUuid": "966e3493-b1bf-4b95-b3d2-9a16de6ad241",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "COMMENT",
+              "EDIT",
+              "ADMIN"
+            ]
+          }
+        ],
+        "updatedAt": "2022-03-03T04:23:40.506304Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Default",
+        "phaseUuid": null,
+        "isTemplate": false,
+        "createdAt": "2021-04-12T04:58:29.725Z",
+        "uuid": "9a988521-dc08-4d26-bb2a-83add274396f",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 290,
+              "unansweredQuestions": 17,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 290,
+              "unansweredQuestions": 17,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "Tick-borne disease",
+        "package": {
+          "name": "Life Sciences DSW Knowledge Model",
+          "version": "2.3.0",
+          "id": "dsw:lifesciences:2.3.0"
+        },
+        "permissions": [
+          {
+            "uuid": "a19ea5b2-d2ff-4550-95d2-2e0a3238e8d2",
+            "questionnaireUuid": "9a988521-dc08-4d26-bb2a-83add274396f",
+            "member": {
+              "lastName": "Ben Othman",
+              "uuid": "446eb228-7d7f-4271-a2d2-03860d5a1df2",
+              "gravatarHash": "4b137ca9720386f50af3f4a5379510e6",
+              "imageUrl": null,
+              "firstName": "Rym",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "0a3d7d54-9e96-4426-8982-accaa403f031",
+            "questionnaireUuid": "9a988521-dc08-4d26-bb2a-83add274396f",
+            "member": {
+              "lastName": "Lee",
+              "uuid": "46e5d9a0-7b19-4149-befe-3152c00ba38b",
+              "gravatarHash": "25b273b6ab9bf46132e4809e96baa720",
+              "imageUrl": null,
+              "firstName": "Wenna",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "d5b5e2d1-4690-43c0-b197-44f15472b8c2",
+            "questionnaireUuid": "9a988521-dc08-4d26-bb2a-83add274396f",
+            "member": {
+              "lastName": "Doyle",
+              "uuid": "7c57e026-1818-4ffe-8336-44098a525e6e",
+              "gravatarHash": "ffddffa683276f0f957067454eafa7e6",
+              "imageUrl": null,
+              "firstName": "Bree",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW"
+            ]
+          },
+          {
+            "uuid": "5803d3b0-c8d0-44b9-bda3-a0b2dd3ef150",
+            "questionnaireUuid": "9a988521-dc08-4d26-bb2a-83add274396f",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "940f7ec4-1360-4393-924e-ff238d445632",
+            "questionnaireUuid": "9a988521-dc08-4d26-bb2a-83add274396f",
+            "member": {
+              "lastName": "Eiffler",
+              "uuid": "e1980493-0a50-4f0f-b7dd-2edb098dccac",
+              "gravatarHash": "34875a76f49b9c05d422a921b06157d8",
+              "imageUrl": null,
+              "firstName": "Nat",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          }
+        ],
+        "updatedAt": "2021-07-16T04:32:04.807Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Default",
+        "phaseUuid": null,
+        "isTemplate": false,
+        "createdAt": "2021-04-23T02:23:20.533Z",
+        "uuid": "9ac46246-8583-4847-9bc0-c019af370049",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 228,
+              "unansweredQuestions": 14,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 228,
+              "unansweredQuestions": 14,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "Early Moves",
+        "package": {
+          "name": "Common DSW Knowledge Model",
+          "version": "2.3.0",
+          "id": "dsw:root:2.3.0"
+        },
+        "permissions": [
+          {
+            "uuid": "662d6a6e-720d-404b-b4bd-8db774adac31",
+            "questionnaireUuid": "9ac46246-8583-4847-9bc0-c019af370049",
+            "member": {
+              "lastName": "Adams",
+              "uuid": "e4a1dde5-2bea-41ee-b386-38807b7cf38d",
+              "gravatarHash": "9793e15a1e1286621dd9c0af98841408",
+              "imageUrl": null,
+              "firstName": "Mitch",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "0a6bc052-4fa4-4673-8837-bbc94bea907f",
+            "questionnaireUuid": "9ac46246-8583-4847-9bc0-c019af370049",
+            "member": {
+              "lastName": "Doyle",
+              "uuid": "7c57e026-1818-4ffe-8336-44098a525e6e",
+              "gravatarHash": "ffddffa683276f0f957067454eafa7e6",
+              "imageUrl": null,
+              "firstName": "Bree",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW"
+            ]
+          },
+          {
+            "uuid": "55de7285-7fae-43d9-a8da-34743f075890",
+            "questionnaireUuid": "9ac46246-8583-4847-9bc0-c019af370049",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "ca66b1ad-c9b3-4617-baae-45b20736ec42",
+            "questionnaireUuid": "9ac46246-8583-4847-9bc0-c019af370049",
+            "member": {
+              "lastName": "Eiffler",
+              "uuid": "e1980493-0a50-4f0f-b7dd-2edb098dccac",
+              "gravatarHash": "34875a76f49b9c05d422a921b06157d8",
+              "imageUrl": null,
+              "firstName": "Nat",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          }
+        ],
+        "updatedAt": "2021-07-16T04:33:22.427Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Default",
+        "phaseUuid": null,
+        "isTemplate": false,
+        "createdAt": "2021-08-11T22:27:24.536Z",
+        "uuid": "b4b9a973-43aa-4d46-84f2-6b5e5d2a8549",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 0,
+              "unansweredQuestions": 46,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 0,
+              "unansweredQuestions": 46,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "Demo Project for DMP-Phage Australia",
+        "package": {
+          "name": "Telethon Kids Institute",
+          "version": "1.1.0",
+          "id": "TKI:TKI100:1.1.0"
+        },
+        "permissions": [
+          {
+            "uuid": "33bfa568-0712-406b-9a9f-adcbd9cdc01c",
+            "questionnaireUuid": "b4b9a973-43aa-4d46-84f2-6b5e5d2a8549",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          }
+        ],
+        "updatedAt": "2021-08-11T22:27:24.536Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      },
+      {
+        "state": "Default",
+        "phaseUuid": null,
+        "isTemplate": false,
+        "createdAt": "2021-03-19T04:18:42.171Z",
+        "uuid": "e6247c88-e2a9-40c2-8313-b2368f1c9502",
+        "report": {
+          "indications": [
+            {
+              "answeredQuestions": 512,
+              "unansweredQuestions": 78,
+              "indicationType": "PhasesAnsweredIndication"
+            },
+            {
+              "answeredQuestions": 512,
+              "unansweredQuestions": 78,
+              "indicationType": "AnsweredIndication"
+            }
+          ]
+        },
+        "visibility": "PrivateQuestionnaire",
+        "name": "AREST CF",
+        "package": {
+          "name": "Life Sciences DSW Knowledge Model",
+          "version": "2.3.0",
+          "id": "dsw:lifesciences:2.3.0"
+        },
+        "permissions": [
+          {
+            "uuid": "ec59008a-1925-4aed-bd51-373484f99c8c",
+            "questionnaireUuid": "e6247c88-e2a9-40c2-8313-b2368f1c9502",
+            "member": {
+              "lastName": "Langford",
+              "uuid": "7f0e42d6-7670-4385-8f41-7acf68f7f2c6",
+              "gravatarHash": "ce08f307d838d6ffe4ac0b1a268ba92a",
+              "imageUrl": null,
+              "firstName": "Rebecca",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "19f92de3-227b-456b-934b-c30f40197407",
+            "questionnaireUuid": "e6247c88-e2a9-40c2-8313-b2368f1c9502",
+            "member": {
+              "lastName": "Kaur",
+              "uuid": "46ed657c-b50a-4dff-ab1b-ef43c92e03a4",
+              "gravatarHash": "eed5184df047ade25520a19dc1d26843",
+              "imageUrl": null,
+              "firstName": "Harpreet",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "ebd39190-883c-4f29-9a2c-6e2fc2d69e08",
+            "questionnaireUuid": "e6247c88-e2a9-40c2-8313-b2368f1c9502",
+            "member": {
+              "lastName": "Doyle",
+              "uuid": "7c57e026-1818-4ffe-8336-44098a525e6e",
+              "gravatarHash": "ffddffa683276f0f957067454eafa7e6",
+              "imageUrl": null,
+              "firstName": "Bree",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW"
+            ]
+          },
+          {
+            "uuid": "4bd69615-9987-437b-b6d7-451e52f7d935",
+            "questionnaireUuid": "e6247c88-e2a9-40c2-8313-b2368f1c9502",
+            "member": {
+              "lastName": "Aniba",
+              "uuid": "5be6ab79-5d51-44bf-bff8-c68d8306e488",
+              "gravatarHash": "0e36001a0bb4b054fe3c18e2bc0b93ac",
+              "imageUrl": null,
+              "firstName": "Rad",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          },
+          {
+            "uuid": "1c86da08-0643-4210-86cd-35c3e113bad4",
+            "questionnaireUuid": "e6247c88-e2a9-40c2-8313-b2368f1c9502",
+            "member": {
+              "lastName": "Eiffler",
+              "uuid": "e1980493-0a50-4f0f-b7dd-2edb098dccac",
+              "gravatarHash": "34875a76f49b9c05d422a921b06157d8",
+              "imageUrl": null,
+              "firstName": "Nat",
+              "type": "UserMember"
+            },
+            "perms": [
+              "VIEW",
+              "EDIT",
+              "ADMIN",
+              "COMMENT"
+            ]
+          }
+        ],
+        "updatedAt": "2021-07-16T04:29:43.311Z",
+        "sharing": "RestrictedQuestionnaire",
+        "description": null
+      }
+    ]
+}
