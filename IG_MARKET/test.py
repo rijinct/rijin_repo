@@ -49,7 +49,7 @@ def create_position(epicVal, dir, size):
         limit_level=None,
         quote_id=None,
         stop_level=None,
-        stop_distance=20,
+        stop_distance=30,
         trailing_stop=None,
         trailing_stop_increment=None)
     resp
