@@ -1,0 +1,18 @@
+eclipse shortcuts:
+ctrl shift F -> to format code
+ctrl space, it adds the imports automatically
+ctrl o for all the methods
+alt shift s -> generate constructor using fields
+shift r to refactor
+ctrl 1
+ctrl T -> classes which extends abstract
+ctrl shift G -> to get the sources
+ctrl shift I -> to inspect while debug
+ctrl / to comment
+ctrl / to uncomment
+ctrl shift / to comment
+ctrl shift \ to uncomment
+ctrl shift E to close editors
+main ctrl space -> public static void main
+to upper case and lowercase -> ctrl + shift + x and ctrl + shift + Y
+this navigator and package explorer are 2 different things.. go to windows-> show-view-> package explorer.  

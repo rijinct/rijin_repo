@@ -1,0 +1,1 @@
+set the mvn_home/bin in path variable of env variable. Then copy the setting.xml into .m2 location also

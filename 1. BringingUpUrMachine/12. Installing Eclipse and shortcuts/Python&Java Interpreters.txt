@@ -1,0 +1,6 @@
+if you want to change prespective ie, you want to run both java and python on same workspace, then change perspective
+
+Go to Window → Open Perspective → Other and choose PyDev, then click OK. If you look at the upper right corner you will see that the perspective has changed from "Java" to "PyDev". 
+
+
+https://www.rose-hulman.edu/class/csse/resources/Eclipse/eclipse-python-configuration.htm
