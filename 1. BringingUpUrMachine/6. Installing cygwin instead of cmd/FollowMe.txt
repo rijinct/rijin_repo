@@ -1,0 +1,10 @@
+Downloaded cygwin and installed. so, by default it comes with a package similar to linux. so your windows path, it internally converts to a linux like path
+
+2) your drives are always in /cygdrive/
+
+	eg) /cygdrive/c/Users/rithomas has all my desktop files and all
+
+3) To start at Desktop path changed the default username directory path in /etc/nsswitch.conf and updated DB and uncommented eg) I added db_home:  /%H. So, now when I open cygwin it goes by default to /cygdrive/c/Users/rithomas\
+
+more info --> https://ryanharrison.co.uk/2015/12/01/cygwin-change-home-directory.html
+

@@ -1,0 +1,21 @@
+Already downloaded spark and extracted in "C:\Users\rithomas\Desktop\NokiaCemod\Cemod_software\Spark"
+
+so, pyspark is in spark\bin folder and spark-shell also. Will add it in ENV variable and export it so that I can run it from anywhere. 
+
+to start spark, run spark-shell in cmd promot. In cygwin its not going in that prompt
+
+To setup pyspark on eclipse
+
+https://blog.puneethabm.com/pyspark-dev-set-up-eclipse-windows/
+
+
+Spark on windows, seeing the UI and all
+
+https://phoenixnap.com/kb/install-spark-on-windows-10
+
+
+My examples are in C:\Users\rithomas\Desktop\NokiaCemod\4_Cemod_software\Spark\spark-3.0.0-preview-bin-hadoop2.7\rijin\
+--------------
+
+spark on intellij
+https://www.youtube.com/watch?v=j8AcYWQuv-M
