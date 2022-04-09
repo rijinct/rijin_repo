@@ -1,0 +1,11 @@
+Download 1.8 from oracle website, you need to input the username and password to download and follow the below link
+
+https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html
+
+2) Set the env variable for java 
+
+To edit the PATH environment variable in Windows 10:
+
+Launch "Control Panel" ⇒ (Optional) "System and Security" ⇒ "System" ⇒ Click "Advanced system settings" on the left pane.
+Switch to "Advanced" tab ⇒ Click "Environment Variables" button.
+Under "System Variables" (the bottom pane), scroll down, add a new JAVA_HOME variable and add it to PATH variable
