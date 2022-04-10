@@ -9,6 +9,7 @@ let lower_alp = 'qazwsxedcrfvtgbyhnujmikolp'
 let results = []
 for (var x = 0; x<val.length; x++)
 {
+    //indexOf(), and lastIndexOf() return -1 if the text is not found:
     if (upper_alp.indexOf(val[x]) !== -1)
     {
         results.push(val[x].toLowerCase())
