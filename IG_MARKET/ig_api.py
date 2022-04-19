@@ -131,10 +131,12 @@ def check_transaction_last_2_hrs(instr):
         return True
 
 
-def trigger_alert(macd, pivot, positions, macd_prev_int, instr):
+def trigger_alert(macd, pivot, positions, macd_prev_int, macd_prev_int_2, instr):
     diff = difference_btw_values(macd['macd'], macd['signal'])
     diff_prev_int = difference_btw_values(macd_prev_int['macd'],
                                           macd_prev_int['signal'])
+    diff_prev_int_2 = difference_btw_values(macd_prev_int_2['macd'],
+                                            macd_prev_int_2['signal'])
     print('############# MACD PREV INTERVAL ########################')
     print(macd_prev_int)
     print('############# MACD ########################')
@@ -150,7 +152,7 @@ def trigger_alert(macd, pivot, positions, macd_prev_int, instr):
                      diff < 2.5)) | (
                     (macd['macd'] < macd['signal']) & (
                     macd_prev_int['macd'] < macd_prev_int['signal']) & (
-                            diff < 2.5) & (diff_prev_int > diff))):
+                            diff < 2.5) & (diff_prev_int > diff) & (diff_prev_int_2 > diff))):
         if (check_existing_order(positions, 'BUY')):
             if (check_transaction_last_2_hrs(instr)):
                 print('Creating a Buy position')
@@ -173,7 +175,7 @@ def trigger_alert(macd, pivot, positions, macd_prev_int, instr):
                      diff < 2.5)) | (
                     (macd['macd'] > macd['signal']) & (
                     macd_prev_int['macd'] > macd_prev_int['signal']) & (
-                            diff < 2.5) & (diff_prev_int > diff))):
+                            diff < 2.5) & (diff_prev_int > diff) & (diff_prev_int > diff))):
         if (check_existing_order(positions, 'SELL')):
             if (check_transaction_last_2_hrs(instr)):
                 print('Creating a SELL position')
@@ -274,10 +276,11 @@ def execute(sc):
     macd_calculated.to_csv(macd_file)
     macd = macd_calculated.iloc[-1]
     macd_prev_int = macd_calculated.iloc[-2]
+    macd_prev_int_2 = macd_calculated.iloc[-3]
 
     # pivot = 7245.3
     # positions = pd.read_csv('position.csv') #test
-    trigger_alert(macd, pivot, positions, macd_prev_int, 'IX.D.ASX.IFD.IP')
+    trigger_alert(macd, pivot, positions, macd_prev_int, macd_prev_int_2, 'IX.D.ASX.IFD.IP')
 
     s.enter(3600, 1, execute, (sc,))
 
