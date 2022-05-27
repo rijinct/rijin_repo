@@ -1357,3 +1357,43 @@ Step 1: Type screen command and enter,
 Step 2: close terminal, it will show detached in screen -ls, thats ok, 
 step 3: reattach by screen -r "id"
 step 4: To scroll up and down in a screen window: In Mac -> press ctrl + a + esc, after that use up and down arrow.
+
+
+
+CPU info:
+--------
+
+scpu
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                8
+On-line CPU(s) list:   0-7
+Thread(s) per core:    1
+Core(s) per socket:    1
+Socket(s):             8
+NUMA node(s):          1
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 79
+Model name:            Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
+Stepping:              0
+CPU MHz:               2095.078
+BogoMIPS:              4190.15
+Hypervisor vendor:     VMware
+Virtualization type:   full
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              1024K
+L3 cache:              22528K
+
+
+1) Dev cluster(tki-hoinf-t2109 ~ 12)
+16GB RAM, 8 CPU's, 1 Core per socket, 0 Swap MarkLogic process ran twice as faster compared to the UAT cluster for the same workload.
+
+2) Test/UAT Cluster:
+RHEL cluster(tki-hoinf-t2006~2008) 24GB RAM, 8CPU, 4 Core per Socket, 6GB Swap Marklogic completes in couple of hours. This is the fastest cluster.
+Replacement cluster(TKI-HOINF-T2115 ~ 2117): 8GB RAM, 8CPU, 1 Core per socket, 8GB Swap Memory issues and process restarts. This is the slowest cluster.
+
+
+3) Prod Cluster: RHEL cluster(tki-hoinf-t2006~2008) 16GB RAM, 8CPU, 4 Core per Socket, 6GB Swap This is a faster compared to the dev configuration. Only difference is, it is a Quadcore CPU

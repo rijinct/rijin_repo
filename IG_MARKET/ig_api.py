@@ -45,7 +45,7 @@ def create_position(epicVal, dir, size):
         guaranteed_stop='false',
         size=size,
         level=None,
-        limit_distance=5,
+        limit_distance=3,
         limit_level=None,
         quote_id=None,
         stop_level=None,
@@ -193,7 +193,7 @@ def trigger_alert(macd, pivot, positions, macd_prev_int, macd_prev_int_2, instr)
 
 
 def check_and_close_sell_position(diff, macd, positions, macd_prev_int, diff_prev_int):
-    target_profit = positions['level'].iloc[0] - 5
+    target_profit = positions['level'].iloc[0] - 3
     #stop_loss = positions['level'].iloc[0] + 20
     if (macd['Close'] < target_profit):
         print('target hit, closing deal')
@@ -224,7 +224,7 @@ def check_and_close_sell_position(diff, macd, positions, macd_prev_int, diff_pre
 
 def check_and_close_buy_positions(diff, macd, positions, macd_prev_int,
                                   diff_prev_int):
-    target_profit = positions['level'].iloc[0] + 5
+    target_profit = positions['level'].iloc[0] + 3
     #stop_loss = positions['level'].iloc[0] - 20
     if (macd['Close'] > target_profit):
         print('target hit, closing deal')

@@ -45,7 +45,7 @@ def create_position(epicVal, dir, size):
         guaranteed_stop='false',
         size=size,
         level=None,
-        limit_distance=5,
+        limit_distance=1,
         limit_level=None,
         quote_id=None,
         stop_level=None,
@@ -237,8 +237,10 @@ def execute(sc):
 
     create_position('IX.D.ASX.IFD.IP', 'SELL', 1)
     exit(0)
+    hour_file = 'hour-{}.csv'.format(timestr)
+    macd_file = 'macd-{}.csv'.format(timestr)
 
-    transaction = ig_service.fetch_account_activity_by_period(7200000)
+    transaction = ig_service.fetch_account_activity_by_period(2592000000)
     if any(transaction.epic == 'IX.D.ASX.IFD.IP'):
         print('Already transacted in the last 3 hrs')
         check_ret()
@@ -246,6 +248,12 @@ def execute(sc):
         print('No entry')
     transaction.to_csv('trasaction.csv')
     print(transaction)
+    df_h = get_historical_data('IX.D.ASX.IFD.IP', 'H', 80)
+    df_d = get_historical_data('IX.D.ASX.IFD.IP', 'D', 2)
+    df_h.to_csv(hour_file)
+    macd_calculated = calculate_macd(df_h)
+    macd_calculated.to_csv(macd_file)
+    exit(0)
 
     s.enter(3600, 1, execute, (sc,))
 

@@ -1,0 +1,40 @@
+{
+  "name": "Participant_flow_production",
+  "steps": {
+    "1": {
+      "stepId": "map_OR_child_clinic_sampling-mapping"
+    },
+    "2": {
+      "stepId": "map_OR_subproject-mapping"
+    },
+    "3": {
+      "stepId": "map_OR_origins_adult_consent_form-mapping"
+    },
+    "4": {
+      "stepId": "map_OR_origins_id_number_form-mapping"
+    },
+    "5": {
+      "stepId": "map_OR_child_study_status-mapping"
+    },
+    "6": {
+      "stepId": "map_OR_paternal_study_status-mapping"
+    },
+    "7": {
+      "stepId": "map_OR_maternal_study_status-mapping"
+    },
+    "8": {
+      "stepId": "map_OR_year_appointment_3-mapping"
+    },
+    "9": {
+      "stepId": "map_OR_year_appointment-mapping"
+    },
+    "10": {
+      "stepId": "match_OR_Participant_originsID_1-matching"
+    },
+    "11": {
+      "stepId": "merge_OR_OriginsID_1_1-merging"
+    }
+  },
+  "lastUpdated": "2022-05-03T10:12:52.061009+08:00",
+  "description": ""
+}
