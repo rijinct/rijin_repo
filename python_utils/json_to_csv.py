@@ -6,6 +6,7 @@ with open('response.json') as file:
     data = json.load(file)
 
 picker = CherryPicker(data)
-flat = picker['questionnaires'].flatten().get()
+flat = picker['results']['extracted'].flatten().get()
 df = pd.DataFrame(flat)
+print(df)
 df.to_csv('response.csv')
