@@ -1,0 +1,1 @@
+To record screen: Open QuickMedia player, already activated microphone, start recording, to stop - use cmd + shift + 5, then stop
