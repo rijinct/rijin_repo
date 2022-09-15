@@ -7,7 +7,7 @@ Download sourceTree and clone URL
 3) use this token in sourcetree, go to preferances-> account-> add new -> github and put username:rijinct and pass:token and authtype basic. 
 Make sure you tick all the checkBoxes. Thats all
 	
-	Token Generated for Gitub Jenkins: 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
+	Token Generated for Gitub Jenkins: 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
 
 
 Incase of issues:
