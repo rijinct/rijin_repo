@@ -1,5 +1,0 @@
-https://confluence.int.net.nokia.com/display/SR/Tortoise+GIT+installation
-
-To install hooks to push and commit
-
-https://confluence.int.net.nokia.com/display/SR/Client+Level+Hooks

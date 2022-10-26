@@ -1,5 +1,0 @@
-Install mariaDB. Now, this service always needs to be started as a service manually using sqld.exe. 
-
-so, instead created this as a windows service and added it as a an admin user. Run the below command on cmd prompt as an admin user.
-
- mysqld --install MySQLXY --defaults-file="C:\Program Files\MariaDB 10.4\data\my.ini"

@@ -1,7 +1,0 @@
-Add the HTTP_PROXY and HTTPS_PROXY in env variable so that you can download package using pip and all
-
-
-HTTP_PROXY="http://10.144.1.10:8080"
-HTTP_PROXY="http://10.144.1.10:8080"
-
-I have removed the above from user variable in env settings, coz couldnt do pip install with local internet. Note: It should be in user variable not in env variable

@@ -1,1 +1,0 @@
-create new project and then. remove the default path and put your path which has the python code
