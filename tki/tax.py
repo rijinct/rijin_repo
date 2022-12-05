@@ -1,30 +1,37 @@
+############################################################
+# As a foreign resident, you fall under the slab as below
+#
+#Taxable income
+#=======================================================================
+#        0 – $120,000 | 32.5 cents for each $1
+# $120,001 – $180,000 | $39,000 plus 37 cents for each $1 over $120,000
+# $180,001   and over | $61,200 plus 45 cents for each $1 over $180,000
+#=======================================================================
+### A normal PR guy falls under normal slab and the tax is 10K lesser
+#
+#
+############################################################
+
 import constants
 
 def get_tax_for_income(income):
-    income_after_flat_ded = income - constants.tax_45_slab
-    remainin_tax_amt = income_after_flat_ded * constants.tax_45_remain_each_dol
+    income_beyond_120K_slab = income - constants.tax_120_slab_f
+    remainin_tax_amt = income_beyond_120K_slab * constants.tax_perc_120_180K_f
     #print(remainin_tax_amt)
-    total_tax_payble = remainin_tax_amt + constants.tax_flat_45k_120k
+    total_tax_payble = remainin_tax_amt + constants.tax_flat_120_180K
     return total_tax_payble
 
 
 if __name__ == "__main__":
 
-    monthly_wo_tax = constants.b_pay / 12
-    fortnt_wo_ded = monthly_wo_tax / 2
-    
-    fortnt_after_ded = fortnt_wo_ded - constants.tax_normal_py
-    weekl_py_after_ded = fortnt_after_ded / 2
-    tot_pay_wo_tax = monthly_wo_tax * 8
-    tax_an = constants.tax_normal_py * 2 * 12
+    total_tax = get_tax_for_income(constants.b_pay_f)
+    income_after_tax_annually = constants.b_pay_f - total_tax
+    income_after_tax_monthly = income_after_tax_annually / 12
 
-    print("Actual taxable amount for the current year based on my income:{}".format(get_tax_for_income(tot_pay_wo_tax)))
-    print("Taxable income annually as per sal statement:{}".format(tax_an))
-    print("Total income without tax:{}".format(tot_pay_wo_tax))
-    print(weekl_py_after_ded)
-    print(fortnt_after_ded)
-    print(fortnt_wo_ded)
-    print(monthly_wo_tax)
+    print("Actual taxable amount for the current year based on my income:{}".format(total_tax))
+    print("Total income after tax deduction annually:{}".format(income_after_tax_annually))
+    print("Total income after tax deduction Monthly:{}".format(income_after_tax_monthly))
+
 
 
 
