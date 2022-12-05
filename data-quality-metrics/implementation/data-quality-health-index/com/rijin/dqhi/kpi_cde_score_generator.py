@@ -10,6 +10,7 @@ from com.rijin.dqhi.df_db_util import dfDbUtil
 from com.rijin.dqhi.df_excel_util import dfExcelUtil
 import numpy as np
 import pandas as pd
+import constants
 
 if os.getenv('IS_K8S') == 'true':
     LOGGER = common_utils.get_logger_nova()

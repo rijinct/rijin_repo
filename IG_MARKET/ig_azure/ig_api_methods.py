@@ -1,6 +1,6 @@
 from trading_ig import IGService
 
-from IG_MARKET.config import config
+from config import config
 
 
 def create_session():

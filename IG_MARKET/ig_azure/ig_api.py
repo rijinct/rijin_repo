@@ -1,15 +1,27 @@
-from IG_MARKET.ig_api_methods import create_session, get_open_positions, get_historical_data, create_position
+from ig_api_methods import create_session, get_open_positions, get_historical_data, create_position
 import sched, time
 import warnings
-
-from IG_MARKET.ig_handler import difference_btw_values, check_existing_order, check_transaction_last_2_hrs
-from IG_MARKET.ig_technical import calculate_macd, calculate_ST, calculate_pivot, calculate_vwap
-
-warnings.filterwarnings('ignore')
-global ig_service
+#from azure.storage.blob import BlobClient
+from ig_handler import difference_btw_values, check_existing_order, check_transaction_last_2_hrs
+from ig_technical import calculate_macd, calculate_ST, calculate_pivot, calculate_vwap
+import sys
 from datetime import datetime
 
+import logging
+	
+warnings.filterwarnings('ignore')
+global ig_service
+
 s = sched.scheduler(time.time, time.sleep)
+
+logger = logging.getLogger('azure')
+logger.setLevel(logging.DEBUG)
+
+handler = logging.StreamHandler(stream=sys.stdout)
+logger.addHandler(handler)
+
+logger.info("Test")
+#logger.DEBUG("Test")
 
 
 def trigger_alert(superT, vwap, macd, pivot, positions, macd_prev_int, macd_prev_int_2, instr):
@@ -86,12 +98,11 @@ def trigger_alert(superT, vwap, macd, pivot, positions, macd_prev_int, macd_prev
 
 def execute(sc):
     print(datetime.today().weekday())
-    if datetime.today().weekday() != 4:
+    if datetime.today().weekday() == 4:
         print("Yes, Today is Friday")
         exit()
     else:
         print("Nope...")
-        exit()
     create_session()
     #results = ig_service.get_client_apps()
     timestr = time.strftime("%Y%m%d-%H%M%S")
@@ -105,7 +116,7 @@ def execute(sc):
     #print("positions:{}".format(positions))
 
     try:
-        df_h = get_historical_data('IX.D.ASX.IFD.IP', 'H', 80)
+        df_h = get_historical_data('IX.D.ASX.IFD.IP', 'H', 70)
     except:
         #df_h = get_historical_data('IX.D.ASX.IFD.IP', 'H', 70)
         print("Fetching hourly historical data failed. So skipping the run")
@@ -143,3 +154,20 @@ def execute(sc):
 if __name__ == "__main__":
     s.enter(1, 1, execute, (s,))
     s.run()
+
+	# Define parameters
+	# connectionString = "DefaultEndpointsProtocol=https;AccountName=rijinstorageaccount;AccountKey=d7dC+ibJhNvaUIZU7jzCPpqhQh+kYpf89SKxUNK99J4hEph1vwlaANj8K/yqhO5ZaLwi/uTrAdey+AStD6fMFw==;EndpointSuffix=core.windows.net"
+	# containerName = "ig-api-container"
+	# outputBlobName	= "test.csv"
+
+	# blob = BlobClient.from_connection_string(conn_str=connectionString, container_name=containerName, blob_name=outputBlobName)
+	# dict = {'name':["aparna", "pankaj", "sudhir", "Geeku"], 
+	# 		'degree': ["MBA", "BCA", "M.Tech", "MBA"], 
+	# 		'score':[90, 40, 80, 98]} 
+	
+	# df.to_csv(outputBlobName, index = False)
+
+	# with open(outputBlobName, "rb") as data:
+	# 	blob.upload_blob(data)
+
+		
