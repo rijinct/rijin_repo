@@ -1,0 +1,25 @@
+{
+  "info": {
+    "title": "Individual",
+    "draft": false,
+    "version": "1.0.0",
+    "baseUri": "http://example.org/"
+  },
+  "definitions": {
+    "Individual": {
+      "properties": {
+        "contact_informartion": {
+          "datatype": "string",
+          "relatedEntityType": "http://example.org/Contact_Information-1.0.0/Contact_Information",
+          "joinPropertyName": "customer_id"
+        },
+        "customer_id": {
+          "datatype": "string",
+          "facetable": false,
+          "sortable": false,
+          "collation": "http://marklogic.com/collation/codepoint"
+        }
+      }
+    }
+  }
+}

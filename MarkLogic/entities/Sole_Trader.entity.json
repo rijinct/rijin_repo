@@ -1,0 +1,43 @@
+{
+  "info": {
+    "title": "Sole_Trader",
+    "draft": false,
+    "version": "1.0.0",
+    "baseUri": "http://example.org/"
+  },
+  "definitions": {
+    "Sole_Trader": {
+      "properties": {
+        "contact_informartion": {
+          "datatype": "string",
+          "relatedEntityType": "http://example.org/Contact_Information-1.0.0/Contact_Information",
+          "joinPropertyName": "customer_id"
+        },
+        "customer_id": {
+          "datatype": "string",
+          "facetable": false,
+          "sortable": false,
+          "collation": "http://marklogic.com/collation/codepoint"
+        },
+        "trading_name": {
+          "datatype": "string",
+          "facetable": false,
+          "sortable": false,
+          "collation": "http://marklogic.com/collation/codepoint"
+        },
+        "abn": {
+          "datatype": "string",
+          "facetable": false,
+          "sortable": false,
+          "collation": "http://marklogic.com/collation/codepoint"
+        },
+        "business_address": {
+          "datatype": "string",
+          "facetable": false,
+          "sortable": false,
+          "collation": "http://marklogic.com/collation/codepoint"
+        }
+      }
+    }
+  }
+}

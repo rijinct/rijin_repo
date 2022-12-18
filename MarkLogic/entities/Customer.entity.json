@@ -1,0 +1,30 @@
+{
+  "info": {
+    "title": "Customer",
+    "draft": false,
+    "version": "1.0.0",
+    "baseUri": "http://example.org/"
+  },
+  "definitions": {
+    "Customer": {
+      "properties": {
+        "Individual": {
+          "datatype": "string",
+          "relatedEntityType": "http://example.org/Individual-1.0.0/Individual",
+          "joinPropertyName": "customer_id"
+        },
+        "Sole_Trader": {
+          "datatype": "string",
+          "relatedEntityType": "http://example.org/Sole_Trader-1.0.0/Sole_Trader",
+          "joinPropertyName": "customer_id"
+        },
+        "customer_id": {
+          "datatype": "string",
+          "facetable": false,
+          "sortable": false,
+          "collation": "http://marklogic.com/collation/codepoint"
+        }
+      }
+    }
+  }
+}
