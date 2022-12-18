@@ -18,7 +18,7 @@ def get_open_positions():
 
 def get_historical_data(epic, resolution, num_points):
     response = ig_service.fetch_historical_prices_by_epic_and_num_points(epic,resolution,num_points)
-    print("epic:{e},resolution:{r},num_point:{n}".format(e=epic,r=resolution,n=num_points))
+    #print("epic:{e},resolution:{r},num_point:{n}".format(e=epic,r=resolution,n=num_points))
     #print(response['prices']['last'])
     df_ask = response['prices']['ask']
     df_last = response['prices']['last']
@@ -46,7 +46,7 @@ def create_position(epicVal, dir, size):
         guaranteed_stop='false',
         size=size,
         level=None,
-        limit_distance=3,
+        limit_distance=5,
         limit_level=None,
         quote_id=None,
         stop_level=None,
