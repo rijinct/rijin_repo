@@ -16,7 +16,7 @@ def email_alert_sender_win32(msg):
     mail.Send()
 
 def email_alert_sender(port, smtp_server, sender_email, receiver_email, password, message):
-    print(port, smtp_server, sender_email, receiver_email, password, message)
+    #print(port, smtp_server, sender_email, receiver_email, password, message)
     message = message.replace(':','-')
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
@@ -30,8 +30,7 @@ def main():
     receiver_email = "rijinct@gmail.com"  # Enter receiver address
     #password = input("Type your password and press enter: ")
     password = 'aeazjueefupjarav'
-    #password = 'niwdyjnyqjnmkiki'
-    message = """Test Email"""
+    message = """SIGNAL over MACD and ltp below vwap at 03-07-2020 09:59:53 for SBIN-EQ and MacdDiff is 0.12517578390850126"""
     email_alert_sender(port, smtp_server, sender_email, receiver_email, password, message)
     #email_alert_sender_win32(message)
 if __name__ == '__main__':
