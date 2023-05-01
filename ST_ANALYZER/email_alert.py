@@ -30,7 +30,6 @@ def email_alert_sender(message):
         server.sendmail(sender_email, receiver_email, message)
 
 def main():
-
     message = """Test Email"""
     email_alert_sender(message)
     #email_alert_sender_win32(message)
