@@ -1,7 +1,10 @@
 from ig_api_methods import create_session, get_open_positions, get_historical_data, create_position
+from email_alert import email_alert_sender
 import sched, time
 import warnings
-from azure.storage.blob import BlobClient
+import sys
+print(sys.path)
+#from azure.storage.blob import BlobClient
 from ig_handler import difference_btw_values, check_existing_order, check_transaction_last_2_hrs
 from ig_technical import calculate_macd, calculate_ST, calculate_pivot, calculate_vwap
 import sys
@@ -10,7 +13,7 @@ from datetime import datetime
 import logging
 	
 warnings.filterwarnings('ignore')
-global ig_service
+global ig_service,df
 
 s = sched.scheduler(time.time, time.sleep)
 
@@ -20,7 +23,7 @@ logger.setLevel(logging.DEBUG)
 handler = logging.StreamHandler(stream=sys.stdout)
 logger.addHandler(handler)
 
-logger.info("Test")
+logger.info("Demo")
 #logger.DEBUG("Test")
 
 
@@ -57,10 +60,11 @@ def trigger_alert(superT, vwap, macd, pivot, positions, macd_prev_int, macd_prev
                 if (((macd['Close'] < vwap) & (macd['Close'] > vwap - 7))|(((macd['Close'] > vwap) & (macd['Close'] < vwap + 7)))):
                     if(macd['Close'] > superT):
                         print("Checking Today is Friday")	
-                        if (datetime.today().weekday() != 4):
-                                print("Today is not Friday too")								
+                        if (datetime.today().weekday() != 4)|(datetime.today().hour < 17):
+                                print("Today is not Friday too")	
+                                email_alert_sender("Creating Buy")							
                                 logger.info('Creating a Buy position')
-                                create_position(instr, 'BUY', 1)
+                                create_position(instr, 'BUY', 2)
         else:
             logger.info('Not Checking for Profit in BUY position, as stop loss & Profit is set')
             ##check_and_close_buy_positions(diff, macd, positions, macd_prev_int, diff_prev_int)
@@ -84,8 +88,11 @@ def trigger_alert(superT, vwap, macd, pivot, positions, macd_prev_int, macd_prev
             if (check_transaction_last_2_hrs(instr)):
                 if (((macd['Close'] > vwap) & (macd['Close'] < vwap + 7))|(((macd['Close'] < vwap) & (macd['Close'] < vwap - 7)))):
                     if(macd['Close'] > superT):
+                      print("Checking Today is Friday")	
+                      if (datetime.today().weekday() != 4)|(datetime.today().hour < 17):	
                         logger.info('Creating a SELL position')
-                        create_position(instr, 'SELL', 1)
+                        email_alert_sender("Creating SELL")						
+                        create_position(instr, 'SELL', 2)
         else:
             logger.info('Not Checking for Profit in SELL position as SL & Profit is set')
             ##check_and_close_sell_position(diff, macd, positions, macd_prev_int, diff_prev_int)
@@ -97,7 +104,18 @@ def trigger_alert(superT, vwap, macd, pivot, positions, macd_prev_int, macd_prev
             logger.info('Not Checking for Profit/Loss in SELL position as SL & Profit is set')
             ##check_and_close_sell_position(diff, macd, positions, macd_prev_int, diff_prev_int)
 
-
+def historical_data_fetch(epic,resolution,numpoints):
+    df = None
+    status = True
+    try:
+        df = get_historical_data(epic,resolution,numpoints)
+        #df = get_historical_data('IX.D.ASX.IFD.IP', 'H', 100)
+    except:
+        df = get_historical_data(epic,resolution,numpoints)
+        logger.info("Fetching hourly historical data failed. So skipping the run")
+        #email_alert_sender("Failure Hour Prod")
+        status = False
+    return df, status
 
 def execute():
     create_session()
@@ -112,18 +130,35 @@ def execute():
     positions = get_open_positions()
     #logger.info("positions:{}".format(positions))
 
-    try:
-        df_h = get_historical_data('IX.D.ASX.IFD.IP', 'H', 70)
-    except:
-        #df_h = get_historical_data('IX.D.ASX.IFD.IP', 'H', 70)
-        logger.info("Fetching hourly historical data failed. So skipping the run")
-        status = False
+     
+    # Hourly Handling due to holidays
+    df_h,status = historical_data_fetch('IX.D.ASX.IFD.IP', 'H', 70)
+    if not status: 
+        df_h,status = historical_data_fetch('IX.D.ASX.IFD.IP', 'H', 80)
+        if not status: 
+            df_h,status = historical_data_fetch('IX.D.ASX.IFD.IP', 'H', 90)
+            if not status:
+                df_h,status = historical_data_fetch('IX.D.ASX.IFD.IP', 'H', 100)
+                if not status:
+                    df_h,status = historical_data_fetch('IX.D.ASX.IFD.IP', 'H', 120)
+                    if not status:
+                        df_h,status = historical_data_fetch('IX.D.ASX.IFD.IP', 'H', 140)
+                        if not status:
+                            df_h,status = historical_data_fetch('IX.D.ASX.IFD.IP', 'H', 160)
+                            if not status:
+                                df_h,status = historical_data_fetch('IX.D.ASX.IFD.IP', 'H', 180)
+                                if not status:
+                                    df_h,status = historical_data_fetch('IX.D.ASX.IFD.IP', 'H', 200)
+    if not status: 
+        email_alert_sender("Failure Hour Prod @ 70,80,90,100-200")
 
-    try:
-        df_d = get_historical_data('IX.D.ASX.IFD.IP', 'D', 2)
-    except:
-        logger.info("Fetching Daily historical data failed. So skipping the run")
-        status = False
+    df_d,status = historical_data_fetch('IX.D.ASX.IFD.IP', 'D', 2)
+    if not status:
+        df_d,status = historical_data_fetch('IX.D.ASX.IFD.IP', 'D', 4)
+
+    if not status: 
+        email_alert_sender("Failure Day Prod @ 2,4")
+    
     if not status:
         logger.info("Issue in fetching hourly or day data")
     else:
@@ -144,6 +179,8 @@ def execute():
         # pivot = 7245.3
         # positions = pd.read_csv('position.csv') #test
         trigger_alert(superT, vwap, macd, pivot, positions, macd_prev_int, macd_prev_int_2, 'IX.D.ASX.IFD.IP')
+
+
 
     ###s.enter(3600, 1, execute, (sc,))
 

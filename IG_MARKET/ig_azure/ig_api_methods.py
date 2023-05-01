@@ -18,8 +18,8 @@ def get_open_positions():
 
 def get_historical_data(epic, resolution, num_points):
     response = ig_service.fetch_historical_prices_by_epic_and_num_points(epic,resolution,num_points)
-    #print("epic:{e},resolution:{r},num_point:{n}".format(e=epic,r=resolution,n=num_points))
-    #print(response['prices']['last'])
+    print("epic:{e},resolution:{r},num_point:{n}".format(e=epic,r=resolution,n=num_points))
+    print(response)
     df_ask = response['prices']['ask']
     df_last = response['prices']['last']
     df_ask['Volume'] = df_last['Volume']
