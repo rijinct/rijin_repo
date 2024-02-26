@@ -1,4 +1,5 @@
 import glob
+from pathlib import Path
 
 #list all csv files only
 csv_files = glob.glob('*.{}'.format('csv'))
@@ -15,3 +16,8 @@ class FileSystemUtil:
     
     def get_file_list(self):
         return glob.glob('{d}/*.{f}'.format(d=self.dir_path,f=self.file_format))
+    
+
+    def get_filtered_files_list(self):
+        p = Path(self.dir_path)
+        filtered = [x for x in p.glob("**/*") if not x.name.startswith("temp")]

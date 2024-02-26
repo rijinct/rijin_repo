@@ -15,6 +15,8 @@ class DfUtil:
     
     def read_pdf(self):
         self.df = tabula.read_pdf(self.read_file, pages="all", stream=True, multiple_tables=True, guess=False)
+        #print(self.df)
+
 
     def read_pdf_as_strings(self):
         col2str = {'dtype': str}
@@ -25,7 +27,7 @@ class DfUtil:
         self.df = tabula.read_pdf(self.read_file, pages='all', output_format='dataframe', multiple_tables=True)
         self.add_new_col_names_df(Dynamic_col_names_flag=True)
         self.extract_patterns_from_df('col0','Date', '^(\d+/\d+)')
-        self.df['Date'] = '"' + self.df['Date'].astype(str) + '"'
+        self.df['col0'] = '"' + self.df['col0'].astype(str) + '"'
         self.df.to_csv('temp.csv')
         #print(self.df.iloc[:, 0])
         #exit(0)
@@ -64,9 +66,9 @@ class DfUtil:
     def add_new_col_names_df(self, col_names_list=False, Dynamic_col_names_flag=False):
         #self.df1 = pd.DataFrame(self.df, columns=col_names_list)
         if (Dynamic_col_names_flag):
-            print('Dynamic Flag set')
+            #print('Dynamic Flag set')
             col_names_list = ['col{}'.format(val) for val in range(self.df.shape[1])]
-            print(col_names_list)
+            #print(col_names_list)
 
         self.df.columns = col_names_list
     

@@ -5,7 +5,7 @@ import pandas as pd
 import os
 import re
 
-DIGITIZED_FILE = r"C:\Users\rijin.thomas\OneDrive - Gold Corporation\Desktop\Rijin\BT\data\test\test.pdf"
+DIGITIZED_FILE = r"C:\Users\rijin.thomas\OneDrive - Gold Corporation\Desktop\Rijin\BT\data\PDF_1505023\20210617.pdf"
 #SCANNED_FILE = "replace_this_with_your_own_path_to_file.pdf"
 global df2
 #df2 = pd.DataFrame()
